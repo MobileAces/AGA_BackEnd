@@ -57,4 +57,7 @@ public class User{
         this.userGender = userGender;
     }
 
+    public User(String id) {
+        this.userId = id;
+    }
 }
