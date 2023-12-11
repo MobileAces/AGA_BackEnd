@@ -51,4 +51,5 @@ public class UserController {
     public Boolean userIdDuplicate(@RequestParam String userId){
         return userService.duplicate(userId);
     }
+
 }
