@@ -47,8 +47,8 @@ public class UserController {
         return userService.delete(userId);
     }
 
-    @GetMapping("/duplicate/{userId}")
-    public Boolean userIdDuplicate(@PathVariable String userId){
+    @GetMapping("/duplicate")
+    public Boolean userIdDuplicate(@RequestParam String userId){
         return userService.duplicate(userId);
     }
 }
