@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -60,6 +60,14 @@ public class UserService {
             return user;
         }catch (Exception e){
             return null;
+        }
+    }
+
+    public Boolean duplicate(String id){
+        if(userRepository.findById(id).isPresent()){
+            return true;
+        }else{
+            return false;
         }
     }
 }
