@@ -1,6 +1,7 @@
 package com.project.awesomegroup.controller.team;
 
 import com.project.awesomegroup.dto.Team;
+import com.project.awesomegroup.dto.User;
 import com.project.awesomegroup.service.TeamService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
@@ -20,29 +21,28 @@ public class TeamController {
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/all")
+    @GetMapping("/entirety")
     public List<Team> teamAllSelect(){
         return teamService.findAll();
     }
 
-    @GetMapping("/teams/{team_id}")
-    public Team teamSelect(@RequestParam int team_id){
+    @GetMapping("/{team_id}")
+    public Team teamSelect(@PathVariable int team_id){
         return teamService.findByTeamId(team_id);
     }
 
-    @PostMapping("/teams")
-    public int teamSave(@RequestBody Team team){
-        return teamService.insert(team);
-    }
+    @PostMapping
+    public Team teamInsert(@RequestBody Team team){ return teamService.insert(team); }
 
-    @PutMapping("/teams/{team_id}")
-    public int teamUpdate(@RequestBody Team team){
+    @PutMapping
+    public boolean teamUpdate(@RequestBody Team team){
         return teamService.update(team);
     }
 
-    @DeleteMapping("/teams/{team_id}")
-    public void teamDelete(@RequestParam int team_id){
-        teamService.delete(team_id);
+    @DeleteMapping("/{team_id}")
+    public boolean teamDelete(@PathVariable int team_id){
+        return teamService.delete(team_id);
     }
+
 
 }
