@@ -34,10 +34,19 @@ public class UserService {
     }
 
     public Boolean update(User user){
-        try {//유저 정보 업데이트
+        try { //유저 정보 업데이트
             userRepository.save(user);
             return true;
         }catch (PersistenceException e){
+            return false;
+        }
+    }
+
+    public Boolean delete(String id){
+        try{ //유저 삭제
+            userRepository.deleteById(id);
+            return true;
+        } catch (Exception e){
             return false;
         }
     }
