@@ -1,13 +1,15 @@
 package com.project.awesomegroup.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.awesomegroup.dto.teammember.TeamMember;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.Persistable;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -16,6 +18,7 @@ import java.sql.Date;
 public class User{
 
     @Id
+    @Column(name = "user_id")
     private String userId;
 
     @Column
@@ -41,6 +44,10 @@ public class User{
 
     @Column
     private String userGender;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<TeamMember> teamMemberList = new ArrayList<>();
 
     @Builder
     public User(String userId, String userPw, String userName, String userPhone
