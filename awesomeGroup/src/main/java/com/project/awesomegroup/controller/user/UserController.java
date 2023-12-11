@@ -3,6 +3,7 @@ package com.project.awesomegroup.controller.user;
 import com.project.awesomegroup.dto.User;
 import com.project.awesomegroup.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.websocket.server.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,8 @@ public class UserController {
         return userService.join(user);
     }
 
+    @PutMapping
+    public Boolean userUpdate(@RequestBody User user){
+        return userService.update(user);
+    }
 }
