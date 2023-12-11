@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/all")
+    @GetMapping("/entirety")
     public List<User> userAllSelect(){
         return userService.findAll();
         //return new ArrayList<>();
