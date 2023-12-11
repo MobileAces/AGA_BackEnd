@@ -52,15 +52,8 @@ public class UserService {
     }
 
     public User select(String id){
-        try{
-            User user =  userRepository.findByUserId(id);
-            if (user == null){
-                return new User("유저 정보가 없습니다.");
-            }
-            return user;
-        }catch (Exception e){
-            return null;
-        }
+        Optional<User> user =  userRepository.findById(id);
+        return user.orElseGet(() -> new User("유저 정보가 없습니다."));
     }
 
     public Boolean duplicate(String id){
