@@ -36,4 +36,9 @@ public class UserController {
     public Boolean userUpdate(@RequestBody User user){
         return userService.update(user);
     }
+
+    @DeleteMapping("/{userId}")
+    public Boolean userDelete(@PathVariable String userId){
+        return userService.delete(userId);
+    }
 }
