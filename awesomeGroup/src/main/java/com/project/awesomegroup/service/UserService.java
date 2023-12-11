@@ -50,4 +50,16 @@ public class UserService {
             return false;
         }
     }
+
+    public User select(String id){
+        try{
+            User user =  userRepository.findByUserId(id);
+            if (user == null){
+                return new User("유저 정보가 없습니다.");
+            }
+            return user;
+        }catch (Exception e){
+            return null;
+        }
+    }
 }

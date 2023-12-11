@@ -27,6 +27,11 @@ public class UserController {
         //return new ArrayList<>();
     }
 
+    @GetMapping("/{userId}")
+    public User userSelect(@PathVariable String userId){
+        return userService.select(userId);
+    }
+
     @PostMapping
     public User userJoin(@RequestBody User user){
         return userService.join(user);
