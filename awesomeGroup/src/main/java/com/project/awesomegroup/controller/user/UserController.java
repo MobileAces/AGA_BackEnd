@@ -1,14 +1,21 @@
 package com.project.awesomegroup.controller.user;
 
 import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.sign_in.request.SignInRequest;
+import com.project.awesomegroup.dto.sign_in.response.SignInResponse;
+import com.project.awesomegroup.repository.UserRepository;
 import com.project.awesomegroup.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.Transactional;
 import jakarta.websocket.server.PathParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @RestController
@@ -37,6 +44,9 @@ public class UserController {
         return userService.join(user);
     }
 
+    @PostMapping("/sign-in")
+    public SignInResponse userLogin(@RequestBody User user) { return userService.login(new SignInRequest(user.getUserId(), user.getUserPw())); }
+
     @PutMapping
     public Boolean userUpdate(@RequestBody User user){
         return userService.update(user);
@@ -51,5 +61,6 @@ public class UserController {
     public Boolean userIdDuplicate(@RequestParam String userId){
         return userService.duplicate(userId);
     }
+
 
 }

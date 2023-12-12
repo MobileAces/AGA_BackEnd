@@ -9,7 +9,6 @@ public class AwesomeGroupApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AwesomeGroupApplication.class, args);
 
-
 	}
 
 }
