@@ -1,7 +1,9 @@
 package com.project.awesomegroup.service;
 
 import com.project.awesomegroup.dto.Team;
+import com.project.awesomegroup.dto.User;
 import com.project.awesomegroup.repository.TeamRepository;
+import jakarta.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,19 +16,15 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     //Create
-    public int insert(Team team) {
-        if(teamRepository.findById(team.getTeamId()).isPresent()){
-            return -1;
-        } else {
-            Team savedTeam = teamRepository.save(team);
-            return savedTeam.getTeamId();
-        }
+    public Team insert(Team team) {
+        Team savedTeam = teamRepository.save(team);
+        return savedTeam;
     }
 
     //Read
     public Team findByTeamId(int teamId){
-        Optional<Team> optionalTeam = teamRepository.findById(teamId);
-        return optionalTeam.get();
+        Optional<Team> team = teamRepository.findById(teamId);
+        return team.get();
     }
 
     public List<Team> findAll() {
@@ -34,18 +32,22 @@ public class TeamService {
     }
 
     //Update
-    public int update(Team team) {
-        if(teamRepository.findById(team.getTeamId()).isPresent()){
-            Team savedTeam = teamRepository.save(team);
-            return savedTeam.getTeamId();
-        } else {
-            return -1;
+    public boolean update(Team team) {
+        try {
+            teamRepository.save(team);
+            return true;
+        }catch (PersistenceException e){
+            return false;
         }
     }
 
     //Delete
-    public void delete(int team_id) {
-        Optional<Team> optionalTeam = teamRepository.findById(team_id);
-        teamRepository.delete(optionalTeam.get());
+    public boolean delete(int team_id) {
+        try{
+            teamRepository.deleteById(team_id);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
     }
 }
