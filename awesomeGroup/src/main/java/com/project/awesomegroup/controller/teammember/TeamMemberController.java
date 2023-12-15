@@ -22,15 +22,14 @@ public class TeamMemberController {
     @Autowired
     TeamMemberService teamMemberService;
 
-
-    @GetMapping
-    public List<TeamMember> getAllTeamMembers() {
-        return teamMemberService.getAllTeamMembers();
+    @GetMapping("/teams")
+    public List<TeamMember> getTeamMembersByUserId(@RequestParam String id) {
+        return teamMemberService.getTeamMembersByUserId(id);
     }
 
-    @GetMapping("/{id}")
-    public TeamMember getTeamMemberById(@PathVariable Long id) {
-        return teamMemberService.getTeamMemberById(id);
+    @GetMapping("/users")
+    public List<TeamMember> getTeamMembersByTeamId(@RequestParam Long id) {
+        return teamMemberService.getTeamMembersByTeamId(id);
     }
 
 }

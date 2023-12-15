@@ -12,12 +12,12 @@ public class TeamMemberService {
     @Autowired
     TeamMemberRepository teamMemberRepository;
 
-    public List<TeamMember> getAllTeamMembers() {
-        return teamMemberRepository.findAll();
+    public List<TeamMember> getTeamMembersByUserId(String id) {
+        return teamMemberRepository.findByUser_UserId(id);
     }
 
-    public TeamMember getTeamMemberById(Long id) {
-        return teamMemberRepository.findById(id).orElse(null);
+    public List<TeamMember> getTeamMembersByTeamId(Long id) {
+        return teamMemberRepository.findByTeam_TeamId(id);
     }
 
 }
