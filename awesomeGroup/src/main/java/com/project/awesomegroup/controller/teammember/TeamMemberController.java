@@ -1,8 +1,7 @@
 package com.project.awesomegroup.controller.teammember;
 
 import com.project.awesomegroup.controller.user.UserController;
-import com.project.awesomegroup.dto.User;
-import com.project.awesomegroup.dto.teammember.TeamMember;
+import com.project.awesomegroup.dto.TeamMember;
 import com.project.awesomegroup.service.TeamMemberService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
@@ -23,9 +22,15 @@ public class TeamMemberController {
     @Autowired
     TeamMemberService teamMemberService;
 
-    @GetMapping("/team")
-    public List<TeamMember> userInTeam(@RequestParam String id){
-        return teamMemberService.userTeam(id);
+
+    @GetMapping
+    public List<TeamMember> getAllTeamMembers() {
+        return teamMemberService.getAllTeamMembers();
+    }
+
+    @GetMapping("/{id}")
+    public TeamMember getTeamMemberById(@PathVariable Long id) {
+        return teamMemberService.getTeamMemberById(id);
     }
 
 }

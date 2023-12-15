@@ -22,7 +22,7 @@ public class TeamService {
     }
 
     //Read
-    public Team findByTeamId(int teamId){
+    public Team findByTeamId(Long teamId){
         Optional<Team> team = teamRepository.findById(teamId);
         return team.get();
     }
@@ -42,7 +42,7 @@ public class TeamService {
     }
 
     //Delete
-    public boolean delete(int team_id) {
+    public boolean delete(Long team_id) {
         try{
             teamRepository.deleteById(team_id);
             return true;

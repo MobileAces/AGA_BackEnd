@@ -1,7 +1,6 @@
 package com.project.awesomegroup.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.awesomegroup.dto.teammember.TeamMember;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +22,7 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "team_id")
-    private int teamId;
+    private Long teamId;
 
     @Column
     private Date teamCreateDate;
@@ -40,7 +39,7 @@ public class Team {
     @Column
     private int teamMaster;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<TeamMember> teamMemberList = new ArrayList<>();
 
