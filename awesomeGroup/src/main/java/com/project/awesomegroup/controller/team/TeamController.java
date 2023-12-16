@@ -43,6 +43,4 @@ public class TeamController {
     public boolean teamDelete(@PathVariable Long team_id){
         return teamService.delete(team_id);
     }
-
-
 }

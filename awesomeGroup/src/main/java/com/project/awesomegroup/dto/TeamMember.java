@@ -1,18 +1,14 @@
 package com.project.awesomegroup.dto;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter @Setter
 @Table(name = "teammember")
 public class TeamMember {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "teammember_id")
     private Long id;
 
@@ -26,5 +22,14 @@ public class TeamMember {
 
     @Column(name = "authority")
     private int authority;
+
+    //==생성 메서드==//
+    public static TeamMember createTeamMember(User user, int authority) {
+        TeamMember teamMember = new TeamMember();
+        teamMember.setUser(user);
+        teamMember.setAuthority(authority);
+
+        return teamMember;
+    }
 
 }

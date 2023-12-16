@@ -44,7 +44,7 @@ public class User{
     @Column
     private String userGender;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<TeamMember> teamMemberList = new ArrayList<>();
 
