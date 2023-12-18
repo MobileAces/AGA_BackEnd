@@ -42,10 +42,10 @@ public class ApiController  {
         this.em = em;
     }
 
-    @PostMapping("/region")
+    @PostMapping
     @Transactional
     public ResponseEntity<String> restRegionList(){
-        String fileLocation = resourceLocation + "/wather_init.csv";
+        String fileLocation = resourceLocation + "/weather_init.csv";
         Path path = Paths.get(fileLocation);
         URI uri = path.toUri();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(
