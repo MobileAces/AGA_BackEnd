@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/members")
 @Tag(name="TeamMember", description = "TeamMember API")
 public class TeamMemberController {
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(TeamMemberController.class);
 
     @Autowired
     TeamMemberService teamMemberService;
