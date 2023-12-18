@@ -1,6 +1,5 @@
 package com.project.awesomegroup.controller.wather;
 
-import com.project.awesomegroup.dto.wather.LatXLngY;
 import com.project.awesomegroup.dto.wather.Region;
 import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
 import com.project.awesomegroup.dto.wather.Weather;
@@ -25,6 +24,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/weather")
@@ -47,15 +47,12 @@ public class WeatherController {
 
     @GetMapping
     @Transactional
-    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestParam Long regionId){//@RequestBody Double regionNx, Double regionNy
-//        //좌표 변환 (위경도 -> 좌표)
-//        LatXLngY lXlY = weatherService.convertGRID_GPS(0 ,regionNx, regionNy);
-//
-//        //Id값 가져오기
-//        Integer regionId = weatherService.getRegionId((int)lXlY.x, (int)lXlY.y);
+    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestParam("latitude") Double latitude, @RequestParam("longitude") Double longitude){
+        //Id & 주소 값 가져오기
+        Map<String, String> regionId = weatherService.getRegionId(latitude, longitude);
 
         //지역 조회
-        Region region = em.find(Region.class, regionId);
+        Region region = em.find(Region.class, regionId.get("PK"));
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst");
 
         //날짜 조회(시간)
@@ -151,7 +148,7 @@ public class WeatherController {
             region.updateRegionWeather(weather); // DB 업데이트
             WeatherResponseDTO dto = WeatherResponseDTO.builder()
                     .weather(weather)
-                    .message("OK").build();
+                    .message(regionId.get("ADDRESS")).build();
             return ResponseEntity.ok(dto);
 
         } catch (IOException e) {

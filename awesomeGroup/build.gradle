@@ -36,6 +36,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'org.json:json:20220320'
+
+	implementation 'com.google.maps:google-maps-services:0.15.0'
+
 }
 
 tasks.named('bootBuildImage') {
