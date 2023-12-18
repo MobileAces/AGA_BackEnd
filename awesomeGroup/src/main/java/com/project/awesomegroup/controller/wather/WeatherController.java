@@ -1,8 +1,10 @@
 package com.project.awesomegroup.controller.wather;
 
+import com.project.awesomegroup.dto.wather.LatXLngY;
 import com.project.awesomegroup.dto.wather.Region;
 import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
 import com.project.awesomegroup.dto.wather.Weather;
+import com.project.awesomegroup.service.WeatherService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -10,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +33,9 @@ import java.time.format.DateTimeFormatter;
 public class WeatherController {
     private static final Logger logger = LoggerFactory.getLogger(WeatherController.class);
 
+    @Autowired
+    WeatherService weatherService;
+
     private final EntityManager em;
 
     public WeatherController(EntityManager em) {
@@ -41,7 +47,13 @@ public class WeatherController {
 
     @GetMapping
     @Transactional
-    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestParam Long regionId){
+    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestBody Double regionNx, Double regionNy){
+        //좌표 변환 (위경도 -> 좌표)
+        LatXLngY lXlY = weatherService.convertGRID_GPS(0 ,regionNx, regionNy);
+
+        //Id값 가져오기
+        Integer regionId = weatherService.getRegionId((int)lXlY.x, (int)lXlY.y);
+
         //지역 조회
         Region region = em.find(Region.class, regionId);
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst");
