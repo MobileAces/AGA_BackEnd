@@ -47,12 +47,12 @@ public class WeatherController {
 
     @GetMapping
     @Transactional
-    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestBody Double regionNx, Double regionNy){
-        //좌표 변환 (위경도 -> 좌표)
-        LatXLngY lXlY = weatherService.convertGRID_GPS(0 ,regionNx, regionNy);
-
-        //Id값 가져오기
-        Integer regionId = weatherService.getRegionId((int)lXlY.x, (int)lXlY.y);
+    public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestParam Long regionId){//@RequestBody Double regionNx, Double regionNy
+//        //좌표 변환 (위경도 -> 좌표)
+//        LatXLngY lXlY = weatherService.convertGRID_GPS(0 ,regionNx, regionNy);
+//
+//        //Id값 가져오기
+//        Integer regionId = weatherService.getRegionId((int)lXlY.x, (int)lXlY.y);
 
         //지역 조회
         Region region = em.find(Region.class, regionId);
