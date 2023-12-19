@@ -17,15 +17,15 @@ public class TeamMemberService {
 
     private final TeamMemberRepository teamMemberRepository;
 
-//    @Transactional
-//    public TeamMember regist(Integer teamId, String userId) {
-//        TeamMember findTeamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
-//        if(findTeamMember == null) {
-//            TeamMember newTeamMember = TeamMember.createTeamMember(teamId, userId, 0);
-//            findTeamMember = teamMemberRepository.save(newTeamMember);
-//        }
-//        return findTeamMember;
-//    }
+    @Transactional
+    public TeamMember regist(Integer teamId, String userId) {
+        TeamMember findTeamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
+        if(findTeamMember == null) {
+            TeamMember newTeamMember = TeamMember.createTeamMember(teamId, userId, 0);
+            findTeamMember = teamMemberRepository.save(newTeamMember);
+        }
+        return findTeamMember;
+    }
 
     public List<TeamMember> getTeamMembersByUserId(String id) {
         return teamMemberRepository.findByUser_UserId(id);

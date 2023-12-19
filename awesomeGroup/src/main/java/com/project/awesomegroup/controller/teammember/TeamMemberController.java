@@ -24,12 +24,12 @@ public class TeamMemberController {
     @Autowired
     TeamMemberService teamMemberService;
 
-//    @PostMapping
-//    public TeamMemberResponse regist(@RequestParam Integer teamId, @RequestParam String userId){
-//        TeamMember registTeamMember = teamMemberService.regist(teamId, userId);
-//        TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponse(registTeamMember);
-//        return response;
-//    }
+    @PostMapping
+    public TeamMemberResponse regist(@RequestParam Integer teamId, @RequestParam String userId){
+        TeamMember registTeamMember = teamMemberService.regist(teamId, userId);
+        TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponse(registTeamMember);
+        return response;
+    }
 
     @GetMapping("/teams")
     public List<TeamMemberResponse> selectByUserId(@RequestParam String id) {
