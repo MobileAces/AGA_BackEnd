@@ -35,17 +35,17 @@ public class TeamMemberService {
         return teamMemberRepository.findByTeam_TeamId(id);
     }
 
-//    @Transactional
-//    public boolean update(TeamMemberResponse teamMemberResponse) {
-//        try {
-//            TeamMember teamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamMemberResponse.getTeamId(), teamMemberResponse.getUserId());
-//            teamMember.setAuthority(teamMemberResponse.getAuthority());
-//            return true;
-//        }catch (PersistenceException e){
-//            return false;
-//        }
-//    }
-//
+    @Transactional
+    public boolean update(TeamMemberResponse teamMemberResponse) {
+        try {
+            TeamMember teamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamMemberResponse.getTeamId(), teamMemberResponse.getUserId());
+            teamMember.setAuthority(teamMemberResponse.getAuthority());
+            return true;
+        }catch (PersistenceException e){
+            return false;
+        }
+    }
+
 //    @Transactional
 //    public boolean delete(Integer teamId, String userId) {
 //        try{
