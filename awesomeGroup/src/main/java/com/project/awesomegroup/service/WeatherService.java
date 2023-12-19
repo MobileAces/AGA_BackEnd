@@ -4,6 +4,7 @@ package com.project.awesomegroup.service;
 import com.google.maps.model.LatLng;
 import com.project.awesomegroup.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.google.maps.GeoApiContext;
@@ -19,6 +20,9 @@ public class WeatherService {
 
     @Autowired
     WeatherRepository weatherRepository;
+
+    @Value("${geoApi.serviceKey}")
+    private String serviceKey;
 
     public Map<String, String> getRegionId(double x, double y){
         String[] address = geoAddress(x,y).split(" ");
@@ -38,10 +42,10 @@ public class WeatherService {
         return map;
     }
 
-    public static String geoAddress(double latitude, double longitude) {
+    public String geoAddress(double latitude, double longitude) {
         // 발급받은 Google Geocoding API 키를 사용해 GeoApiContext를 초기화합니다.
         GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey("AIzaSyBDcKFWOMbQxU7fJFeQA4x-QdypNNwoC2c") // 여기에 발급받은 API 키를 넣어주세요
+                .apiKey(serviceKey) // 여기에 발급받은 API 키를 넣어주세요
                 .build();
 
         // 위도와 경도 지정
@@ -57,7 +61,7 @@ public class WeatherService {
 
             // 결과 확인
             if (results != null && results.length > 0) {
-                //System.out.println("주소: " + results[0].formattedAddress);
+                System.out.println("주소: " + results[0].formattedAddress);
                 return results[0].formattedAddress;
             } else {
                 //System.out.println("역 지오코딩 결과 없음");

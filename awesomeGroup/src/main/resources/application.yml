@@ -18,6 +18,9 @@ resources:
 weatherApi:
   serviceKey: =yzFMWBLs7AYWuTK9eJVPzgpVDiu%2B04iismWehJX8qSSYubcAcVCApQs1bGE8DvCK9XBxuvdz%2F5OkUTXnQ9LoGQ%3D%3D
 
+geoApi:
+  serviceKey: AIzaSyBDcKFWOMbQxU7fJFeQA4x-QdypNNwoC2c
+
 logging:
   level:
     com.project.awesomegroup : info

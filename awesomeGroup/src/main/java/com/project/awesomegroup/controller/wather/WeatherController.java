@@ -62,8 +62,12 @@ public class WeatherController {
         int min = now.getMinute();
 
         if(min<=30){hour -= 1;}
-
-        String hourStr = hour + "00";
+        String hourStr;
+        if(hour < 10){
+            hourStr = "0" + hour + "00";
+        }else{
+            hourStr = hour + "00";
+        }
         String nx = Integer.toString(region.getNx());
         String ny = Integer.toString(region.getNy());
         String currentChangeTime = now.format(DateTimeFormatter.ofPattern("yy.MM.dd ")) + hour;
@@ -75,7 +79,7 @@ public class WeatherController {
                 logger.info("기존 자료를 재사용합니다");
                 WeatherResponseDTO dto = WeatherResponseDTO.builder()
                         .weather(prevWeather)
-                        .message("OK").build();
+                        .message(regionId.get("ADDRESS")).build();
                 return ResponseEntity.ok(dto);
             }
         }
