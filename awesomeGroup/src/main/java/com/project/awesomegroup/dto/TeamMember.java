@@ -10,7 +10,7 @@ public class TeamMember {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "teammember_id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "team_id")
