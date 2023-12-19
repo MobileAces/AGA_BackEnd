@@ -1,6 +1,7 @@
 package com.project.awesomegroup.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.awesomegroup.dto.teammember.TeamMember;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -59,6 +59,13 @@ public class Team {
         team.setTeamInfo(teamInfo);
         team.setTeamMaster(teamMember.getUser().getUserId());
         team.addTeamMember(teamMember);
+        return team;
+    }
+
+    public static Team createTeam(Integer teamId) {
+        Team team = Team.builder()
+                .teamId(teamId)
+                .build();
         return team;
     }
 }

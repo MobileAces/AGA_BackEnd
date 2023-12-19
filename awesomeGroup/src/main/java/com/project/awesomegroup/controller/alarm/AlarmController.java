@@ -40,12 +40,12 @@ public class AlarmController {
     }
 
     @PutMapping
-    public boolean teamUpdate(@RequestBody Alarm alarm){
+    public boolean alarmUpdate(@RequestBody Alarm alarm){
         return alarmService.update(alarm);
     }
 
     @DeleteMapping("/{alarmId}")
-    public boolean teamDelete(@PathVariable Integer alarmId){
+    public boolean alarmDelete(@PathVariable Integer alarmId){
         return alarmService.delete(alarmId);
     }
 }
