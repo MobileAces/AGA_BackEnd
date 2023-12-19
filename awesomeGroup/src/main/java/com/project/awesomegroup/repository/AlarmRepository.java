@@ -1,6 +1,6 @@
 package com.project.awesomegroup.repository;
 
-import com.project.awesomegroup.dto.Alarm;
+import com.project.awesomegroup.dto.alarm.Alarm;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

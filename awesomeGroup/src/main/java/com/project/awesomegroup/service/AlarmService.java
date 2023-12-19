@@ -1,9 +1,6 @@
 package com.project.awesomegroup.service;
 
-import com.project.awesomegroup.dto.Alarm;
-import com.project.awesomegroup.dto.Team;
-import com.project.awesomegroup.dto.TeamMember;
-import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.repository.AlarmRepository;
 import jakarta.persistence.PersistenceException;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
