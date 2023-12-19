@@ -69,9 +69,14 @@ public class UserController {
         return userService.delete(userId);
     }
 
-    @GetMapping("/duplicate")
+    @GetMapping("/nickname-duplicate")
     public Boolean userIdDuplicate(@RequestParam String userId){
-        return userService.duplicate(userId);
+        return userService.NicknameDuplicate(userId);
+    }
+
+    @GetMapping("/phone-duplicate")
+    public Boolean userNicknameDuplicate(@RequestParam String phoneNumber){
+        return userService.PhoneDupicate(phoneNumber);
     }
 
 }

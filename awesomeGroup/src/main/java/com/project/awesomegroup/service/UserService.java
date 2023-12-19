@@ -68,8 +68,16 @@ public class UserService {
         return user.orElseGet(() -> new User("유저 정보가 없습니다."));
     }
 
-    public Boolean duplicate(String id){
+    public Boolean NicknameDuplicate(String id){
         if(userRepository.findById(id).isPresent()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public Boolean PhoneDupicate(String phone){
+        if(userRepository.findByUserPhone(phone).isPresent()){
             return true;
         }else{
             return false;

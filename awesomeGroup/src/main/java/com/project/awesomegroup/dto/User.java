@@ -24,43 +24,21 @@ public class User{
     private String userPw;
 
     @Column
-    private String userName;
+    private String userNickname;
 
     @Column
     private String userPhone;
-
-    @Column
-    private String userAddress;
-
-    @Column
-    private String userEmail;
-
-    @Column
-    private String userAge;
-
-    @Column
-    private Date userBirth;
-
-    @Column
-    private String userGender;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<TeamMember> teamMemberList = new ArrayList<>();
 
     @Builder
-    public User(String userId, String userPw, String userName, String userPhone
-            , String userAddress, String userEmail, String userAge,
-                Date userBirth, String userGender) {
+    public User(String userId, String userPw, String userNickname, String userPhone) {
         this.userId = userId;
         this.userPw = userPw;
-        this.userName = userName;
+        this.userNickname = userNickname;
         this.userPhone = userPhone;
-        this.userAddress = userAddress;
-        this.userEmail = userEmail;
-        this.userAge = userAge;
-        this.userBirth = userBirth;
-        this.userGender = userGender;
     }
 
     public User(String id) {
