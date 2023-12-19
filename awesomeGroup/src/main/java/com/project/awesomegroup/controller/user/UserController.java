@@ -1,14 +1,20 @@
 package com.project.awesomegroup.controller.user;
 
 import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
 import com.project.awesomegroup.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.websocket.server.PathParam;
+import jakarta.servlet.http.Cookie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 @RestController
@@ -32,9 +38,25 @@ public class UserController {
         return userService.select(userId);
     }
 
-    @PostMapping
+    @PostMapping("/sing-up")
     public User userJoin(@RequestBody User user){
         return userService.join(user);
+    }
+
+    @PostMapping("/sing-in")
+    public ResponseEntity<User> userLogin(@RequestBody User user, HttpServletResponse response) throws UnsupportedEncodingException {
+        User checkUser = userService.Login(user.getUserId(), user.getUserPw());
+        if(checkUser != null){
+            Cookie cookie = new Cookie("loginId", URLEncoder.encode(checkUser.getUserId(), "utf-8"));
+            cookie.setMaxAge(1000 * 1000);
+            response.addCookie(cookie);
+        }else{
+            User dto = User.builder()
+                    .userId("NOT FOUND")
+                    .build();
+            return ResponseEntity.ok(dto);
+        }
+        return ResponseEntity.ok(user);
     }
 
     @PutMapping
