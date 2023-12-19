@@ -52,9 +52,9 @@ public class TeamMemberController {
         return teamMemberService.update(teamMemberResponse);
     }
 
-//    @DeleteMapping("/{teamId}/{userId}")
-//    public boolean delete(@PathVariable Integer teamId, @PathVariable String userId){
-//        return teamMemberService.delete(teamId, userId);
-//    }
+    @DeleteMapping("/{teamId}/{userId}")
+    public boolean delete(@PathVariable Integer teamId, @PathVariable String userId){
+        return teamMemberService.delete(teamId, userId);
+    }
 
 }

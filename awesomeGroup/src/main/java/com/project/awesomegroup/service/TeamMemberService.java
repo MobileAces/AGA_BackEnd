@@ -46,15 +46,15 @@ public class TeamMemberService {
         }
     }
 
-//    @Transactional
-//    public boolean delete(Integer teamId, String userId) {
-//        try{
-//            TeamMember findMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
-//            teamMemberRepository.delete(findMember);
-//            return true;
-//        } catch (Exception e){
-//            return false;
-//        }
-//    }
+    @Transactional
+    public boolean delete(Integer teamId, String userId) {
+        try{
+            TeamMember findMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
+            teamMemberRepository.delete(findMember);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 
 }
