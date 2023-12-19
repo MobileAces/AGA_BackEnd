@@ -1,7 +1,6 @@
 package com.project.awesomegroup.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.awesomegroup.dto.teammember.TeamMember;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;

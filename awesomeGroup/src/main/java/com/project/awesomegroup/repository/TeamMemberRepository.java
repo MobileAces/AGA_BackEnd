@@ -1,11 +1,14 @@
 package com.project.awesomegroup.repository;
 
-import com.project.awesomegroup.dto.User;
-import com.project.awesomegroup.dto.teammember.TeamMember;
+import com.project.awesomegroup.dto.TeamMember;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface TeamMemberRepository extends JpaRepository<TeamMember, String> {
-    List<TeamMember> findByUserUserId(String id);
+@Repository
+public interface TeamMemberRepository extends JpaRepository<TeamMember, Long> {
+
+    List<TeamMember> findByUser_UserId(String id);
+    List<TeamMember> findByTeam_TeamId(Long id);
 }

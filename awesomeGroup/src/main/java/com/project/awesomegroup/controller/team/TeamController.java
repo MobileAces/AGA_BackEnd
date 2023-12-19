@@ -27,7 +27,7 @@ public class TeamController {
     }
 
     @GetMapping("/{team_id}")
-    public Team teamSelect(@PathVariable int team_id){
+    public Team teamSelect(@PathVariable Long team_id){
         return teamService.findByTeamId(team_id);
     }
 
@@ -40,9 +40,7 @@ public class TeamController {
     }
 
     @DeleteMapping("/{team_id}")
-    public boolean teamDelete(@PathVariable int team_id){
+    public boolean teamDelete(@PathVariable Long team_id){
         return teamService.delete(team_id);
     }
-
-
 }
