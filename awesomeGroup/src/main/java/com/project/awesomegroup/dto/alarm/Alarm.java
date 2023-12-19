@@ -1,5 +1,6 @@
-package com.project.awesomegroup.dto;
+package com.project.awesomegroup.dto.alarm;
 
+import com.project.awesomegroup.dto.Team;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
