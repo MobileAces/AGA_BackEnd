@@ -1,13 +1,13 @@
 package com.project.awesomegroup.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +33,10 @@ public class User{
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private List<TeamMember> teamMemberList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<AlarmDetail> alarmDetailList = new ArrayList<>();
 
     @Builder
     public User(String userId, String userPw, String userNickname, String userPhone) {
