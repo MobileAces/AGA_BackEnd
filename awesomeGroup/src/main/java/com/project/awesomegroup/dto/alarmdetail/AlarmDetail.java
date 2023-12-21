@@ -42,4 +42,16 @@ public class AlarmDetail {
     @JoinColumn(name = "user_id")
     private User user;
 
+    //==생성 메서드==//
+    public static AlarmDetail createAlarmDetail(AlarmDetailRequest request, Alarm alarm, User user) {
+        AlarmDetail alarmDetail = AlarmDetail.builder()
+                .alarmDetailHour(request.getAlarmDetailHour())
+                .alarmDetailMinute(request.getAlarmDetailMinute())
+                .alarmDetailRetime(request.getAlarmDetailRetime())
+                .alarmDetailMemo(request.getAlarmDetailMemo())
+                .alarmDetailForecast(request.getAlarmDetailForecast())
+                .alarmDetailMemoVoice(request.getAlarmDetailMemoVoice())
+                .build();
+        return alarmDetail;
+    }
 }
