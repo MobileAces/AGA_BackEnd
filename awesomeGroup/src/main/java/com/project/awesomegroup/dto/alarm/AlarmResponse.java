@@ -1,13 +1,11 @@
 package com.project.awesomegroup.dto.alarm;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.awesomegroup.dto.wather.Weather;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class AlarmResponseDTO {
+public class AlarmResponse {
 
     private Integer alarmId;
 
@@ -18,8 +16,8 @@ public class AlarmResponseDTO {
     private Integer teamId;
 
     //==생성 메서드==//
-    public static AlarmResponseDTO createAlarmResponse(Alarm alarm) {
-        AlarmResponseDTO response = AlarmResponseDTO.builder()
+    public static AlarmResponse createAlarmResponse(Alarm alarm) {
+        AlarmResponse response = AlarmResponse.builder()
                 .alarmId(alarm.getAlarmId())
                 .alarmName(alarm.getAlarmName())
                 .alarmDay(alarm.getAlarmDay())

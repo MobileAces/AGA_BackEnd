@@ -10,6 +10,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "alarmdetail")
 public class AlarmDetail {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

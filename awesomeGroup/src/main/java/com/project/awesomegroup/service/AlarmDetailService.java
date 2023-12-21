@@ -25,4 +25,8 @@ public class AlarmDetailService {
         return alarmDetailRepository.findByAlarmAlarmId(alarm_id);
     }
 
+    public AlarmDetail selectByAlarmDetailId(Integer alarmDetail_id) {
+        return alarmDetailRepository.findById(alarmDetail_id).get();
+    }
+
 }

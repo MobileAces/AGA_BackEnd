@@ -1,7 +1,7 @@
 package com.project.awesomegroup.controller.alarm;
 
 import com.project.awesomegroup.dto.alarm.Alarm;
-import com.project.awesomegroup.dto.alarm.AlarmResponseDTO;
+import com.project.awesomegroup.dto.alarm.AlarmResponse;
 import com.project.awesomegroup.service.AlarmService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +19,17 @@ public class AlarmController {
     private AlarmService alarmService;
 
     @GetMapping("/{teamId}")
-    public List<AlarmResponseDTO> alarmSelect(@PathVariable("teamId") Integer teamId) {
-        List<AlarmResponseDTO> responseDTOList = alarmService.findByTeamId(teamId).stream()
-                .map(AlarmResponseDTO::createAlarmResponse)
+    public List<AlarmResponse> alarmSelect(@PathVariable("teamId") Integer teamId) {
+        List<AlarmResponse> responseDTOList = alarmService.findByTeamId(teamId).stream()
+                .map(AlarmResponse::createAlarmResponse)
                 .collect(Collectors.toList());
         return responseDTOList;
     }
 
     @GetMapping("/{teamId}/{alarmDay}")
-    public List<AlarmResponseDTO> alarmSelect(@PathVariable("teamId") Integer teamId, @PathVariable("alarmDay") String alarmDay) {
-        List<AlarmResponseDTO> responseDTOList = alarmService.findByTeamIdAndAlarmDay(teamId, alarmDay).stream()
-                .map(AlarmResponseDTO::createAlarmResponse)
+    public List<AlarmResponse> alarmSelect(@PathVariable("teamId") Integer teamId, @PathVariable("alarmDay") String alarmDay) {
+        List<AlarmResponse> responseDTOList = alarmService.findByTeamIdAndAlarmDay(teamId, alarmDay).stream()
+                .map(AlarmResponse::createAlarmResponse)
                 .collect(Collectors.toList());
         return responseDTOList;
     }
