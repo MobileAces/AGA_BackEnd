@@ -68,4 +68,13 @@ public class AlarmDetailService {
         }
     }
 
+    @Transactional
+    public boolean delete(Integer alarmDetail_id) {
+        try {
+            alarmDetailRepository.deleteById(alarmDetail_id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

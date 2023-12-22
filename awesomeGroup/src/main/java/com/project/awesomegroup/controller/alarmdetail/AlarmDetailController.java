@@ -54,4 +54,9 @@ public class AlarmDetailController {
     public boolean update(@RequestBody AlarmDetailRequest request) {
         return alarmDetailService.update(request);
     }
+
+    @DeleteMapping("/{alarmDetail_id}")
+    public boolean delete(@PathVariable Integer alarmDetail_id) {
+        return alarmDetailService.delete(alarmDetail_id);
+    }
 }
