@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/alarmdb?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://db-rds-agagroup-database.czm6m4wy4gps.ap-northeast-2.rds.amazonaws.com:3306/alarmdb?serverTimezone=Asia/Seoul
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password:
+    password: agaproject
   jpa:
     show-sql: true
     hibernate:
