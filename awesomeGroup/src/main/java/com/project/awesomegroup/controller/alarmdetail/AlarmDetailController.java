@@ -50,5 +50,8 @@ public class AlarmDetailController {
         return response;
     }
 
-
+    @PutMapping
+    public boolean update(@RequestBody AlarmDetailRequest request) {
+        return alarmDetailService.update(request);
+    }
 }

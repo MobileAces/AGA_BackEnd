@@ -52,4 +52,20 @@ public class AlarmDetailService {
         return alarmDetail;
     }
 
+    @Transactional
+    public boolean update(AlarmDetailRequest request) {
+        try {
+            AlarmDetail findAlarmDetail = alarmDetailRepository.findById(request.getAlarmDetailId()).get();
+            findAlarmDetail.setAlarmDetailHour(request.getAlarmDetailHour());
+            findAlarmDetail.setAlarmDetailMinute(request.getAlarmDetailMinute());
+            findAlarmDetail.setAlarmDetailRetime(request.getAlarmDetailRetime());
+            findAlarmDetail.setAlarmDetailMemo(request.getAlarmDetailMemo());
+            findAlarmDetail.setAlarmDetailForecast(request.getAlarmDetailForecast());
+            findAlarmDetail.setAlarmDetailMemoVoice(request.getAlarmDetailMemoVoice());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
