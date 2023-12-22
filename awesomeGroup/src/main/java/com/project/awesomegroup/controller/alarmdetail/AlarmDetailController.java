@@ -44,9 +44,11 @@ public class AlarmDetailController {
     }
 
     @PostMapping
-    public AlarmDetail insert(@RequestBody AlarmDetailRequest request) {
+    public AlarmDetailResponse insert(@RequestBody AlarmDetailRequest request) {
         AlarmDetail alarmDetail = alarmDetailService.insert(request);
-//        AlarmDetailResponse response = AlarmDetailResponse.createAlarmDetailResponse(alarmDetail);
-        return alarmDetail;
+        AlarmDetailResponse response = AlarmDetailResponse.createAlarmDetailResponse(alarmDetail);
+        return response;
     }
+
+
 }

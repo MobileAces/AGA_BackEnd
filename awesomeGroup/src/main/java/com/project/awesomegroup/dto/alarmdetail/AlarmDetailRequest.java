@@ -24,19 +24,4 @@ public class AlarmDetailRequest {
 
     private String userId;
 
-    //==생성 메서드==//
-    public static AlarmDetailRequest createAlarmDetailResponse(AlarmDetail alarmDetail) {
-        AlarmDetailRequest alarmDetailResponse = AlarmDetailRequest.builder()
-                .alarmDetailId(alarmDetail.getAlarmDetailId())
-                .alarmDetailHour(alarmDetail.getAlarmDetailHour())
-                .alarmDetailMinute(alarmDetail.getAlarmDetailMinute())
-                .alarmDetailRetime(alarmDetail.getAlarmDetailRetime())
-                .alarmDetailMemo(alarmDetail.getAlarmDetailMemo())
-                .alarmDetailForecast(alarmDetail.getAlarmDetailForecast())
-                .alarmDetailMemoVoice(alarmDetail.getAlarmDetailMemoVoice())
-                .alarmId(alarmDetail.getAlarm().getAlarmId())
-                .userId(alarmDetail.getUser().getUserId())
-                .build();
-        return alarmDetailResponse;
-    }
 }

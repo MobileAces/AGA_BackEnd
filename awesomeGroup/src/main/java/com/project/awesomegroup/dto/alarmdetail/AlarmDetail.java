@@ -51,6 +51,8 @@ public class AlarmDetail {
                 .alarmDetailMemo(request.getAlarmDetailMemo())
                 .alarmDetailForecast(request.getAlarmDetailForecast())
                 .alarmDetailMemoVoice(request.getAlarmDetailMemoVoice())
+                .alarm(alarm)
+                .user(user)
                 .build();
         return alarmDetail;
     }
