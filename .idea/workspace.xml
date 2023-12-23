@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="UserController 주석 삭제">
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도">
       <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,22 +238,6 @@
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
       <workItem from="1703337348906" duration="4375000" />
-    </task>
-    <task id="LOCAL-00014" summary="develop - LatXLanY (어노테이션 제거)">
-      <option name="closed" value="true" />
-      <created>1702901607208</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1702901607208</updated>
-    </task>
-    <task id="LOCAL-00015" summary="develop - 날씨 Id 값으로 호출 (임시)">
-      <option name="closed" value="true" />
-      <created>1702901925332</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1702901925332</updated>
     </task>
     <task id="LOCAL-00016" summary="weather - 날씨 API 호출 (위도,경도 -&gt; 역지오코딩)">
       <option name="closed" value="true" />
@@ -631,7 +615,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703343221847</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="gradle.yml - docker compoase 명령어 추가">
+      <option name="closed" value="true" />
+      <created>1703343953771</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1703343953771</updated>
+    </task>
+    <task id="LOCAL-00064" summary="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도">
+      <option name="closed" value="true" />
+      <created>1703344138781</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1703344138781</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,8 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - test push" />
-    <MESSAGE value="docker - wrapper 명령어 추가" />
     <MESSAGE value="github-actions.yml 삭제" />
     <MESSAGE value="# Set up Gradle Wrapper 추가" />
     <MESSAGE value="build-root-directory: ./awesomeGroup 명령어 추가" />
@@ -674,6 +672,8 @@
     <MESSAGE value="폴더 벗기기" />
     <MESSAGE value="UserService - 충돌 해결" />
     <MESSAGE value="UserController 주석 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserController 주석 삭제" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
+    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
   </component>
 </project>
