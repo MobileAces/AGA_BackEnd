@@ -3,6 +3,7 @@ package com.project.awesomegroup.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.teammember.TeamMember;
+
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +11,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Date;
+
 
 @Data
 @Entity
