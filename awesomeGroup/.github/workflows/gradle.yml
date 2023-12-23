@@ -59,13 +59,16 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # gradle wrapper
-    - name: Build with wrapper
-      run: gradle wrapper
-      
+    # Set up Gradle Wrapper
+    - name: Set up Gradle Wrapper
+      run: |
+        echo "gradle-version=6.8" > ./gradle/wrapper/gradle-wrapper.properties
+      working-directory: ${{ github.workspace }}
+
     # gradle build
     - name: Build with Gradle
       run: ./gradlew.bat build -x test
+      working-directory: ${{ github.workspace }}
 
     # docker login
     - name: Docker Hub Login
