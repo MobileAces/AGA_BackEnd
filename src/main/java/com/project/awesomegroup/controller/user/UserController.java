@@ -2,11 +2,9 @@ package com.project.awesomegroup.controller.user;
 
 import com.project.awesomegroup.dto.User;
 
-import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
 import com.project.awesomegroup.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.websocket.server.PathParam;
 import jakarta.servlet.http.Cookie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import com.project.awesomegroup.service.UserService;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,7 +41,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public User userSelect(@PathVariable String userId){
-        return userService.select(userId);
+        return userService.select(userId); //주석 추가
     }
 
     @PostMapping("/sign-up")
