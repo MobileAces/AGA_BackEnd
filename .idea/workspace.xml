@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,14 +238,6 @@
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
       <workItem from="1703337348906" duration="4375000" />
-    </task>
-    <task id="LOCAL-00016" summary="weather - 날씨 API 호출 (위도,경도 -&gt; 역지오코딩)">
-      <option name="closed" value="true" />
-      <created>1702911035340</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1702911035340</updated>
     </task>
     <task id="LOCAL-00017" summary="weather - 날씨 API 호출 (GeoServiceKey .yml에 지정)">
       <option name="closed" value="true" />
@@ -631,7 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703344138781</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
+      <option name="closed" value="true" />
+      <created>1703344238105</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1703344238105</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="github-actions.yml 삭제" />
     <MESSAGE value="# Set up Gradle Wrapper 추가" />
     <MESSAGE value="build-root-directory: ./awesomeGroup 명령어 추가" />
     <MESSAGE value="gradlew.bar -&gt; gradlew 으로 변경" />
@@ -674,6 +673,7 @@
     <MESSAGE value="UserController 주석 삭제" />
     <MESSAGE value="gradle.yml - docker compoase 명령어 추가" />
     <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
+    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
   </component>
 </project>
