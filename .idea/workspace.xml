@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="plz" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="plz2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,15 +233,7 @@
       <workItem from="1702961218579" duration="16764000" />
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
-      <workItem from="1703332651289" duration="3100000" />
-    </task>
-    <task id="LOCAL-00003" summary="user - 기본틀">
-      <option name="closed" value="true" />
-      <created>1702022009741</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702022009741</updated>
+      <workItem from="1703332651289" duration="3401000" />
     </task>
     <task id="LOCAL-00004" summary="user - 유저 업데이트">
       <option name="closed" value="true" />
@@ -627,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703335804856</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="plz2">
+      <option name="closed" value="true" />
+      <created>1703336057844</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1703336057844</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - 테스트 용 주석 한번 더" />
     <MESSAGE value="docker - 테스트 용 주석 한번 더 2" />
     <MESSAGE value="docker - 테스트 용 주석 한번 더 3" />
     <MESSAGE value="docker - actions 파일 수정" />
@@ -670,6 +669,7 @@
     <MESSAGE value="init, build 내용 추가" />
     <MESSAGE value="ㅅㅂ" />
     <MESSAGE value="plz" />
-    <option name="LAST_COMMIT_MESSAGE" value="plz" />
+    <MESSAGE value="plz2" />
+    <option name="LAST_COMMIT_MESSAGE" value="plz2" />
   </component>
 </project>
