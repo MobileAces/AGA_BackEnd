@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="UserService - 충돌 해결" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,14 +236,6 @@
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
       <workItem from="1703337348906" duration="4375000" />
-    </task>
-    <task id="LOCAL-00012" summary="weather - 날씨 API (_id 값으로 호출)">
-      <option name="closed" value="true" />
-      <created>1702897483903</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1702897483903</updated>
     </task>
     <task id="LOCAL-00013" summary="develop - 날씨 API (위경도 -&gt; 좌표 변환 후 id 값 get해서 API 호출)">
       <option name="closed" value="true" />
@@ -629,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703342259849</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="UserService - 충돌 해결">
+      <option name="closed" value="true" />
+      <created>1703342913842</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1703342913842</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - actions 파일 수정 - 7" />
     <MESSAGE value="docker - actions 파일 수정 - 8" />
     <MESSAGE value="docker - test push" />
     <MESSAGE value="docker - wrapper 명령어 추가" />
@@ -672,6 +671,7 @@
     <MESSAGE value="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가" />
     <MESSAGE value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
     <MESSAGE value="폴더 벗기기" />
-    <option name="LAST_COMMIT_MESSAGE" value="폴더 벗기기" />
+    <MESSAGE value="UserService - 충돌 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserService - 충돌 해결" />
   </component>
 </project>

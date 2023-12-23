@@ -70,11 +70,6 @@ public class UserController {
             return ResponseEntity.ok(dto);
         }
         return ResponseEntity.ok(user);
-        //Docker테스트용 주석
-        //Docker테스트용 주석 한번더
-        //Docker테스트용 주석 한번더 2
-        //Docker테스트용 주석 한번더 3
-        //Docker테스트용 주석 한번더 4
     }
 
     @PutMapping
