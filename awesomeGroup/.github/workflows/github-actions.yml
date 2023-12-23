@@ -22,10 +22,10 @@ jobs:
     steps:
     # JDK setting - github actions에서 사용할 JDK 설정 (aws 과 project의 java 버전과 별도로 관리)
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '17'
         distribution: 'temurin'
         
     ## gradle caching (빌드 시간 줄이기)
@@ -49,25 +49,10 @@ jobs:
         cd ./src/main/resources # resources 폴더로 이동
         touch ./application.yml # application.yml 생성
         echo "${{ secrets.YML }}" > ./application.yml # github actions에서 설정한 값을 application.yml 파일에 쓰기
-      shell: bash
-      
-    # 환경별 yml 파일 생성(2) - dev
-    - name: make application-dev.yml
-      if: contains(github.ref, 'develop')
-      run: |
-        cd ./src/main/resources
-        touch ./application-dev.yml
-        echo "${{ secrets.YML_DEV }}" > ./application-dev.yml
-      shell: bash
 
-    # 환경별 yml 파일 생성(3) - prod
-    - name: make application-prod.yml
-      if: contains(github.ref, 'main')
-      run: |
-        cd ./src/main/resources
-        touch ./application-prod.yml
-        echo "${{ secrets.YML_PROD }}" > ./application-prod.yml
-      shell: bash
+    # gradle chmod
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
       
     # gradle build
     - name: Build with Gradle
@@ -78,7 +63,7 @@ jobs:
       if: contains(github.ref, 'main')
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -f Dockerfile-dev -t ${{ secrets.DOCKER_REPO }}/agaproject .
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/agaproject .
         docker push ${{ secrets.DOCKER_REPO }}/agaproject
 
     # docker build & push to develop
@@ -86,7 +71,7 @@ jobs:
       if: contains(github.ref, 'develop')
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -f Dockerfile-dev -t ${{ secrets.DOCKER_REPO }}/agaproject
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/agaproject .
         docker push ${{ secrets.DOCKER_REPO }}/agaproject
         
     ## deploy to production
