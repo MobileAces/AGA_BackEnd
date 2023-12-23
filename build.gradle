@@ -11,10 +11,6 @@ java {
 	sourceCompatibility = '17'
 }
 
-wrapper{
-	gradleVersion = '7.5.1'
-}
-
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="다시 처음 ./gradlew build -x test 이것만 실행하기">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle init 다시 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +236,7 @@
       <workItem from="1702961218579" duration="16764000" />
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
-      <workItem from="1703332651289" duration="1720000" />
+      <workItem from="1703332651289" duration="2161000" />
     </task>
     <task id="LOCAL-00001" summary="develop 초기">
       <option name="closed" value="true" />
@@ -614,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703333939745</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="gradle init 다시 추가">
+      <option name="closed" value="true" />
+      <created>1703334682432</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1703334682432</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +640,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="weather - TimeZome (Asia/Seoul)로 변경" />
     <MESSAGE value="user - ID duplicate 추가" />
     <MESSAGE value="docker - test용 주석 푸시" />
     <MESSAGE value="docker - gitActions 파일 경로 이동" />
@@ -657,6 +664,7 @@
     <MESSAGE value="폴더 하나 제거" />
     <MESSAGE value="    # gradle wrapper 명령어 추가" />
     <MESSAGE value="다시 처음 ./gradlew build -x test 이것만 실행하기" />
-    <option name="LAST_COMMIT_MESSAGE" value="다시 처음 ./gradlew build -x test 이것만 실행하기" />
+    <MESSAGE value="gradle init 다시 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="gradle init 다시 추가" />
   </component>
 </project>
