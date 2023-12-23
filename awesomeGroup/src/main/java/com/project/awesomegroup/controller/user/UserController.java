@@ -38,12 +38,12 @@ public class UserController {
         return userService.select(userId);
     }
 
-    @PostMapping("/sing-up")
+    @PostMapping("/sign-up")
     public User userJoin(@RequestBody User user){
         return userService.join(user);
     }
 
-    @PostMapping("/sing-in")
+    @PostMapping("/sign-in")
     public ResponseEntity<User> userLogin(@RequestBody User user, HttpServletResponse response) throws UnsupportedEncodingException {
         User checkUser = userService.Login(user.getUserId(), user.getUserPw());
         if(checkUser != null){
