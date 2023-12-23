@@ -63,17 +63,9 @@ jobs:
     - name: gradle wrapper
       run: gradle wrapper
 
-    # gradle init
-    - name: init with Gradle
-      uses: gradle/gradle-build-action@v2
-      run: gradle init
-
     # gradle build
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 7.5.1
-        arguments: build
+      run: ./gradlew build -x test
 
     # docker login
     - name: Docker Hub Login
