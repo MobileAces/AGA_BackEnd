@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AGA_BackEnd.iml" filepath="$PROJECT_DIR$/.idea/AGA_BackEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/awesomeGroup.iml" filepath="$PROJECT_DIR$/.idea/modules/awesomeGroup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" filepath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/awesomeGroup.test.iml" filepath="$PROJECT_DIR$/.idea/modules/awesomeGroup.test.iml" />
     </modules>
   </component>
 </project>
