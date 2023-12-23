@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - ## deploy to production -&gt; password, port 추가">
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - port, password 원상태 복귀(main)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -236,15 +236,7 @@
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
-      <workItem from="1703337348906" duration="2944000" />
-    </task>
-    <task id="LOCAL-00007" summary="user - 유저 아이디 중복 조회">
-      <option name="closed" value="true" />
-      <created>1702258114746</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1702258114746</updated>
+      <workItem from="1703337348906" duration="3770000" />
     </task>
     <task id="LOCAL-00008" summary="user - 중복조회(RequestParam)으로 변경">
       <option name="closed" value="true" />
@@ -630,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703339410894</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="docker - port, password 원상태 복귀(main)">
+      <option name="closed" value="true" />
+      <created>1703340339390</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1703340339390</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - actions 파일 수정 - 2" />
     <MESSAGE value="docker - actions 파일 수정 - 3" />
     <MESSAGE value="docker - actions 파일 수정 - 4" />
     <MESSAGE value="docker - actions 파일 수정 - 5" />
@@ -673,6 +672,7 @@
     <MESSAGE value="Docker file 추가" />
     <MESSAGE value="docker pull /agaproject 로 변경" />
     <MESSAGE value="docker - ## deploy to production -&gt; password, port 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker - ## deploy to production -&gt; password, port 추가" />
+    <MESSAGE value="docker - port, password 원상태 복귀(main)" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker - port, password 원상태 복귀(main)" />
   </component>
 </project>
