@@ -1,50 +1,55 @@
 package com.project.awesomegroup.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
+import com.project.awesomegroup.dto.teammember.TeamMember;
+
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Date;
+
 
 @Data
 @Entity
 @NoArgsConstructor
 @Table(name="user")
-public class User {
+public class User{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private String userId;
 
     @Column
     private String userPw;
 
     @Column
-    private String userName;
+    private String userNickname;
 
     @Column
     private String userPhone;
 
-    @Column
-    private String userAddress;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<TeamMember> teamMemberList = new ArrayList<>();
 
-    @Column
-    private String userEmail;
-
-    @Column
-    private String userAge;
-
-    @Column
-    private Date userBirth;
-
-    @Column
-    private String userGender;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<AlarmDetail> alarmDetailList = new ArrayList<>();
 
     @Builder
-    public User(String userId, String userPw) {
+    public User(String userId, String userPw, String userNickname, String userPhone) {
         this.userId = userId;
         this.userPw = userPw;
+        this.userNickname = userNickname;
+        this.userPhone = userPhone;
     }
 
+    public User(String id) {
+        this.userId = id;
+    }
 }
