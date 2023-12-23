@@ -98,8 +98,9 @@ jobs:
           sudo docker ps
           sudo docker rm -f $(docker ps -qa)
           sudo docker pull ${{ secrets.DOCKER_REPO }}/agaproject
-          sudo docker run -d -p 8080:8080 ${{ secrets.DOCKER_REPO }}/agaproject
-          sudo docker image prune -f
+          docker-compose up -d
+          docker image prune -f
+## ## sudo docker run -d -p 8080:8080 ${{ secrets.DOCKER_REPO }}/agaproject
 
     ## deploy to develop
     - name: Deploy to dev

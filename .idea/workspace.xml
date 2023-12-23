@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="UserService - 충돌 해결" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="UserController 주석 삭제">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,14 +238,6 @@
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
       <workItem from="1703337348906" duration="4375000" />
-    </task>
-    <task id="LOCAL-00013" summary="develop - 날씨 API (위경도 -&gt; 좌표 변환 후 id 값 get해서 API 호출)">
-      <option name="closed" value="true" />
-      <created>1702900502363</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1702900502363</updated>
     </task>
     <task id="LOCAL-00014" summary="develop - LatXLanY (어노테이션 제거)">
       <option name="closed" value="true" />
@@ -629,7 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703342913842</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="UserController 주석 삭제">
+      <option name="closed" value="true" />
+      <created>1703343221847</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1703343221847</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - actions 파일 수정 - 8" />
     <MESSAGE value="docker - test push" />
     <MESSAGE value="docker - wrapper 명령어 추가" />
     <MESSAGE value="github-actions.yml 삭제" />
@@ -672,6 +673,7 @@
     <MESSAGE value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
     <MESSAGE value="폴더 벗기기" />
     <MESSAGE value="UserService - 충돌 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="UserService - 충돌 해결" />
+    <MESSAGE value="UserController 주석 삭제" />
+    <option name="LAST_COMMIT_MESSAGE" value="UserController 주석 삭제" />
   </component>
 </project>
