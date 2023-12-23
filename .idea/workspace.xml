@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="ㅅㅂ" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="plz" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,15 +233,7 @@
       <workItem from="1702961218579" duration="16764000" />
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
-      <workItem from="1703332651289" duration="2788000" />
-    </task>
-    <task id="LOCAL-00002" summary="join-1">
-      <option name="closed" value="true" />
-      <created>1702021901766</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702021901766</updated>
+      <workItem from="1703332651289" duration="3100000" />
     </task>
     <task id="LOCAL-00003" summary="user - 기본틀">
       <option name="closed" value="true" />
@@ -627,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703335655149</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="plz">
+      <option name="closed" value="true" />
+      <created>1703335804856</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1703335804856</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +645,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - gitActions 파일 경로 이동" />
     <MESSAGE value="docker - 테스트 용 주석 한번 더" />
     <MESSAGE value="docker - 테스트 용 주석 한번 더 2" />
     <MESSAGE value="docker - 테스트 용 주석 한번 더 3" />
@@ -670,6 +669,7 @@
     <MESSAGE value="gradle init 다시 추가" />
     <MESSAGE value="init, build 내용 추가" />
     <MESSAGE value="ㅅㅂ" />
-    <option name="LAST_COMMIT_MESSAGE" value="ㅅㅂ" />
+    <MESSAGE value="plz" />
+    <option name="LAST_COMMIT_MESSAGE" value="plz" />
   </component>
 </project>
