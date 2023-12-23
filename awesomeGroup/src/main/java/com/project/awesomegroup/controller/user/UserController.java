@@ -70,13 +70,18 @@ public class UserController {
     }
 
     @GetMapping("/nickname-duplicate")
-    public Boolean userIdDuplicate(@RequestParam String userId){
-        return userService.NicknameDuplicate(userId);
+    public Boolean userNicknameDuplicate(@RequestParam String userNickname){
+        return userService.NicknameDuplicate(userNickname);
     }
 
     @GetMapping("/phone-duplicate")
-    public Boolean userNicknameDuplicate(@RequestParam String phoneNumber){
-        return userService.PhoneDupicate(phoneNumber);
+    public Boolean userPhoneDuplicate(@RequestParam String phoneNumber){
+        return userService.PhoneDuplicate(phoneNumber);
+    }
+
+    @GetMapping("/id-duplicate")
+    public Boolean userIdDuplicate(@RequestParam String userId){
+        return userService.IdDuplicate(userId);
     }
 
 }
