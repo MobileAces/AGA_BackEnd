@@ -59,10 +59,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    # gradle wrapper
+    - name: gradle wrapper
+      run: gradle wrapper
+
     # gradle init
     - name: init with Gradle
       uses: gradle/gradle-build-action@v2
-    - run: gradle init
+      run: gradle init
 
     # gradle build
     - name: Build with Gradle

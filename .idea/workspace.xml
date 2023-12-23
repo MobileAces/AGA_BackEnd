@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle init, build 수정" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="폴더 하나 제거">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -233,7 +235,7 @@
       <workItem from="1702961218579" duration="16764000" />
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
-      <workItem from="1703332651289" duration="30000" />
+      <workItem from="1703332651289" duration="940000" />
     </task>
     <task id="LOCAL-00001" summary="develop 초기">
       <option name="closed" value="true" />
@@ -587,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703331782298</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="폴더 하나 제거">
+      <option name="closed" value="true" />
+      <created>1703332747159</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1703332747159</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +615,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user - User DTO (id,pw,nickname, phone만 남김), Nickname Duplicate 추가" />
     <MESSAGE value="CI / CD -&gt; push, pull 수동 (자동화 전)" />
     <MESSAGE value="user -- 회원가입, 로그인 오타 수정" />
     <MESSAGE value="weather - TimeZome (Asia/Seoul)로 변경" />
@@ -630,6 +639,7 @@
     <MESSAGE value="build-root-directory: ./awesomeGroup 명령어 추가" />
     <MESSAGE value="gradlew.bar -&gt; gradlew 으로 변경" />
     <MESSAGE value="gradle init, build 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle init, build 수정" />
+    <MESSAGE value="폴더 하나 제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="폴더 하나 제거" />
   </component>
 </project>
