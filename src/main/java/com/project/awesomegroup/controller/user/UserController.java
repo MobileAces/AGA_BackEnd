@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/all")
     public List<User> userAllSelect(){
         return userService.findAll();
-        //return new ArrayList<>();
+        //return new ArrayList<>(); 갑자기 ?
     }
 
 }

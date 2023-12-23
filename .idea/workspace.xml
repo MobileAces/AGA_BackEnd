@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - application.yml 파일 port 8080 지정 삭제">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
-    </list>
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,23 +234,7 @@
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
-      <workItem from="1703337348906" duration="4071000" />
-    </task>
-    <task id="LOCAL-00009" summary="user - 팀 멤버 DTO 추가 임시">
-      <option name="closed" value="true" />
-      <created>1702273498758</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1702273498758</updated>
-    </task>
-    <task id="LOCAL-00010" summary="TeamMember - 유저가 포함된 팀 정보 조회(branch 이름 user로 잘못함)">
-      <option name="closed" value="true" />
-      <created>1702290599341</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1702290599341</updated>
+      <workItem from="1703337348906" duration="4375000" />
     </task>
     <task id="LOCAL-00011" summary="user - all -&gt; entirety 변경">
       <option name="closed" value="true" />
@@ -630,7 +612,23 @@
       <option name="project" value="LOCAL" />
       <updated>1703341188303</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가">
+      <option name="closed" value="true" />
+      <created>1703341481775</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1703341481775</updated>
+    </task>
+    <task id="LOCAL-00059" summary="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정">
+      <option name="closed" value="true" />
+      <created>1703341721127</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1703341721127</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,8 +646,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - actions 파일 수정 - 4" />
-    <MESSAGE value="docker - actions 파일 수정 - 5" />
     <MESSAGE value="docker - actions 파일 수정 - 6" />
     <MESSAGE value="docker - actions 파일 수정 - 7" />
     <MESSAGE value="docker - actions 파일 수정 - 8" />
@@ -673,6 +669,8 @@
     <MESSAGE value="docker - ## deploy to production -&gt; password, port 추가" />
     <MESSAGE value="docker - port, password 원상태 복귀(main)" />
     <MESSAGE value="docker - application.yml 파일 port 8080 지정 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker - application.yml 파일 port 8080 지정 삭제" />
+    <MESSAGE value="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가" />
+    <MESSAGE value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
   </component>
 </project>
