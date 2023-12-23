@@ -65,7 +65,7 @@ jobs:
       
     # gradle build
     - name: Build with Gradle
-      run: ./gradlew build -x test
+      run: ./gradlew.bat build -x test
 
     # docker login
     - name: Docker Hub Login
