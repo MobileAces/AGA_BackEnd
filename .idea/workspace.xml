@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="Docker file 추가">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/gradle.yml" afterDir="false" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker pull /agaproject 로 변경">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,15 +236,7 @@
       <workItem from="1703140368997" duration="18892000" />
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
-      <workItem from="1703337348906" duration="393000" />
-    </task>
-    <task id="LOCAL-00005" summary="user - 유저 삭제">
-      <option name="closed" value="true" />
-      <created>1702255392891</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702255392891</updated>
+      <workItem from="1703337348906" duration="1734000" />
     </task>
     <task id="LOCAL-00006" summary="user - 유저 조회(단건)">
       <option name="closed" value="true" />
@@ -630,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703337439060</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="docker pull /agaproject 로 변경">
+      <option name="closed" value="true" />
+      <created>1703337760706</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1703337760706</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - 테스트 용 주석 한번 더 3" />
     <MESSAGE value="docker - actions 파일 수정" />
     <MESSAGE value="docker - actions 파일 수정 - 2" />
     <MESSAGE value="docker - actions 파일 수정 - 3" />
@@ -673,6 +672,7 @@
     <MESSAGE value="plz" />
     <MESSAGE value="plz2" />
     <MESSAGE value="Docker file 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker file 추가" />
+    <MESSAGE value="docker pull /agaproject 로 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker pull /agaproject 로 변경" />
   </component>
 </project>
