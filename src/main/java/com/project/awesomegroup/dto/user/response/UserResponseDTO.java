@@ -11,6 +11,7 @@ public class UserResponseDTO {
     private String userNickname;
     private String userPhone;
 
+    //생성 메소드
     public UserResponseDTO(String userId, String userNickname, String userPhone){
         this.userId = userId;
         this.userNickname = userNickname;

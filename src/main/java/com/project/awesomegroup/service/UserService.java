@@ -36,9 +36,15 @@ public class UserService {
         this.entityManager = entityManager;
     }
 
-    public List<User> findAll(){
-        List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(e -> users.add(e));
+    public List<UserResponseDTO> findAll(){
+        List<UserResponseDTO> users = new ArrayList<>();
+        userRepository.findAll().forEach(e -> {
+            users.add(UserResponseDTO.builder()
+                    .userId(e.getUserId())
+                    .userNickname(e.getUserNickname())
+                    .userPhone(e.getUserPhone())
+                    .build());
+        });
         return users;
     }
 
@@ -104,10 +110,10 @@ public class UserService {
         Optional<User> checkUser =  userRepository.findById(id);
         if(checkUser.isPresent()){ //해당 id가 존재할 때
             User user = checkUser.get();
-            return UserResponse.userResponseCreate("User found", 200, new UserResponseDTO(user.getUserId(), user.getUserNickname(), user.getUserPhone()));
+            return UserResponse.userResponseCreate("User Found", 200, new UserResponseDTO(user.getUserId(), user.getUserNickname(), user.getUserPhone()));
         }else{
             //존재 하지 않을 때
-            return UserResponse.userResponseCreate("User not found", 404, null);
+            return UserResponse.userResponseCreate("User not Found", 404, null);
         }
     }
 
