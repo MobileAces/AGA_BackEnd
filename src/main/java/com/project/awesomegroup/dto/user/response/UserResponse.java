@@ -12,7 +12,7 @@ public class UserResponse {
     private String message;
     @Schema(description = "상태 코드", nullable = false, example = "200")
     private Integer code;
-    @Schema(description = "데이터", nullable = false)
+    @Schema(description = "데이터", nullable = true)
     private UserResponseDTO data;
 
     //생성 메소드//

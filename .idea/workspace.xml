@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user Refactoring">
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user Refactoring &amp; Swagger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserLoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserLoginResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703398330996</updated>
-      <workItem from="1703398335609" duration="19138000" />
+      <workItem from="1703398335609" duration="20314000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -88,7 +85,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703419234453</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="user Refactoring &amp; Swagger">
+      <option name="closed" value="true" />
+      <created>1703424762186</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703424762186</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="user Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="user Refactoring" />
+    <MESSAGE value="user Refactoring &amp; Swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="user Refactoring &amp; Swagger" />
   </component>
 </project>
