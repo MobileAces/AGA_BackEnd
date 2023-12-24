@@ -1,16 +1,12 @@
 package com.project.awesomegroup.service;
 
-import com.project.awesomegroup.dto.Team;
-import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetailRequest;
-import com.project.awesomegroup.dto.alarmdetail.AlarmDetailResponse;
-import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.repository.AlarmDetailRepository;
 import com.project.awesomegroup.repository.AlarmRepository;
 import com.project.awesomegroup.repository.UserRepository;
-import jakarta.persistence.PersistenceException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
 package com.project.awesomegroup.dto.alarmdetail;
 
-import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import jakarta.persistence.*;
 import lombok.*;

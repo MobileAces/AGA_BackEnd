@@ -1,4 +1,4 @@
-package com.project.awesomegroup.dto;
+package com.project.awesomegroup.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
 
 @Data
@@ -35,11 +34,11 @@ public class User{
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private List<TeamMember> teamMemberList = new ArrayList<>();
+    private final List<TeamMember> teamMemberList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private List<AlarmDetail> alarmDetailList = new ArrayList<>();
+    private final List<AlarmDetail> alarmDetailList = new ArrayList<>();
 
     @Builder
     public User(String userId, String userPw, String userNickname, String userPhone) {

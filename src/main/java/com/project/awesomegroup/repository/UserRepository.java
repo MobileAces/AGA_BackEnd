@@ -1,10 +1,9 @@
 package com.project.awesomegroup.repository;
 
-import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

@@ -13,7 +13,7 @@ spring:
       ddl-auto: update
 
 resources:
-  location: C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\awesomeGroup\src\storage\init
+  location: C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\src\storage\init
 
 weatherApi:
   serviceKey: =yzFMWBLs7AYWuTK9eJVPzgpVDiu%2B04iismWehJX8qSSYubcAcVCApQs1bGE8DvCK9XBxuvdz%2F5OkUTXnQ9LoGQ%3D%3D

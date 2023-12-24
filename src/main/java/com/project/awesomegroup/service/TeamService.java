@@ -2,7 +2,7 @@ package com.project.awesomegroup.service;
 
 import com.project.awesomegroup.dto.Team;
 import com.project.awesomegroup.dto.teammember.TeamMember;
-import com.project.awesomegroup.dto.User;
+import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.repository.TeamRepository;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.PersistenceException;

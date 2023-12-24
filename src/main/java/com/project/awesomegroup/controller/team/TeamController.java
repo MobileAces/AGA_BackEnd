@@ -1,7 +1,6 @@
 package com.project.awesomegroup.controller.team;
 
 import com.project.awesomegroup.dto.Team;
-import com.project.awesomegroup.dto.User;
 import com.project.awesomegroup.service.TeamService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
