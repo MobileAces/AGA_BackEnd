@@ -4,167 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_module_jackson_module_parameter_names_2_15_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_h2database_h2_2_1_214.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_mysql_mysql_connector_j_8_0_33.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_sun_istack_istack_commons_runtime_4_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_zaxxer_HikariCP_5_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_micrometer_micrometer_commons_1_11_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_micrometer_micrometer_observation_1_11_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_smallrye_jandex_3_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_core_v3_swagger_annotations_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_core_v3_swagger_core_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_core_v3_swagger_models_jakarta_2_2_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_activation_jakarta_activation_api_2_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_annotation_jakarta_annotation_api_2_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_inject_jakarta_inject_api_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_persistence_jakarta_persistence_api_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_transaction_jakarta_transaction_api_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_validation_jakarta_validation_api_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_xml_bind_jakarta_xml_bind_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_1_14_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_bytebuddy_byte_buddy_agent_1_14_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_accessors_smart_2_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_json_smart_2_4_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_antlr_antlr4_runtime_4_10_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_12_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_api_2_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_logging_log4j_log4j_to_slf4j_2_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_10_1_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_10_1_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_10_1_16.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_aspectj_aspectjweaver_1_9_20_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_3_24_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_eclipse_angus_angus_activation_2_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_jaxb_core_4_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_jaxb_runtime_4_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jaxb_txw2_4_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_6_0_6_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_orm_hibernate_core_6_2_13_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_5_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_5_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_params_5_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_5_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_junit_jupiter_5_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_18_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_2_0_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_2_0_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springdoc_springdoc_openapi_starter_common_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springdoc_springdoc_openapi_starter_webmvc_api_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springdoc_springdoc_openapi_starter_webmvc_ui_2_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_aop_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_jpa_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_json_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_commons_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_data_spring_data_jpa_3_1_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aop_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aspects_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_expression_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jcl_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_orm_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_web_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_6_0_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_webjars_swagger_ui_4_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_xmlunit_xmlunit_core_2_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_yaml_snakeyaml_1_33.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/github-actions.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/AwesomeGroupApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/config/SecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/alarm/AlarmController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/alarmdetail/AlarmDetailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/team/TeamController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/teammember/TeamMemberController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/user/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/wather/ApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/controller/wather/WeatherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/alarm/Alarm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/alarm/AlarmResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/alarmdetail/AlarmDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/alarmdetail/AlarmDetailRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/alarmdetail/AlarmDetailResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/teammember/TeamMember.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/teammember/TeamMemberResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/wather/Region.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/wather/Weather.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/dto/wather/WeatherResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/AlarmDetailRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/AlarmRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/ApiReepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/TeamMemberRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/TeamRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/repository/WeatherRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/AlarmDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/AlarmService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/ApiService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/TeamMemberService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/TeamService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/java/com/project/awesomegroup/service/WeatherService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/storage/init/weather_init.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awesomeGroup/src/test/java/com/project/awesomegroup/AwesomeGroupApplicationTests.java" beforeDir="false" />
     </list>
-
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -203,7 +45,6 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="be_user_2" />
-
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
@@ -234,29 +75,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "android.gradle.sync.needed": "true",
-    "git-widget-placeholder": "develop",
-    "last_opened_file_path": "C:/Users/dhdud/OneDrive/바탕 화면/aga_project/AGA_BackEnd/awesomeGroup",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "spring.configuration.checksum": "7262cbbbf4daf98ddb8d6852ec185d9a",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -292,7 +110,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.awesomeGroup [build]">
+  <component name="RunManager" selected="Spring Boot.AwesomeGroupApplication">
     <configuration name="awesomeGroup [:bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -420,54 +238,6 @@
       <workItem from="1703316825195" duration="10067000" />
       <workItem from="1703332651289" duration="3401000" />
       <workItem from="1703337348906" duration="4375000" />
-    </task>
-    <task id="LOCAL-00011" summary="user - all -&gt; entirety 변경">
-      <option name="closed" value="true" />
-      <created>1702291738661</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1702291738661</updated>
-    </task>
-    <task id="LOCAL-00012" summary="weather - 날씨 API (_id 값으로 호출)">
-      <option name="closed" value="true" />
-      <created>1702897483903</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1702897483903</updated>
-    </task>
-    <task id="LOCAL-00013" summary="develop - 날씨 API (위경도 -&gt; 좌표 변환 후 id 값 get해서 API 호출)">
-      <option name="closed" value="true" />
-      <created>1702900502363</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1702900502363</updated>
-    </task>
-    <task id="LOCAL-00014" summary="develop - LatXLanY (어노테이션 제거)">
-      <option name="closed" value="true" />
-      <created>1702901607208</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1702901607208</updated>
-    </task>
-    <task id="LOCAL-00015" summary="develop - 날씨 Id 값으로 호출 (임시)">
-      <option name="closed" value="true" />
-      <created>1702901925332</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1702901925332</updated>
-    </task>
-    <task id="LOCAL-00016" summary="weather - 날씨 API 호출 (위도,경도 -&gt; 역지오코딩)">
-      <option name="closed" value="true" />
-      <created>1702911035340</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1702911035340</updated>
     </task>
     <task id="LOCAL-00017" summary="weather - 날씨 API 호출 (GeoServiceKey .yml에 지정)">
       <option name="closed" value="true" />
@@ -813,7 +583,55 @@
       <option name="project" value="LOCAL" />
       <updated>1703341721127</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="폴더 벗기기">
+      <option name="closed" value="true" />
+      <created>1703342259849</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1703342259849</updated>
+    </task>
+    <task id="LOCAL-00061" summary="UserService - 충돌 해결">
+      <option name="closed" value="true" />
+      <created>1703342913842</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1703342913842</updated>
+    </task>
+    <task id="LOCAL-00062" summary="UserController 주석 삭제">
+      <option name="closed" value="true" />
+      <created>1703343221847</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1703343221847</updated>
+    </task>
+    <task id="LOCAL-00063" summary="gradle.yml - docker compoase 명령어 추가">
+      <option name="closed" value="true" />
+      <created>1703343953771</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1703343953771</updated>
+    </task>
+    <task id="LOCAL-00064" summary="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도">
+      <option name="closed" value="true" />
+      <created>1703344138781</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1703344138781</updated>
+    </task>
+    <task id="LOCAL-00065" summary="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
+      <option name="closed" value="true" />
+      <created>1703344238105</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1703344238105</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -831,12 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docker - actions 파일 수정 - 6" />
-    <MESSAGE value="docker - actions 파일 수정 - 7" />
-    <MESSAGE value="docker - actions 파일 수정 - 8" />
-    <MESSAGE value="docker - test push" />
-    <MESSAGE value="docker - wrapper 명령어 추가" />
-    <MESSAGE value="github-actions.yml 삭제" />
     <MESSAGE value="# Set up Gradle Wrapper 추가" />
     <MESSAGE value="build-root-directory: ./awesomeGroup 명령어 추가" />
     <MESSAGE value="gradlew.bar -&gt; gradlew 으로 변경" />
@@ -856,6 +668,12 @@
     <MESSAGE value="docker - application.yml 파일 port 8080 지정 삭제" />
     <MESSAGE value="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가" />
     <MESSAGE value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
+    <MESSAGE value="폴더 벗기기" />
+    <MESSAGE value="UserService - 충돌 해결" />
+    <MESSAGE value="UserController 주석 삭제" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
+    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
+    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
   </component>
 </project>
