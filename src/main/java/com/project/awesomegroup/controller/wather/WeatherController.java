@@ -1,9 +1,15 @@
 package com.project.awesomegroup.controller.wather;
 
+import com.project.awesomegroup.dto.teammember.response.team.TeamMemberTeamListResponse;
 import com.project.awesomegroup.dto.wather.Region;
 import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
 import com.project.awesomegroup.dto.wather.Weather;
 import com.project.awesomegroup.service.WeatherService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -46,6 +52,8 @@ public class WeatherController {
     @Value("${weatherApi.serviceKey}")
     private String serviceKey;
 
+
+    @Operation(summary = "날씨 정보 조회", description = "위도, 경도에 해당하는 지역의 날씨 정보를 불러옵니다.")
     @GetMapping
     @Transactional
     public ResponseEntity<WeatherResponseDTO> getRegionWeater(@RequestParam("latitude") Double latitude, @RequestParam("longitude") Double longitude){

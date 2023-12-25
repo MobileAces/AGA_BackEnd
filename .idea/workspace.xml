@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user Refactoring &amp; Swagger - UserResponse, UserLoginResponse Swagger Annotation - data - nullable false -&gt; true로 변경">
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user Refactoring &amp; Swagger - userUpdate 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wather/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wather/WeatherController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Docker.Dockerfile">
+  <component name="RunManager" selected="Spring Boot.AwesomeGroupApplication">
     <configuration name="AwesomeGroupApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="awesomeGroup.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.awesomegroup.AwesomeGroupApplication" />
@@ -87,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703398330996</updated>
-      <workItem from="1703398335609" duration="28532000" />
+      <workItem from="1703398335609" duration="37270000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -113,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703425883292</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="user Refactoring &amp; Swagger - userUpdate 수정">
+      <option name="closed" value="true" />
+      <created>1703474824037</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703474824037</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +143,7 @@
     <MESSAGE value="user Refactoring &amp; Swagger" />
     <MESSAGE value="user Refactoring &amp; Swagger - UserResponse data - nullable false -&gt; true로 변경" />
     <MESSAGE value="user Refactoring &amp; Swagger - UserResponse, UserLoginResponse Swagger Annotation - data - nullable false -&gt; true로 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="user Refactoring &amp; Swagger - UserResponse, UserLoginResponse Swagger Annotation - data - nullable false -&gt; true로 변경" />
+    <MESSAGE value="user Refactoring &amp; Swagger - userUpdate 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="user Refactoring &amp; Swagger - userUpdate 수정" />
   </component>
 </project>
