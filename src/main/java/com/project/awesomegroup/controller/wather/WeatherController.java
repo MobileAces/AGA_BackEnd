@@ -1,16 +1,11 @@
 package com.project.awesomegroup.controller.wather;
 
 
-import com.project.awesomegroup.dto.teammember.response.team.TeamMemberTeamListResponse;
-import com.project.awesomegroup.dto.wather.Region;
-import com.project.awesomegroup.dto.wather.WeatherResponseDTO;
-import com.project.awesomegroup.dto.wather.Weather;
+import com.project.awesomegroup.dto.weather.Region;
+import com.project.awesomegroup.dto.weather.Weather;
+import com.project.awesomegroup.dto.weather.WeatherResponseDTO;
 import com.project.awesomegroup.service.WeatherService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
