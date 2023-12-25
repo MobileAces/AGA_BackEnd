@@ -10,6 +10,7 @@ import com.project.awesomegroup.dto.user.response.UserResponseDTO;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,7 @@ public class UserService {
             try { //유저 정보 업데이트
                 if(user.getUserNickname() != null){updateUser.setUserNickname(user.getUserNickname());}
                 if(user.getUserPhone() != null){updateUser.setUserPhone(user.getUserPhone());}
-                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(user.getUserId(), user.getUserNickname(), user.getUserPhone()));
+                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(updateUser.getUserId(), updateUser.getUserNickname(), updateUser.getUserPhone()));
             }catch (PersistenceException e){
                 return UserResponse.userResponseCreate("Fail", 500, null);
             }

@@ -1,7 +1,7 @@
 package com.project.awesomegroup.dto.alarm;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.project.awesomegroup.dto.Team;
+import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import jakarta.persistence.*;
 import lombok.Data;

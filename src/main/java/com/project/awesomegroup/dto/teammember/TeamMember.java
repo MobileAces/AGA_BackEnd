@@ -1,6 +1,6 @@
 package com.project.awesomegroup.dto.teammember;
 
-import com.project.awesomegroup.dto.Team;
+import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.user.User;
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.project.awesomegroup.dto;
+package com.project.awesomegroup.dto.team;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.awesomegroup.dto.alarm.Alarm;
@@ -33,9 +33,6 @@ public class Team {
     private String teamName;
 
     @Column
-    private String teamPurpose;
-
-    @Column
     private String teamInfo;
 
     @Column
@@ -56,11 +53,10 @@ public class Team {
     }
 
     //==생성 메서드==//
-    public static Team createTeam(String teamName, String teamPurpose, String teamInfo, TeamMember teamMember) {
+    public static Team createTeam(String teamName, String teamInfo, TeamMember teamMember) {
         Team team = new Team();
         team.setTeamCreateDate(LocalDateTime.now());
         team.setTeamName(teamName);
-        team.setTeamPurpose(teamPurpose);
         team.setTeamInfo(teamInfo);
         team.setTeamMaster(teamMember.getUser().getUserId());
         team.addTeamMember(teamMember);
