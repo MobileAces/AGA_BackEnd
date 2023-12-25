@@ -93,9 +93,11 @@ public class TeamMemberController {
     @Operation(summary = "팀멤버 수정", description = "특정 팀에 대한 해당 유저의 권한을 수정합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "수정 성공 (message : \"Success\", code : 200)", content = @Content(schema = @Schema(implementation = TeamMemberResponse.class))),
-            @ApiResponse(responseCode = "404", description = "수정 실패 (message : \"User not Found\", code : 404, data : null)", content = @Content),
-            @ApiResponse(responseCode = "404", description = "수정 실패 (message : \"Team not Found\", code : 404, data : null)", content = @Content),
-            @ApiResponse(responseCode = "404", description = "수정 실패 (message : \"User does not exist in the team.\", code : 404, data : null)", content = @Content),
+            @ApiResponse(responseCode = "404", description = "수정 실패 (message : \"User not Found\", code : 404, data : null)\n" +
+                    "\n" +
+                    "수정 실패 (message : \"Team not Found\", code : 404, data : null)\n" +
+                    "\n" +
+                    "수정 실패 (message : \"User does not exist in the team.\", code : 404, data : null)", content = @Content)
     })
     @PutMapping
     public ResponseEntity<TeamMemberResponse> update(@RequestBody TeamMemberRequest request){
@@ -118,9 +120,11 @@ public class TeamMemberController {
     @Operation(summary = "팀 멤버 삭제", description = "팀 아이디와, 유저 아이디로 팀 멤버 정보를 삭제합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")", content = @Content),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"Team not Found\")", content = @Content),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")", content = @Content),
+            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")\n" +
+                    "\n" +
+                    "삭제 실패 (string : \"Team not Found\")\n" +
+                    "\n" +
+                    "삭제 실패 (string : \"User does not exist in the team.\")", content = @Content),
     })
     @DeleteMapping("/{teamId}/{userId}")
     public ResponseEntity<String> delete(@PathVariable Integer teamId, @PathVariable String userId){
