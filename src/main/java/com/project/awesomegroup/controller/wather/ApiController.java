@@ -1,7 +1,6 @@
 package com.project.awesomegroup.controller.wather;
 
-import com.project.awesomegroup.controller.user.UserController;
-import com.project.awesomegroup.dto.wather.Region;
+import com.project.awesomegroup.dto.weather.Region;
 import com.project.awesomegroup.service.ApiService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityManager;

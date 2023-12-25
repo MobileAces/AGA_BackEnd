@@ -1,11 +1,11 @@
-package com.project.awesomegroup.dto.alarmdetail;
+package com.project.awesomegroup.dto.alarmdetail.request;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class AlarmDetailRequest {
+public class AlarmDetailUpdateRequest {
     private Integer alarmDetailId;
 
     private int alarmDetailHour;
@@ -16,12 +16,8 @@ public class AlarmDetailRequest {
 
     private String alarmDetailMemo;
 
-    private String alarmDetailForecast;
+    private boolean alarmDetailForecast;
 
-    private String alarmDetailMemoVoice;
-
-    private Integer alarmId;
-
-    private String userId;
+    private boolean alarmDetailMemoVoice;
 
 }

@@ -1,5 +1,6 @@
 package com.project.awesomegroup.dto.alarmdetail;
 
+import com.project.awesomegroup.dto.alarmdetail.request.AlarmDetailRequest;
 import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import jakarta.persistence.*;
@@ -29,10 +30,10 @@ public class AlarmDetail {
     private String alarmDetailMemo;
 
     @Column
-    private String alarmDetailForecast;
+    private boolean alarmDetailForecast;
 
     @Column
-    private String alarmDetailMemoVoice;
+    private boolean alarmDetailMemoVoice;
 
     @ManyToOne
     @JoinColumn(name = "alarm_id")
@@ -49,8 +50,8 @@ public class AlarmDetail {
                 .alarmDetailMinute(request.getAlarmDetailMinute())
                 .alarmDetailRetime(request.getAlarmDetailRetime())
                 .alarmDetailMemo(request.getAlarmDetailMemo())
-                .alarmDetailForecast(request.getAlarmDetailForecast())
-                .alarmDetailMemoVoice(request.getAlarmDetailMemoVoice())
+                .alarmDetailForecast(request.isAlarmDetailForecast())
+                .alarmDetailMemoVoice(request.isAlarmDetailMemoVoice())
                 .alarm(alarm)
                 .user(user)
                 .build();

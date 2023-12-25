@@ -1,11 +1,12 @@
-package com.project.awesomegroup.dto.alarmdetail;
+package com.project.awesomegroup.dto.alarmdetail.response;
 
+import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class AlarmDetailResponse {
+public class AlarmDetailResponseDTO {
     private Integer alarmDetailId;
 
     private int alarmDetailHour;
@@ -16,27 +17,27 @@ public class AlarmDetailResponse {
 
     private String alarmDetailMemo;
 
-    private String alarmDetailForecast;
+    private boolean alarmDetailForecast;
 
-    private String alarmDetailMemoVoice;
+    private boolean alarmDetailMemoVoice;
 
     private Integer alarmId;
 
     private String userId;
 
     //==생성 메서드==//
-    public static AlarmDetailResponse createAlarmDetailResponse(AlarmDetail alarmDetail) {
-        AlarmDetailResponse alarmDetailResponse = AlarmDetailResponse.builder()
+    public static AlarmDetailResponseDTO createAlarmDetailResponseDTO(AlarmDetail alarmDetail) {
+        AlarmDetailResponseDTO alarmDetailResponseDTO = AlarmDetailResponseDTO.builder()
                 .alarmDetailId(alarmDetail.getAlarmDetailId())
                 .alarmDetailHour(alarmDetail.getAlarmDetailHour())
                 .alarmDetailMinute(alarmDetail.getAlarmDetailMinute())
                 .alarmDetailRetime(alarmDetail.getAlarmDetailRetime())
                 .alarmDetailMemo(alarmDetail.getAlarmDetailMemo())
-                .alarmDetailForecast(alarmDetail.getAlarmDetailForecast())
-                .alarmDetailMemoVoice(alarmDetail.getAlarmDetailMemoVoice())
+                .alarmDetailForecast(alarmDetail.isAlarmDetailForecast())
+                .alarmDetailMemoVoice(alarmDetail.isAlarmDetailMemoVoice())
                 .alarmId(alarmDetail.getAlarm().getAlarmId())
                 .userId(alarmDetail.getUser().getUserId())
                 .build();
-        return alarmDetailResponse;
+        return alarmDetailResponseDTO;
     }
 }

@@ -1,7 +1,7 @@
 package com.project.awesomegroup.service;
 
 import com.project.awesomegroup.controller.user.UserController;
-import com.project.awesomegroup.dto.wather.Region;
+import com.project.awesomegroup.dto.weather.Region;
 import com.project.awesomegroup.repository.ApiReepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
