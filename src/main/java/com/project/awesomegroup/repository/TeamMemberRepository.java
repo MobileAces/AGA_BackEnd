@@ -5,12 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public interface TeamMemberRepository extends JpaRepository<TeamMember, Long> {
+public interface TeamMemberRepository extends JpaRepository<TeamMember, Integer> {
 
     List<TeamMember> findByUser_UserId(String id);
-    List<TeamMember> findByTeam_TeamId(Long id);
-    TeamMember findByTeamTeamIdAndUserUserId(Integer teamId, String userId);
+    List<TeamMember> findByTeam_TeamId(Integer id);
+    Optional<TeamMember> findByTeamTeamIdAndUserUserId(Integer teamId, String userId);
 
 }
