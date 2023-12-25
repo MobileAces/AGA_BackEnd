@@ -78,7 +78,7 @@ public class UserService {
             try { //유저 정보 업데이트
                 if(user.getUserNickname() != null){updateUser.setUserNickname(user.getUserNickname());}
                 if(user.getUserPhone() != null){updateUser.setUserPhone(user.getUserPhone());}
-                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(user.getUserId(), user.getUserNickname(), user.getUserPhone()));
+                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(updateUser.getUserId(), updateUser.getUserNickname(), updateUser.getUserPhone()));
             }catch (PersistenceException e){
                 return UserResponse.userResponseCreate("Fail", 500, null);
             }
