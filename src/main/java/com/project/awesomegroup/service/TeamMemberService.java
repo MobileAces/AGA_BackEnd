@@ -1,15 +1,18 @@
 package com.project.awesomegroup.service;
 
+import com.project.awesomegroup.controller.teammember.TeamMemberController;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.dto.teammember.request.TeamMemberRequest;
 import com.project.awesomegroup.dto.teammember.response.*;
+import com.project.awesomegroup.dto.teammember.response.team.TeamMemberInfo;
 import com.project.awesomegroup.dto.teammember.response.team.TeamMemberTeamListResponse;
-import com.project.awesomegroup.dto.teammember.response.team.TeamMemberTeamResponseDTO;
+import com.project.awesomegroup.dto.teammember.response.team.TeamMemberUserList;
 import com.project.awesomegroup.dto.teammember.response.user.TeamMemberUserListResponse;
 import com.project.awesomegroup.dto.teammember.response.user.TeamMemberUserResponseDTO;
 import com.project.awesomegroup.repository.TeamMemberRepository;
-import jakarta.persistence.PersistenceException;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +22,7 @@ import java.util.*;
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class TeamMemberService {
+    private static final Logger logger = LoggerFactory.getLogger(TeamMemberController.class);
 
     private final TeamMemberRepository teamMemberRepository;
 
@@ -35,19 +39,27 @@ public class TeamMemberService {
         teamMemberRepository.save(newTeamMember);
         return TeamMemberResponse.createTeamMemberResponseDTO("Success", 200, TeamMemberResponseDTO.createTeamMemberResponse(newTeamMember));
     }
-
     public TeamMemberTeamListResponse getTeamMembersByUserId(String id) {
-        List<TeamMemberTeamResponseDTO> findList = new ArrayList<>();
-        teamMemberRepository.findByUser_UserId(id).forEach(e -> {
-            findList.add(TeamMemberTeamResponseDTO.builder()
-                    .teamId(e.getTeam().getTeamId())
-                    .authority(e.getAuthority())
-                    .build());
-        });
-        if(findList.isEmpty()) {
-            return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Not Found", 404, id, null);
+        //유저가 속한 팀 조회 (복수)
+        List<TeamMember> list = teamMemberRepository.findByUser_UserId(id);
+        List<TeamMemberInfo> teamMemberInfos = new ArrayList<>();
+        //각 팀에 대한 유저를 조회해서 팀 정보로 list에 저장한다.
+        list.forEach(e->
+                //각 팀 정보를 List로 저장한다.
+                teamMemberInfos.add(
+                        //팀 정보를 생성한다.
+                        TeamMemberInfo.teamMemberInfoCreate(
+                                //각 팀에 속한 유저 조회 (복수)
+                                teamMemberRepository.findByTeam_TeamId(e.getTeam().getTeamId()
+                                )
+                        )
+                )
+                );
+        if(teamMemberInfos.isEmpty()) {
+            return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Not Found", 404, null);
         }
-        return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Success", 200, id, findList);
+        return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Success", 200, teamMemberInfos);
+
     }
 
     public TeamMemberUserListResponse getTeamMembersByTeamId(Integer id) {
