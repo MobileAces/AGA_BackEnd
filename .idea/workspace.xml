@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="Weather - conflict Error 해결">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/teammember/response/team/TeamMemberInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/teammember/response/team/TeamMemberUserList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" afterDir="false" />
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/teammember/response/team/TeamMemberTeamListResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/teammember/response/team/TeamMemberTeamListResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/teammember/response/team/TeamMemberTeamResponseDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/TeamMemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/TeamMemberService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +112,7 @@
       <workItem from="1703398335609" duration="38636000" />
       <workItem from="1703562913389" duration="120000" />
       <workItem from="1703587772150" duration="56000" />
-      <workItem from="1703602006702" duration="7204000" />
+      <workItem from="1703602006702" duration="8032000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -169,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703516889236</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ">
+      <option name="closed" value="true" />
+      <created>1703609373228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703609373228</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +195,7 @@
     <MESSAGE value="user Refactoring &amp; Swagger - userUpdate 수정" />
     <MESSAGE value="Weather - Swagger" />
     <MESSAGE value="Weather - conflict Error 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="Weather - conflict Error 해결" />
+    <MESSAGE value="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ" />
+    <option name="LAST_COMMIT_MESSAGE" value="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ" />
   </component>
 </project>

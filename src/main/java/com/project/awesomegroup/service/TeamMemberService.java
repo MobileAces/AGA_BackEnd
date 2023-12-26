@@ -49,9 +49,8 @@ public class TeamMemberService {
                 teamMemberInfos.add(
                         //팀 정보를 생성한다.
                         TeamMemberInfo.teamMemberInfoCreate(
-                                //각 팀에 속한 유저 조회 (복수)
-                                teamMemberRepository.findByTeam_TeamId(e.getTeam().getTeamId()
-                                )
+                                //각 팀에 속한 유저 조회 (복수) : 유저리스트 저장함 (반환값이 List임)
+                                teamMemberRepository.findByTeam_TeamId(e.getTeam().getTeamId())
                         )
                 )
                 );
