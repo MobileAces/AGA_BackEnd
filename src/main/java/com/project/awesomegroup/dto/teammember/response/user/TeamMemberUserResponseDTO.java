@@ -8,6 +8,7 @@ import lombok.Data;
 public class TeamMemberUserResponseDTO {
 
     private String userId;
+    private String userNickname;
     private Integer authority;
 
 }

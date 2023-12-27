@@ -66,6 +66,7 @@ public class TeamMemberService {
         teamMemberRepository.findByTeam_TeamId(id).forEach(e -> {
             findList.add(TeamMemberUserResponseDTO.builder()
                             .userId(e.getUser().getUserId())
+                            .userNickname(e.getUser().getUserNickname())
                             .authority(e.getAuthority())
                             .build());
         });
