@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/ApiService.java" afterDir="false" />
-    </list>
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="ubuntu 접속 확인" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +145,7 @@
       <workItem from="1703751236828" duration="147000" />
       <workItem from="1703751396634" duration="25000" />
       <workItem from="1703751432829" duration="1689000" />
-      <workItem from="1703773371082" duration="1553000" />
+      <workItem from="1703773371082" duration="1827000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -222,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703684766764</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ubuntu 접속 확인">
+      <option name="closed" value="true" />
+      <created>1703774962693</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1703774962693</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +255,8 @@
     <MESSAGE value="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ" />
     <MESSAGE value="TeamMember - 주석달기" />
     <MESSAGE value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
-    <option name="LAST_COMMIT_MESSAGE" value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
+    <MESSAGE value="ubuntu 접속 확인" />
+    <option name="LAST_COMMIT_MESSAGE" value="ubuntu 접속 확인" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
