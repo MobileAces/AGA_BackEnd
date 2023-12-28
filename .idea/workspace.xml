@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="TeamMember - 주석달기">
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/ApiService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,31 +52,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7262cbbbf4daf98ddb8d6852ec185d9a&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "android.gradle.sync.needed": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "spring.configuration.checksum": "7262cbbbf4daf98ddb8d6852ec185d9a",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.awesomegroup.dto.teammember.response.team" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AwesomeGroupApplication">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.awesomegroup.test.Main" />
+      <module name="awesomeGroup.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.awesomegroup.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AwesomeGroupApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="awesomeGroup.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.project.awesomegroup.AwesomeGroupApplication" />
@@ -126,6 +142,13 @@
       <workItem from="1703602006702" duration="8479000" />
       <workItem from="1703637545469" duration="85000" />
       <workItem from="1703658563394" duration="3427000" />
+      <workItem from="1703684511989" duration="4175000" />
+      <workItem from="1703729264995" duration="2099000" />
+      <workItem from="1703751139901" duration="73000" />
+      <workItem from="1703751236828" duration="147000" />
+      <workItem from="1703751396634" duration="25000" />
+      <workItem from="1703751432829" duration="1689000" />
+      <workItem from="1703773371082" duration="1553000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -191,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703610057895</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)">
+      <option name="closed" value="true" />
+      <created>1703684766764</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703684766764</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +249,11 @@
     <MESSAGE value="Weather - conflict Error 해결" />
     <MESSAGE value="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ" />
     <MESSAGE value="TeamMember - 주석달기" />
-    <option name="LAST_COMMIT_MESSAGE" value="TeamMember - 주석달기" />
+    <MESSAGE value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
+    <option name="LAST_COMMIT_MESSAGE" value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

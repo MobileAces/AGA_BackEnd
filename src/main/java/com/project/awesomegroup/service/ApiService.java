@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ApiService {
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
     @Autowired
     private ApiReepository apiRepository;
 
