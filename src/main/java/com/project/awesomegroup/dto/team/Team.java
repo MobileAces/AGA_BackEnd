@@ -3,6 +3,7 @@ package com.project.awesomegroup.dto.team;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.teammember.TeamMember;
+import com.project.awesomegroup.dto.wakeup.Wakeup;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,6 +46,10 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Alarm> alarmList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Wakeup> wakeupList = new ArrayList<>();
 
     //==연관관계 편의 메서드==//
     public void addTeamMember(TeamMember teamMember) {

@@ -4,6 +4,7 @@ import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.user.User;
+import com.project.awesomegroup.dto.wakeup.request.WakeupSaveRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -57,4 +58,20 @@ public class Wakeup {
     @ManyToOne
     @JoinColumn(name = "alarm_detail_id")
     private AlarmDetail alarmDetail;
+
+    //생성 메서드
+    public static Wakeup createWakeup (WakeupSaveRequest request, User user, Team team, Alarm alarm, AlarmDetail alarmDetail) {
+        return Wakeup.builder()
+                .success(request.isSuccess())
+                .datetime(request.getDatetime())
+                .wakeupHour(request.getWakeupHour())
+                .wakeupMinute(request.getWakeupMinute())
+                .wakeupForecast(request.isWakeupForecast())
+                .wakeupVoice(request.isWakeupVoice())
+                .user(user)
+                .team(team)
+                .alarm(alarm)
+                .alarmDetail(alarmDetail)
+                .build();
+    }
 }

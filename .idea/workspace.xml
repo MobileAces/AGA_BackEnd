@@ -5,15 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="ubuntu 서버 새로 만든거 CI/CD 테스트">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/Wakeup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/WakeupDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/repository/WakeupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/WakeupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/UserStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/request/UserWakeupRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/request/WakeupSaveRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/request/WakeupStatisticsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupStatisticsResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupStatisticsResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/repository/AlarmDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/repository/AlarmDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/team/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/Wakeup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/Wakeup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/WakeupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/WakeupService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +87,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.project.awesomegroup.dto.wakeup.response" />
       <recent name="com.project.awesomegroup.dto.teammember.response.team" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.project.awesomegroup.dto.wakeup.response" />
+      <recent name="com.project.awesomegroup.dto.wakeup.request" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -124,7 +133,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="AwesomeGroupApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -187,6 +196,7 @@
       <workItem from="1703773371082" duration="1827000" />
       <workItem from="1703779069104" duration="726000" />
       <workItem from="1703816500790" duration="4524000" />
+      <workItem from="1703842394059" duration="18562000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
