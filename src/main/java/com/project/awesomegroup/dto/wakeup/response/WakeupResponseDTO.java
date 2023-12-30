@@ -1,5 +1,6 @@
 package com.project.awesomegroup.dto.wakeup.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.awesomegroup.dto.wakeup.Wakeup;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ public class WakeupResponseDTO {
 
     private boolean success;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
     private Date datetime;
 
     private Integer wakeupHour;

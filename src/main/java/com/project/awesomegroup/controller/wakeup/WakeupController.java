@@ -8,6 +8,7 @@ import com.project.awesomegroup.dto.wakeup.response.WakeupStatisticsResponse;
 import com.project.awesomegroup.dto.wakeup.response.WakeupStatusResponse;
 import com.project.awesomegroup.service.WakeupService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -15,6 +16,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,6 +73,8 @@ public class WakeupController {
                     "\n" +
                     "조회 실패 (message : \"Wakeup not Found\", code : 404, data : null)", content = @Content)
     })
+
+
     @GetMapping("/status")
     public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(@RequestParam Integer teamId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
         WakeupStatusResponse response = wakeupService.getWakeupStatusByTeamAndDate(teamId, date);

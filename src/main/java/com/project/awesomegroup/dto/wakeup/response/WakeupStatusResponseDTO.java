@@ -1,6 +1,8 @@
 package com.project.awesomegroup.dto.wakeup.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.awesomegroup.dto.wakeup.Wakeup;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,6 +16,8 @@ public class WakeupStatusResponseDTO {
 
     private boolean success;
 
+    @Schema(description = "기상 설정 날짜", nullable = false, example = "2023-12-01'T'HH:mm", type = "string")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date datetime;
 
     private Integer wakeupHour;
