@@ -1,11 +1,9 @@
 package com.project.awesomegroup.dto.wakeup.response;
 
 import com.project.awesomegroup.dto.user.UserStatistics;
-import com.project.awesomegroup.dto.wakeup.Wakeup;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
 import java.util.List;
 
 @Data

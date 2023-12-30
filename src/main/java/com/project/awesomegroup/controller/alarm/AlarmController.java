@@ -31,9 +31,6 @@ public class AlarmController {
     @Autowired
     private AlarmService alarmService;
 
-    @Autowired
-    private TeamService teamService;
-
     @Operation(summary = "팀의 알람 조회", description = "teamId에 해당하는 알람들을 조회합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "조회 성공 (message : \"Alarm Found\", code : 200)", content = @Content(schema = @Schema(implementation = AlarmListResponse.class))),

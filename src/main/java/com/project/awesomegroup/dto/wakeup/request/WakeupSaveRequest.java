@@ -22,6 +22,8 @@ public class WakeupSaveRequest {
 
     private Integer wakeupMinute;
 
+    private String wakeupMemo;
+
     private boolean wakeupForecast;
 
     private boolean wakeupVoice;

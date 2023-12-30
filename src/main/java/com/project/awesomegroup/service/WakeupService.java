@@ -9,10 +9,7 @@ import com.project.awesomegroup.dto.user.UserStatistics;
 import com.project.awesomegroup.dto.wakeup.Wakeup;
 import com.project.awesomegroup.dto.wakeup.WakeupDTO;
 import com.project.awesomegroup.dto.wakeup.request.WakeupSaveRequest;
-import com.project.awesomegroup.dto.wakeup.response.WakeupResponse;
-import com.project.awesomegroup.dto.wakeup.response.WakeupResponseDTO;
-import com.project.awesomegroup.dto.wakeup.response.WakeupStatisticsResponse;
-import com.project.awesomegroup.dto.wakeup.response.WakeupStatisticsResponseDTO;
+import com.project.awesomegroup.dto.wakeup.response.*;
 import com.project.awesomegroup.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateUtils;
@@ -93,19 +90,56 @@ public class WakeupService {
         }
     }
 
-    public List<WakeupDTO> getWakeupStatusByTeamAndDate(Integer teamId, Date date) {
+    public WakeupStatusResponse getWakeupStatusByTeamAndDate(Integer teamId, Date date) {
         // 날짜를 기준으로 (하루) 조회
         Date startDate = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
         Date endDate = DateUtils.addDays(startDate, 1);
 
+        // 팀 조회
+        Optional<Team> team = teamRepository.findById(teamId);
+        if(!team.isPresent()) {
+            //팀을 찾지 못했을 때 (code = 404)
+            return WakeupStatusResponse.createWakeupStatusResponse("Team not Found", 404, null);
+        }
+
+        // 팀알람 조회
+        List<Alarm> alarmList = alarmRepository.findByTeamTeamId(teamId);
+        if(alarmList.isEmpty()) {
+            //팀알람을 찾지 못했을 때 (code = 404)
+            return WakeupStatusResponse.createWakeupStatusResponse("Alarm not Found", 404, null);
+        }
+        // 팀알람 등록
+        Map<Integer, ArrayList<WakeupStatusResponseDTO>> resultMap = new HashMap<>();
+        for(Alarm alarm : alarmList) {
+            resultMap.put(alarm.getAlarmId(), new ArrayList<>());
+        }
+
         // 해당 팀에 속한 멤버들의 wakeup 상태를 반환
         List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
+        if(wakeupList.isEmpty()) {
+            //상태가 존재하지 않을 때 (code = 404)
+            return WakeupStatusResponse.createWakeupStatusResponse("Wakeup not Found", 404, null);
+        }
 
-        // 엔터티를 DTO로 변환
-        return wakeupList.stream()
-                .map(WakeupDTO::fromEntity)
-                .collect(Collectors.toList());
+        //WakeupStatusResponseDTO 리스트 생성
+        List<WakeupStatusAlarmInfo> statusList = new ArrayList<>();
+        //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
+        for(Wakeup wakeup : wakeupList) {
+            resultMap.get(wakeup.getAlarm().getAlarmId())
+                    .add(WakeupStatusResponseDTO.createWakeupStatusResponseDTO(wakeup));
+        }
+
+        //WakeupStatusAlarmInfo 리스트 생성
+        List<WakeupStatusAlarmInfo> alrmInfoList = new ArrayList<>();
+        //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
+        for(Alarm alarm : alarmList) {
+            alrmInfoList.add(WakeupStatusAlarmInfo.createWakeupStatusResponseDTO(alarm.getAlarmId(), alarm.getAlarmName(), resultMap.get(alarm.getAlarmId())));
+        }
+
+        //response 생성
+        return WakeupStatusResponse.createWakeupStatusResponse("Success", 200, alrmInfoList);
     }
+
 
     public ResponseEntity<WakeupStatisticsResponse> getWakeupStatisticsByTeamAndDateRange(List<String> nicknames, Integer teamId, Date startDate, Date endDate) {
         logger.info("startDate: " + startDate + ", endDate: " + endDate);
@@ -114,7 +148,7 @@ public class WakeupService {
         Optional<Team> team = teamRepository.findById(teamId);
         if(!team.isPresent()) {
             //팀을 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(WakeupStatisticsResponse.createWakeupResponse("Team not Found", 404, null));
         }
         //유저 조회
         List<User> userList = new ArrayList<>();
@@ -122,7 +156,7 @@ public class WakeupService {
             Optional<User> user = userRepository.findByUserNickname(nickname);
             if(!user.isPresent()) {
                 //유저를 찾지 못했을 때 (code = 404)
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(WakeupStatisticsResponse.createWakeupResponse("User not Found", 404, null));
             }
         }
         //팀에 속한 유저에 대한 유효성 검사를 해주면 좋음

@@ -38,6 +38,9 @@ public class Wakeup {
     private Integer wakeupMinute;
 
     @Column
+    private String wakeupMemo;
+
+    @Column
     private boolean wakeupForecast;
 
     @Column
@@ -66,6 +69,7 @@ public class Wakeup {
                 .datetime(request.getDatetime())
                 .wakeupHour(request.getWakeupHour())
                 .wakeupMinute(request.getWakeupMinute())
+                .wakeupMemo(request.getWakeupMemo())
                 .wakeupForecast(request.isWakeupForecast())
                 .wakeupVoice(request.isWakeupVoice())
                 .user(user)
