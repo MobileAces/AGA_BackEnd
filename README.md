@@ -4,11 +4,11 @@
 
 ## 😎 Member 😎
 
-| 오하빈                                            | 최재성                                            |
-|------------------------------------------------|------------------------------------------------|
-| <img src="img_2.png" width="450" height="300"> | <img src="img_1.png" width="450" height="300"> |
-| 담당 기능                                          | 담당 기능                                               |
-| User, Weather, CI/CD                           | Team, Alarm, Alarm Detail                      |
+| 오하빈                                                  | 최재성                                            |
+|------------------------------------------------------|------------------------------------------------|
+| <img src="image/img_2.png" width="450" height="300"> | <img src="image/img_1.png" width="450" height="300"> |
+| 담당 기능                                                | 담당 기능                                               |
+| User, Weather, CI/CD                                 | Team, Alarm, Alarm Detail                      |
 
 | 공통 개발                                       |
 |------------------------------------------------|
@@ -22,9 +22,9 @@
 ---
 
 ## 🦾 기술 스택 🦾
-|<img src="img_9.png" width="50" height="80">|<img src="img_3.png" width="80" height="80">|<img src="img_4.png" width="80" height="80">|<img src="img_11.png" width="80" height="80">|
+|<img src="image/img_9.png" width="50" height="80">|<img src="image/img_3.png" width="80" height="80">|<img src="image/img_4.png" width="80" height="80">|<img src="image/img_11.png" width="80" height="80">|
 |---|--|-|-|
-|<img src="img_5.png" width="80" height="80">|<img src="img_6.png" width="80" height="80">|<img src="img_7.png" width="80" height="80">|<img src="img_8.png" width="100" height="80">|
+|<img src="image/img_5.png" width="80" height="80">|<img src="image/img_6.png" width="80" height="80">|<img src="image/img_7.png" width="80" height="80">|<img src="image/img_8.png" width="100" height="80">|
 
 ---
 
