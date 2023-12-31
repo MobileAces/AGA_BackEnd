@@ -44,50 +44,50 @@
 
 ## 📃 DB 설계 📃
 
-![img_12.png](img_12.png)
+![img_12.png](image/img_12.png)
 
 ---
 
 ## 🚗 Back-End 동작 흐름 🚗
 
-![img_14.png](img_14.png)
+![img_14.png](image/img_14.png)
 
 ---
 
 ## 🚗 Back-End 내부 동작 흐름 🚗
 
-![img_17.png](img_17.png)
+![img_17.png](image/img_17.png)
 
 ---
 
 ## 🚗 Back-End 배포 동작 과정 🚗
 
-![img_15.png](img_15.png)
+![img_15.png](image/img_15.png)
 
 ---
 
 ## ✨기능✨
 
 ### 1. User
-![img_20.png](img_20.png)
+![img_20.png](image/img_20.png)
 
 ### 2. Team
-![img_21.png](img_21.png)
+![img_21.png](image/img_21.png)
 
 ### 3. Team Member
-![img_22.png](img_22.png)
+![img_22.png](image/img_22.png)
 
 ### 4. Alarm
-![img_23.png](img_23.png)
+![img_23.png](image/img_23.png)
 
 ### 5. Alarm Detail
-![img_24.png](img_24.png)
+![img_24.png](image/img_24.png)
 
 ### 6. Wakeup
-![img_25.png](img_25.png)
+![img_25.png](image/img_25.png)
 
 ### 7. Weather
-![img_26.png](img_26.png)
+![img_26.png](image/img_26.png)
 
 ---
 
