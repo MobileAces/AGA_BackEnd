@@ -1,8 +1,8 @@
 package com.project.awesomegroup.controller.wather;
 
-import com.project.awesomegroup.controller.user.UserController;
-import com.project.awesomegroup.dto.wather.Region;
+import com.project.awesomegroup.dto.weather.Region;
 import com.project.awesomegroup.service.ApiService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -42,6 +42,7 @@ public class ApiController  {
         this.em = em;
     }
 
+    @Operation(summary = "Region(날씨정보) DB 생성", description = "건들지 마세요.")
     @PostMapping
     @Transactional
     public ResponseEntity<String> restRegionList(){

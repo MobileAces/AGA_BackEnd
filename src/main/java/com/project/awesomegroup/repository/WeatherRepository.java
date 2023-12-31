@@ -1,6 +1,6 @@
 package com.project.awesomegroup.repository;
 
-import com.project.awesomegroup.dto.wather.Region;
+import com.project.awesomegroup.dto.weather.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

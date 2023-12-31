@@ -1,4 +1,4 @@
-package com.project.awesomegroup.dto.wather;
+package com.project.awesomegroup.dto.weather;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

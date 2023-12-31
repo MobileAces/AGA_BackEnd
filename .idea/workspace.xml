@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="wakeup - 임시 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/request/WakeupSaveRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/request/WakeupSaveRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupStatusResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/wakeup/response/WakeupStatusResponseDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,42 +39,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
-        <option value="Dockerfile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="be_user_2" />
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;HABINOH&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="0b765474-0297-4556-a725-c8204da6b3bb" />
-        <option name="url" value="https://github.com/MobileAces/AGA_BackEnd.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2Z9i07j2uUuGzUKsvVGafM5Fcfv" />
+  <component name="ProjectId" id="2Zydbzz7IJzszBmzG9RF8WpLTmh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,59 +65,46 @@
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dhdud/OneDrive/바탕 화면/aga_project/AGA_BackEnd/awesomeGroup&quot;,
+    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;7262cbbbf4daf98ddb8d6852ec185d9a&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\awesomeGroup" />
-      <recent name="C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\awesomeGroup\src\main\java\com\project\awesomegroup\config" />
-      <recent name="C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\awesomeGroup\src\storage\init" />
-      <recent name="C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\awesomeGroup\src\main\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.project.awesomegroup.dto.teammember.response.team" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="gradle :bootJar" />
-      <command value="gradle bootJar" />
-      <command value="gradle build" />
+      <command value="gradle clean" />
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.AwesomeGroupApplication">
-    <configuration name="awesomeGroup [:bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":bootJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.awesomegroup.test.Main" />
+      <module name="awesomeGroup.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.awesomegroup.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="awesomeGroup [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AGA_BackEnd [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -144,29 +115,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="bootJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="awesomeGroup [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -199,439 +148,135 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="src/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
-          <option name="sourceFilePath" value="src/Dockerfile" />
+          <option name="sourceFilePath" value="Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AGA_BackEnd [clean]" />
         <item itemvalue="Docker.Dockerfile" />
-        <item itemvalue="Docker.src/Dockerfile" />
-        <item itemvalue="Gradle.awesomeGroup [build]" />
-        <item itemvalue="Gradle.awesomeGroup [:bootJar]" />
-        <item itemvalue="Gradle.awesomeGroup [bootJar]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b097305c-f91d-4343-b486-ed82f6071ed0" name="Changes" comment="" />
-      <created>1701840469933</created>
+      <changelist id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="" />
+      <created>1703398330996</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701840469933</updated>
-      <workItem from="1701840470940" duration="6590000" />
-      <workItem from="1701931817835" duration="4108000" />
-      <workItem from="1702021718798" duration="2680000" />
-      <workItem from="1702253120281" duration="22906000" />
-      <workItem from="1702375367597" duration="5467000" />
-      <workItem from="1702705737275" duration="7787000" />
-      <workItem from="1702893866630" duration="15933000" />
-      <workItem from="1702946608147" duration="9336000" />
-      <workItem from="1702961218579" duration="16764000" />
-      <workItem from="1703140368997" duration="18892000" />
-      <workItem from="1703316825195" duration="10067000" />
-      <workItem from="1703332651289" duration="3401000" />
-      <workItem from="1703337348906" duration="4375000" />
+      <updated>1703398330996</updated>
+      <workItem from="1703398335609" duration="38636000" />
+      <workItem from="1703562913389" duration="120000" />
+      <workItem from="1703587772150" duration="56000" />
+      <workItem from="1703602006702" duration="8479000" />
+      <workItem from="1703637545469" duration="85000" />
+      <workItem from="1703658563394" duration="3427000" />
+      <workItem from="1703684511989" duration="4175000" />
+      <workItem from="1703729264995" duration="2099000" />
+      <workItem from="1703751139901" duration="73000" />
+      <workItem from="1703751236828" duration="147000" />
+      <workItem from="1703751396634" duration="25000" />
+      <workItem from="1703751432829" duration="1689000" />
+      <workItem from="1703773371082" duration="1827000" />
+      <workItem from="1703779069104" duration="726000" />
+      <workItem from="1703816500790" duration="4524000" />
+      <workItem from="1703933454523" duration="3369000" />
     </task>
-    <task id="LOCAL-00017" summary="weather - 날씨 API 호출 (GeoServiceKey .yml에 지정)">
+    <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
-      <created>1702948350798</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+      <created>1703419234453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1702948350798</updated>
+      <updated>1703419234453</updated>
     </task>
-    <task id="LOCAL-00018" summary="Team, TeamMember -&gt; PK 타입 Long에서 Integer로 변경">
+    <task id="LOCAL-00002" summary="user Refactoring &amp; Swagger">
       <option name="closed" value="true" />
-      <created>1702950260192</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+      <created>1703424762186</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1702950260192</updated>
+      <updated>1703424762186</updated>
     </task>
-    <task id="LOCAL-00019" summary="user - Login 추가, Join 암호화 (config, spring security 추가)">
+    <task id="LOCAL-00003" summary="user Refactoring &amp; Swagger - UserResponse, UserLoginResponse Swagger Annotation - data - nullable false -&gt; true로 변경">
       <option name="closed" value="true" />
-      <created>1702963159839</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+      <created>1703425883292</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1702963159839</updated>
+      <updated>1703425883292</updated>
     </task>
-    <task id="LOCAL-00020" summary="user - User DTO (id,pw,nickname, phone만 남김), Nickname Duplicate 추가">
+    <task id="LOCAL-00004" summary="user Refactoring &amp; Swagger - userUpdate 수정">
       <option name="closed" value="true" />
-      <created>1702991131564</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+      <created>1703474824037</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1702991131564</updated>
+      <updated>1703474824037</updated>
     </task>
-    <task id="LOCAL-00021" summary="CI / CD -&gt; push, pull 수동 (자동화 전)">
+    <task id="LOCAL-00005" summary="Weather - Swagger">
       <option name="closed" value="true" />
-      <created>1703234741212</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+      <created>1703512621225</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1703234741212</updated>
+      <updated>1703512621225</updated>
     </task>
-    <task id="LOCAL-00022" summary="user -- 회원가입, 로그인 오타 수정">
+    <task id="LOCAL-00006" summary="Weather - conflict Error 해결">
       <option name="closed" value="true" />
-      <created>1703260736164</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+      <created>1703516889236</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1703260736164</updated>
+      <updated>1703516889236</updated>
     </task>
-    <task id="LOCAL-00023" summary="weather - TimeZome (Asia/Seoul)로 변경">
+    <task id="LOCAL-00007" summary="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ">
       <option name="closed" value="true" />
-      <created>1703263522326</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+      <created>1703609373228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1703263522326</updated>
+      <updated>1703609373228</updated>
     </task>
-    <task id="LOCAL-00024" summary="user - ID duplicate 추가">
+    <task id="LOCAL-00008" summary="TeamMember - 주석달기">
       <option name="closed" value="true" />
-      <created>1703315846333</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+      <created>1703610057895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1703315846333</updated>
+      <updated>1703610057895</updated>
     </task>
-    <task id="LOCAL-00025" summary="docker - test용 주석 푸시">
+    <task id="LOCAL-00009" summary="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)">
       <option name="closed" value="true" />
-      <created>1703317534209</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+      <created>1703684766764</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1703317534209</updated>
+      <updated>1703684766764</updated>
     </task>
-    <task id="LOCAL-00026" summary="docker - gitActions 파일 경로 이동">
+    <task id="LOCAL-00010" summary="ubuntu 접속 확인">
       <option name="closed" value="true" />
-      <created>1703317838302</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+      <created>1703774962693</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1703317838302</updated>
+      <updated>1703774962693</updated>
     </task>
-    <task id="LOCAL-00027" summary="docker - 테스트 용 주석 한번 더">
+    <task id="LOCAL-00011" summary="ubuntu 서버 새로 만든거 CI/CD 테스트">
       <option name="closed" value="true" />
-      <created>1703318052606</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+      <created>1703779194032</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1703318052606</updated>
+      <updated>1703779194032</updated>
     </task>
-    <task id="LOCAL-00028" summary="docker - 테스트 용 주석 한번 더 2">
-      <option name="closed" value="true" />
-      <created>1703318245757</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1703318245757</updated>
-    </task>
-    <task id="LOCAL-00029" summary="docker - 테스트 용 주석 한번 더 3">
-      <option name="closed" value="true" />
-      <created>1703318343318</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1703318343318</updated>
-    </task>
-    <task id="LOCAL-00030" summary="docker - actions 파일 수정">
-      <option name="closed" value="true" />
-      <created>1703321956716</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1703321956716</updated>
-    </task>
-    <task id="LOCAL-00031" summary="docker - actions 파일 수정 - 2">
-      <option name="closed" value="true" />
-      <created>1703322290700</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1703322290700</updated>
-    </task>
-    <task id="LOCAL-00032" summary="docker - actions 파일 수정 - 3">
-      <option name="closed" value="true" />
-      <created>1703322983553</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1703322983553</updated>
-    </task>
-    <task id="LOCAL-00033" summary="docker - actions 파일 수정 - 4">
-      <option name="closed" value="true" />
-      <created>1703323513875</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1703323513875</updated>
-    </task>
-    <task id="LOCAL-00034" summary="docker - actions 파일 수정 - 5">
-      <option name="closed" value="true" />
-      <created>1703323822980</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1703323822980</updated>
-    </task>
-    <task id="LOCAL-00035" summary="docker - actions 파일 수정 - 6">
-      <option name="closed" value="true" />
-      <created>1703324034517</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1703324034517</updated>
-    </task>
-    <task id="LOCAL-00036" summary="docker - actions 파일 수정 - 7">
-      <option name="closed" value="true" />
-      <created>1703324100900</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1703324100900</updated>
-    </task>
-    <task id="LOCAL-00037" summary="docker - test push">
-      <option name="closed" value="true" />
-      <created>1703328005194</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1703328005194</updated>
-    </task>
-    <task id="LOCAL-00038" summary="docker - wrapper 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703329737132</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1703329737132</updated>
-    </task>
-    <task id="LOCAL-00039" summary="docker - wrapper 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703329853499</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1703329853499</updated>
-    </task>
-    <task id="LOCAL-00040" summary="github-actions.yml 삭제">
-      <option name="closed" value="true" />
-      <created>1703330341887</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1703330341887</updated>
-    </task>
-    <task id="LOCAL-00041" summary="# Set up Gradle Wrapper 추가">
-      <option name="closed" value="true" />
-      <created>1703330679996</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1703330679996</updated>
-    </task>
-    <task id="LOCAL-00042" summary="build-root-directory: ./awesomeGroup 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703330905570</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1703330905570</updated>
-    </task>
-    <task id="LOCAL-00043" summary="gradlew.bar -&gt; gradlew 으로 변경">
-      <option name="closed" value="true" />
-      <created>1703331064697</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1703331064697</updated>
-    </task>
-    <task id="LOCAL-00044" summary="gradle init, build 수정">
-      <option name="closed" value="true" />
-      <created>1703331782298</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1703331782298</updated>
-    </task>
-    <task id="LOCAL-00045" summary="폴더 하나 제거">
-      <option name="closed" value="true" />
-      <created>1703332747159</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1703332747159</updated>
-    </task>
-    <task id="LOCAL-00046" summary="    # gradle wrapper 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703333836285</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1703333836285</updated>
-    </task>
-    <task id="LOCAL-00047" summary="다시 처음 ./gradlew build -x test 이것만 실행하기">
-      <option name="closed" value="true" />
-      <created>1703333939745</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1703333939745</updated>
-    </task>
-    <task id="LOCAL-00048" summary="gradle init 다시 추가">
-      <option name="closed" value="true" />
-      <created>1703334682432</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1703334682432</updated>
-    </task>
-    <task id="LOCAL-00049" summary="init, build 내용 추가">
-      <option name="closed" value="true" />
-      <created>1703335185631</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1703335185631</updated>
-    </task>
-    <task id="LOCAL-00050" summary="ㅅㅂ">
-      <option name="closed" value="true" />
-      <created>1703335655148</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1703335655149</updated>
-    </task>
-    <task id="LOCAL-00051" summary="plz">
-      <option name="closed" value="true" />
-      <created>1703335804856</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1703335804856</updated>
-    </task>
-    <task id="LOCAL-00052" summary="plz2">
-      <option name="closed" value="true" />
-      <created>1703336057844</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1703336057844</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Docker file 추가">
-      <option name="closed" value="true" />
-      <created>1703337439060</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1703337439060</updated>
-    </task>
-    <task id="LOCAL-00054" summary="docker pull /agaproject 로 변경">
-      <option name="closed" value="true" />
-      <created>1703337760706</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1703337760706</updated>
-    </task>
-    <task id="LOCAL-00055" summary="docker - ## deploy to production -&gt; password, port 추가">
-      <option name="closed" value="true" />
-      <created>1703339410894</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1703339410894</updated>
-    </task>
-    <task id="LOCAL-00056" summary="docker - port, password 원상태 복귀(main)">
-      <option name="closed" value="true" />
-      <created>1703340339390</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1703340339390</updated>
-    </task>
-    <task id="LOCAL-00057" summary="docker - application.yml 파일 port 8080 지정 삭제">
-      <option name="closed" value="true" />
-      <created>1703341188303</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1703341188303</updated>
-    </task>
-    <task id="LOCAL-00058" summary="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703341481775</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1703341481775</updated>
-    </task>
-    <task id="LOCAL-00059" summary="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정">
-      <option name="closed" value="true" />
-      <created>1703341721127</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1703341721127</updated>
-    </task>
-    <task id="LOCAL-00060" summary="폴더 벗기기">
-      <option name="closed" value="true" />
-      <created>1703342259849</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1703342259849</updated>
-    </task>
-    <task id="LOCAL-00061" summary="UserService - 충돌 해결">
-      <option name="closed" value="true" />
-      <created>1703342913842</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1703342913842</updated>
-    </task>
-    <task id="LOCAL-00062" summary="UserController 주석 삭제">
-      <option name="closed" value="true" />
-      <created>1703343221847</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1703343221847</updated>
-    </task>
-    <task id="LOCAL-00063" summary="gradle.yml - docker compoase 명령어 추가">
-      <option name="closed" value="true" />
-      <created>1703343953771</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1703343953771</updated>
-    </task>
-    <task id="LOCAL-00064" summary="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도">
-      <option name="closed" value="true" />
-      <created>1703344138781</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1703344138781</updated>
-    </task>
-    <task id="LOCAL-00065" summary="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도">
-      <option name="closed" value="true" />
-      <created>1703344238105</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1703344238105</updated>
-    </task>
-    <option name="localTasksCounter" value="66" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,31 +294,22 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="# Set up Gradle Wrapper 추가" />
-    <MESSAGE value="build-root-directory: ./awesomeGroup 명령어 추가" />
-    <MESSAGE value="gradlew.bar -&gt; gradlew 으로 변경" />
-    <MESSAGE value="gradle init, build 수정" />
-    <MESSAGE value="폴더 하나 제거" />
-    <MESSAGE value="    # gradle wrapper 명령어 추가" />
-    <MESSAGE value="다시 처음 ./gradlew build -x test 이것만 실행하기" />
-    <MESSAGE value="gradle init 다시 추가" />
-    <MESSAGE value="init, build 내용 추가" />
-    <MESSAGE value="ㅅㅂ" />
-    <MESSAGE value="plz" />
-    <MESSAGE value="plz2" />
-    <MESSAGE value="Docker file 추가" />
-    <MESSAGE value="docker pull /agaproject 로 변경" />
-    <MESSAGE value="docker - ## deploy to production -&gt; password, port 추가" />
-    <MESSAGE value="docker - port, password 원상태 복귀(main)" />
-    <MESSAGE value="docker - application.yml 파일 port 8080 지정 삭제" />
-    <MESSAGE value="docker - gradle.yml deploy docker 실행 중인거 삭제하고(rm) 다시 내려받고 실행시키는 명령어 추가" />
-    <MESSAGE value="docker - gradle.yml deploy run 명령어 포트 번호 8080 고정" />
-    <MESSAGE value="폴더 벗기기" />
-    <MESSAGE value="UserService - 충돌 해결" />
-    <MESSAGE value="UserController 주석 삭제" />
-    <MESSAGE value="gradle.yml - docker compoase 명령어 추가" />
-    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 한번 더 시도" />
-    <MESSAGE value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
-    <option name="LAST_COMMIT_MESSAGE" value="gradle.yml - docker compoase 명령어 추가 - 두번 더 시도" />
+    <MESSAGE value="user Refactoring" />
+    <MESSAGE value="user Refactoring &amp; Swagger" />
+    <MESSAGE value="user Refactoring &amp; Swagger - UserResponse data - nullable false -&gt; true로 변경" />
+    <MESSAGE value="user Refactoring &amp; Swagger - UserResponse, UserLoginResponse Swagger Annotation - data - nullable false -&gt; true로 변경" />
+    <MESSAGE value="user Refactoring &amp; Swagger - userUpdate 수정" />
+    <MESSAGE value="Weather - Swagger" />
+    <MESSAGE value="Weather - conflict Error 해결" />
+    <MESSAGE value="TeamMember - 유저가 속한 팀 조회 홍유준이 원하는대로 변경ㅋㅋ" />
+    <MESSAGE value="TeamMember - 주석달기" />
+    <MESSAGE value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
+    <MESSAGE value="ubuntu 접속 확인" />
+    <MESSAGE value="ubuntu 서버 새로 만든거 CI/CD 테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="ubuntu 서버 새로 만든거 CI/CD 테스트" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

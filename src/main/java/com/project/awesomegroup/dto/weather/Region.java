@@ -1,4 +1,4 @@
-package com.project.awesomegroup.dto.wather;
+package com.project.awesomegroup.dto.weather;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
