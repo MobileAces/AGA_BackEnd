@@ -69,7 +69,7 @@
 
 ## 🚗 Back-End 내부 동작 흐름 🚗
 
-![img_27.png](image/img_17.png)
+![img_27.png](image/img_27.png)
 
 ---
 
