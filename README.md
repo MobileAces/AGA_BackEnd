@@ -82,7 +82,7 @@
 ## ✨기능✨
 
 ### 1. User
-![img_20.png](image/img_20.png)
+![img_13.png](image/img_13.png)
 
 ### 2. Team
 ![img_21.png](image/img_21.png)

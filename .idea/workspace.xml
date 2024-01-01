@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user, team - update 수정 (PUT)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user - password 변경 수정 (PUT-&gt;POST)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,7 +192,7 @@
       <workItem from="1704015961918" duration="223000" />
       <workItem from="1704096189182" duration="15000" />
       <workItem from="1704096220028" duration="6126000" />
-      <workItem from="1704128230187" duration="1960000" />
+      <workItem from="1704128230187" duration="2266000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -399,7 +394,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704101693000</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="user - password 변경 수정 (PUT-&gt;POST)">
+      <option name="closed" value="true" />
+      <created>1704130289893</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130289893</updated>
+    </task>
+    <task id="LOCAL-00027" summary="user - password 변경 수정 (PUT-&gt;POST)">
+      <option name="closed" value="true" />
+      <created>1704130428932</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130428932</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +443,8 @@
     <MESSAGE value="application.yml 파일 생성" />
     <MESSAGE value="readme 수정" />
     <MESSAGE value="user, team - update 수정 (PUT)" />
-    <option name="LAST_COMMIT_MESSAGE" value="user, team - update 수정 (PUT)" />
+    <MESSAGE value="user - password 변경 수정 (PUT-&gt;POST)" />
+    <option name="LAST_COMMIT_MESSAGE" value="user - password 변경 수정 (PUT-&gt;POST)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
