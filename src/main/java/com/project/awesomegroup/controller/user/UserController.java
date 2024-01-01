@@ -125,9 +125,9 @@ public class UserController {
     @Operation(summary = "유저 비밀번호 변경", description = "유저 PW를 변경합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "PW 변경 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\")" +
+            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\")\n" +
                     "\n" +
-                    "PW 변경 실패 (string : \"Password no Match\")" +
+                    "PW 변경 실패 (string : \"Password no Match\")\n" +
                     "\n" +
                     "Pw 변경 실패 (string : \"User ID, previous password, and new password are required\")", content = @Content),
             @ApiResponse(responseCode = "404", description = "PW 변경 실패 (string : \"User not Found\")", content = @Content),
