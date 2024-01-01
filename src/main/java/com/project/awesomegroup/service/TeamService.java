@@ -15,6 +15,7 @@ import com.project.awesomegroup.repository.TeamRepository;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,21 +68,40 @@ public class TeamService {
     //Update
     @Transactional
     public TeamUpdateResponse update(TeamUpdateRequest request) {
-
-        Team findTeam = entityManager.find(Team.class, request.getTeamId());
-        if(findTeam != null){
-            try { //유저 정보 업데이트
-                if(request.getTeamName() != null){findTeam.setTeamName(request.getTeamName());}
-                if(request.getTeamInfo() != null){findTeam.setTeamInfo(request.getTeamInfo());}
-                if(request.getTeamMaster() != null){findTeam.setTeamMaster(request.getTeamMaster());}
-                return TeamUpdateResponse.createTeamUpdateResponse("Success", 200, new TeamUpdateResponseDTO(findTeam.getTeamId(), findTeam.getTeamName(), findTeam.getTeamInfo(), findTeam.getTeamMaster()));
+        Optional<Team> checkTeam = teamRepository.findById(request.getTeamId());
+        if(checkTeam.isPresent()){
+            String teamName = checkTeam.get().getTeamName();
+            String teamInfo = checkTeam.get().getTeamInfo();
+            String teamMaster = checkTeam.get().getTeamMaster();
+            try{
+                if(request.getTeamName() != null){
+                    teamName = request.getTeamName();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamName = :newName WHERE u.teamId = :teamId");
+                    query.setParameter("newName", request.getTeamName());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                if(request.getTeamInfo() != null){
+                    teamInfo = request.getTeamInfo();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamInfo = :newInfo WHERE u.teamId = :teamId");
+                    query.setParameter("newInfo", request.getTeamInfo());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                if(request.getTeamName() != null){
+                    teamMaster = request.getTeamMaster();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamMaster = :newMaster WHERE u.teamId = :teamId");
+                    query.setParameter("newMaster", request.getTeamMaster());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                return TeamUpdateResponse.createTeamUpdateResponse("Success", 200, new TeamUpdateResponseDTO(checkTeam.get().getTeamId(), teamName, teamInfo, teamMaster));
             }catch (PersistenceException e){
                 return TeamUpdateResponse.createTeamUpdateResponse("Fail", 500, null);
             }
-        }else{return TeamUpdateResponse.createTeamUpdateResponse("Team not Found", 404, null);}
+        }
+        return TeamUpdateResponse.createTeamUpdateResponse("Team not Found", 404, null);
     }
-
-
 
     //Delete
     @Transactional

@@ -9,13 +9,17 @@ import com.project.awesomegroup.dto.user.response.UserResponse;
 import com.project.awesomegroup.dto.user.response.UserResponseDTO;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -73,29 +77,49 @@ public class UserService {
         return UserLoginResponse.UserResponseCreate("Login Failed", 401, null);
     }
 
+    @Transactional
     public UserResponse update(UserUpdateRequest user){
-        User updateUser = entityManager.find(User.class, user.getUserId());
-        if(updateUser != null){
+        Optional<User> checkUser = userRepository.findById(user.getUserId());
+        if(checkUser.isPresent()) {
+            String Nickname = checkUser.get().getUserNickname();
+            String Phone = checkUser.get().getUserPhone();
             try { //유저 정보 업데이트
-                if(user.getUserNickname() != null){updateUser.setUserNickname(user.getUserNickname());}
-                if(user.getUserPhone() != null){updateUser.setUserPhone(user.getUserPhone());}
-                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(updateUser.getUserId(), updateUser.getUserNickname(), updateUser.getUserPhone()));
+                if (user.getUserNickname() != null) {
+                    Nickname = user.getUserNickname();
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userNickname = :newNickname WHERE u.userId = :userId");
+                    query.setParameter("newNickname", user.getUserNickname());
+                    query.setParameter("userId", user.getUserId());
+                    query.executeUpdate();
+                }
+                if (user.getUserPhone() != null) {
+                    Phone = user.getUserPhone();
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userPhone = :newPhone WHERE u.userId = :userId");
+                    query.setParameter("newPhone", user.getUserPhone());
+                    query.setParameter("userId", user.getUserId());
+                    query.executeUpdate();
+                }
+                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(checkUser.get().getUserId(), Nickname, Phone));
+
             }catch (PersistenceException e){
                 return UserResponse.userResponseCreate("Fail", 500, null);
             }
-        }else{return UserResponse.userResponseCreate("User not Found", 404, null);}
+        }
+        return UserResponse.userResponseCreate("User not Found", 404, null);
     }
 
     public Boolean passwordUpdate(String userId, String userPw){
-        User userUpdate = entityManager.find(User.class, userId);
-        if(userUpdate != null){
-            try{
-                userUpdate.setUserPw(passwordEncoder.encode(userPw));
+        Optional<User> checkUser = userRepository.findById(userId);
+        if(checkUser.isPresent()){
+            try {
+                Query query = entityManager.createQuery("UPDATE User u SET u.userNickname = :password WHERE u.userId = :userId");
+                query.setParameter("password", passwordEncoder.encode(userPw));
+                query.executeUpdate();
                 return true;
-            }catch (PersistenceException e){ return false; }
-        }else{
-            return false;
+            }catch (PersistenceException e){
+                return false;
+            }
         }
+        return false;
     }
 
     public Boolean delete(String id){
