@@ -2,6 +2,7 @@ package com.project.awesomegroup.service;
 
 import com.project.awesomegroup.controller.user.UserController;
 import com.project.awesomegroup.dto.user.User;
+import com.project.awesomegroup.dto.user.request.UserPwRequest;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
 import com.project.awesomegroup.dto.user.response.UserLoginResponse;
 import com.project.awesomegroup.dto.user.response.UserLoginResponseDTO;
@@ -13,9 +14,12 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -107,19 +111,35 @@ public class UserService {
         return UserResponse.userResponseCreate("User not Found", 404, null);
     }
 
-    public Boolean passwordUpdate(String userId, String userPw){
-        Optional<User> checkUser = userRepository.findById(userId);
-        if(checkUser.isPresent()){
-            try {
-                Query query = entityManager.createQuery("UPDATE User u SET u.userNickname = :password WHERE u.userId = :userId");
-                query.setParameter("password", passwordEncoder.encode(userPw));
-                query.executeUpdate();
-                return true;
-            }catch (PersistenceException e){
-                return false;
-            }
+    @Transactional
+    public ResponseEntity<String> passwordUpdate(UserPwRequest request){
+        // 사용자 ID 및 비밀번호 검증 (값이 비어있는지 확인)
+        if (StringUtils.isEmpty(request.getUserId()) || StringUtils.isEmpty(request.getPrePw()) || StringUtils.isEmpty(request.getNewPw())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User ID, previous password, and new password are required");
         }
-        return false;
+        //사용자 조회
+        Optional<User> checkUser = userRepository.findById(request.getUserId());
+        if(checkUser.isPresent()){ //사용자 ID가 존재한다면
+            //prePW가 저장된 비밀번호와 일치할 때
+            if(passwordEncoder.matches(request.getPrePw(), checkUser.get().getUserPw())) {
+                if (request.getPrePw().equals(request.getNewPw())) { // 두 개 PW 같을 때 (code = 400)
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Passwords can not be same");
+                }
+                try {
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userPw = :password WHERE u.userId = :userId");
+                    query.setParameter("password", passwordEncoder.encode(request.getNewPw()));
+                    query.setParameter("userId", request.getUserId());
+                    query.executeUpdate();
+                    return ResponseEntity.ok("Success");
+                } catch (PersistenceException e) {
+                    //service 단에서 에러가 발생한 경우 (code = 500)
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server Error");
+                }
+            }
+            else{return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Password No Match");}
+        }
+        //유저 ID가 없을 때 (code = 404)
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not Found");
     }
 
     public Boolean delete(String id){

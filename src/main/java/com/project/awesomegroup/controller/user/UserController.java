@@ -3,6 +3,7 @@ package com.project.awesomegroup.controller.user;
 import com.project.awesomegroup.dto.user.User;
 
 import com.project.awesomegroup.dto.user.request.UserLoginRequest;
+import com.project.awesomegroup.dto.user.request.UserPwRequest;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
 import com.project.awesomegroup.dto.user.response.UserLoginResponse;
 import com.project.awesomegroup.dto.user.response.UserResponse;
@@ -124,25 +125,18 @@ public class UserController {
     @Operation(summary = "유저 비밀번호 변경", description = "유저 PW를 변경합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "PW 변경 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\")", content = @Content),
+            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\")" +
+                    "\n" +
+                    "PW 변경 실패 (string : \"Password no Match\")" +
+                    "\n" +
+                    "Pw 변경 실패 (string : \"User ID, previous password, and new password are required\")", content = @Content),
             @ApiResponse(responseCode = "404", description = "PW 변경 실패 (string : \"User not Found\")", content = @Content),
             @ApiResponse(responseCode = "500", description = "PW 변경 실패 (string : \"Server Error\")", content = @Content)
     })
-    @PutMapping("/password")
-    public ResponseEntity<String> userPasswordUpdate(@RequestParam String userId, @RequestParam String prePassword, @RequestParam String newPassword){
-        UserResponse findUser = userService.select(userId);
-        if(findUser.getCode() == 404){ //유저 ID가 없을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not Found");
-        }
-        if(prePassword.equals(newPassword)){ // 두 개 PW 같을 때 (code = 400)
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Passwords can not be same");
-        }
+    @PostMapping("/password")
+    public ResponseEntity<String> userPasswordUpdate(@RequestBody UserPwRequest request){
         // PW 변경 하기
-        if(userService.passwordUpdate(userId, newPassword)){ // PW 변경 성공 (code = 200)
-            return ResponseEntity.ok("Success");
-        }
-        //service 단에서 에러가 발생한 경우 (code = 500)
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server Error");
+        return userService.passwordUpdate(request);
     }
 
     @Operation(summary = "유저 삭제", description = "유저 ID를 입력 받아 유저 정보를 삭제합니다.")
