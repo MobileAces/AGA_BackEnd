@@ -6,6 +6,7 @@ import com.project.awesomegroup.dto.user.request.UserLoginRequest;
 import com.project.awesomegroup.dto.user.request.UserPwRequest;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
 import com.project.awesomegroup.dto.user.response.UserLoginResponse;
+import com.project.awesomegroup.dto.user.response.UserPwResponse;
 import com.project.awesomegroup.dto.user.response.UserResponse;
 import com.project.awesomegroup.dto.user.response.UserResponseDTO;
 import com.project.awesomegroup.service.UserService;
@@ -124,17 +125,17 @@ public class UserController {
 
     @Operation(summary = "유저 비밀번호 변경", description = "유저 PW를 변경합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "PW 변경 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\")\n" +
+            @ApiResponse(responseCode = "200", description = "PW 변경 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = String.class))),
+            @ApiResponse(responseCode = "400", description = "PW 변경 실패 (string : \"Passwords can not be same\", code : 400, data : false)\n" +
                     "\n" +
-                    "PW 변경 실패 (string : \"Password no Match\")\n" +
+                    "PW 변경 실패 (string : \"Password no Match\", code : 400, data : false)\n" +
                     "\n" +
-                    "Pw 변경 실패 (string : \"User ID, previous password, and new password are required\")", content = @Content),
-            @ApiResponse(responseCode = "404", description = "PW 변경 실패 (string : \"User not Found\")", content = @Content),
-            @ApiResponse(responseCode = "500", description = "PW 변경 실패 (string : \"Server Error\")", content = @Content)
+                    "Pw 변경 실패 (string : \"User ID, previous password, and new password are required\", code : 400, data : false)", content = @Content),
+            @ApiResponse(responseCode = "404", description = "PW 변경 실패 (string : \"User not Found\", code : 404, data : false)", content = @Content),
+            @ApiResponse(responseCode = "500", description = "PW 변경 실패 (string : \"Server Error\", code : 500, data : false)", content = @Content)
     })
     @PostMapping("/password")
-    public ResponseEntity<String> userPasswordUpdate(@RequestBody UserPwRequest request){
+    public ResponseEntity<UserPwResponse> userPasswordUpdate(@RequestBody UserPwRequest request){
         // PW 변경 하기
         return userService.passwordUpdate(request);
     }
