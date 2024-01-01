@@ -112,7 +112,7 @@ public class UserService {
     public ResponseEntity<UserPwResponse> passwordUpdate(UserPwRequest request){
         // 사용자 ID 및 비밀번호 검증 (값이 비어있는지 확인)
         if (StringUtils.isEmpty(request.getUserId()) || StringUtils.isEmpty(request.getPrePw()) || StringUtils.isEmpty(request.getNewPw())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("User ID, previous password, and new password are required", HttpStatus.BAD_REQUEST, false));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("User ID, previous password, and new password are required", 400, false));
         }
         //사용자 조회
         Optional<User> checkUser = userRepository.findById(request.getUserId());
@@ -120,23 +120,23 @@ public class UserService {
             //prePW가 저장된 비밀번호와 일치할 때
             if(passwordEncoder.matches(request.getPrePw(), checkUser.get().getUserPw())) {
                 if (request.getPrePw().equals(request.getNewPw())) { // 두 개 PW 같을 때 (code = 400)
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Passwords can not be same", HttpStatus.BAD_REQUEST, false));
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Passwords can not be same", 400, false));
                 }
                 try {
                     Query query = entityManager.createQuery("UPDATE User u SET u.userPw = :password WHERE u.userId = :userId");
                     query.setParameter("password", passwordEncoder.encode(request.getNewPw()));
                     query.setParameter("userId", request.getUserId());
                     query.executeUpdate();
-                    return ResponseEntity.ok(UserPwResponse.userPwResponseCreate("Success", HttpStatus.OK, true));
+                    return ResponseEntity.ok(UserPwResponse.userPwResponseCreate("Success", 200, true));
                 } catch (PersistenceException e) {
                     //service 단에서 에러가 발생한 경우 (code = 500)
-                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Server Error", HttpStatus.INTERNAL_SERVER_ERROR, false));
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Server Error", 500, false));
                 }
             }
-            else{return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Password No Match", HttpStatus.BAD_REQUEST, false));}
+            else{return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Password No Match", 400, false));}
         }
         //유저 ID가 없을 때 (code = 404)
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(UserPwResponse.userPwResponseCreate("User not Found", HttpStatus.NOT_FOUND, false));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(UserPwResponse.userPwResponseCreate("User not Found", 404, false));
     }
 
     public Boolean delete(String id){

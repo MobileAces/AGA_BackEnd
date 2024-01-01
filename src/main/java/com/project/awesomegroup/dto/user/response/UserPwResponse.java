@@ -11,12 +11,12 @@ public class UserPwResponse {
     @Schema(description = "상태 메세지", nullable = false, example = "Success")
     private String message;
     @Schema(description = "상태 코드", nullable = false, example = "200")
-    private HttpStatus code;
+    private Integer code;
     @Schema(description = "데이터", nullable = false, example = "true")
     private Boolean data;
 
     //생성 메소드
-    public static UserPwResponse userPwResponseCreate(String message, HttpStatus code, Boolean data){
+    public static UserPwResponse userPwResponseCreate(String message, Integer code, Boolean data){
         return UserPwResponse.builder()
                 .message(message)
                 .code(code)

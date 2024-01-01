@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user - password 변경 Response 형식으로 변경">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" afterDir="false" />
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user - password 변경 Swagger (response 형식 결과 보여주기)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserPwResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/user/response/UserPwResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +196,7 @@
       <workItem from="1704096189182" duration="15000" />
       <workItem from="1704096220028" duration="6126000" />
       <workItem from="1704128230187" duration="2461000" />
-      <workItem from="1704130840844" duration="1585000" />
+      <workItem from="1704130840844" duration="1900000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -437,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704132266046</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="user - password 변경 Swagger (response 형식 결과 보여주기)">
+      <option name="closed" value="true" />
+      <created>1704132460852</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1704132460852</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +482,8 @@
     <MESSAGE value="user - password 변경 수정 (PUT-&gt;POST)" />
     <MESSAGE value="readme수정" />
     <MESSAGE value="user - password 변경 Response 형식으로 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="user - password 변경 Response 형식으로 변경" />
+    <MESSAGE value="user - password 변경 Swagger (response 형식 결과 보여주기)" />
+    <option name="LAST_COMMIT_MESSAGE" value="user - password 변경 Swagger (response 형식 결과 보여주기)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
