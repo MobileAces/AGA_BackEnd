@@ -45,7 +45,7 @@ public class AlarmDetailController {
 
     @Operation(summary = "팀 알람의 개인알람 조회", description = "alarmId 해당하는 개인알람들을 조회합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "팀알람의 개인알람 조회 성공 (message : \"AlarmDetail Found\", code : 200)", content = @Content(schema = @Schema(implementation = AlarmListResponse.class))),
+            @ApiResponse(responseCode = "200", description = "팀알람의 개인알람 조회 성공 (message : \"AlarmDetail Found\", code : 200)", content = @Content(schema = @Schema(implementation = AlarmDetailListResponse.class))),
             @ApiResponse(responseCode = "404", description = "팀알람의 개인알람 조회 실패 (message : \"AlarmDetail not Found\", code : 404, data : null)", content = @Content)
     })
     @GetMapping("/team/{alarmId}")
