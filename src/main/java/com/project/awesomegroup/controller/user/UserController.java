@@ -139,7 +139,7 @@ public class UserController {
 
     @Operation(summary = "유저 삭제", description = "유저 ID를 입력 받아 유저 정보를 삭제합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
+            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
             @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")", content = @Content),
             @ApiResponse(responseCode = "400", description = "삭제 실패 (string : \"Fail\")", content = @Content)
     })
@@ -156,7 +156,7 @@ public class UserController {
 
     @Operation(summary = "유저 닉네임 중복 확인", description = "닉네임을 입력 받아 사용 여부를 반환합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
+            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
     })
     @GetMapping("/nickname-duplicate")
     public ResponseEntity<UserCheckResponse> userNicknameDuplicate(@RequestParam String userNickname){
@@ -165,7 +165,7 @@ public class UserController {
 
     @Operation(summary = "유저 핸드폰 번호 중복 확인", description = "핸드폰 번호를 입력 받아 존재 여부를 반환합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
+            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
     })
     @GetMapping("/phone-duplicate")
     public ResponseEntity<UserCheckResponse> userPhoneDuplicate(@RequestParam String phoneNumber){
@@ -174,7 +174,7 @@ public class UserController {
 
     @Operation(summary = "유저 아이디 중복 확인", description = "아이디를 입력 받아 사용 여부를 반환합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
+            @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
     })
     @GetMapping("/id-duplicate")
     public ResponseEntity<UserCheckResponse> userIdDuplicate(@RequestParam String userId){
