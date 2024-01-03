@@ -3,12 +3,9 @@ package com.project.awesomegroup.service;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.alarm.request.AlarmRequest;
 import com.project.awesomegroup.dto.alarm.request.AlarmUpdateRequest;
-import com.project.awesomegroup.dto.alarm.response.AlarmListResponse;
-import com.project.awesomegroup.dto.alarm.response.AlarmResponse;
-import com.project.awesomegroup.dto.alarm.response.AlarmResponseDTO;
+import com.project.awesomegroup.dto.alarm.response.*;
+import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponseDTO;
 import com.project.awesomegroup.dto.team.Team;
-import com.project.awesomegroup.dto.teammember.TeamMember;
-import com.project.awesomegroup.dto.teammember.response.TeamMemberResponse;
 import com.project.awesomegroup.repository.AlarmRepository;
 import com.project.awesomegroup.repository.TeamRepository;
 import jakarta.persistence.PersistenceException;
@@ -27,22 +24,23 @@ public class AlarmService {
     private final AlarmRepository alarmRepository;
     private final TeamRepository teamRepository;
 
-    public AlarmListResponse findByTeamId(Integer teamId) {
-        List<AlarmResponseDTO> alarmList = new ArrayList<>();
+    public AlarmListWithDetailResponse findByTeamId(Integer teamId) {
+        List<AlarmResponseWithDetailDTO> alarmList = new ArrayList<>();
         alarmRepository.findByTeamTeamId(teamId).forEach(e ->
-                alarmList.add(AlarmResponseDTO.builder()
+                alarmList.add(AlarmResponseWithDetailDTO.builder()
                     .alarmId(e.getAlarmId())
                     .alarmName(e.getAlarmName())
                     .alarmDay(e.getAlarmDay())
                     .teamId(e.getTeam().getTeamId())
+                    .dataList(e.getAlarmDetailList().stream().map(AlarmDetailResponseDTO::createAlarmDetailResponseDTO).collect(Collectors.toList()))
                     .build())
         );
         if(alarmList.isEmpty()) {
             //정보를 찾지 못했을 때 (code = 404)
-            return AlarmListResponse.createAlarmListResponse("Alarm not Found", 404, null);
+            return AlarmListWithDetailResponse.createAlarmListWithDetailResponse("Alarm not Found", 404, null);
         }
         //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return AlarmListResponse.createAlarmListResponse("Alarm Found", 200, alarmList);
+        return AlarmListWithDetailResponse.createAlarmListWithDetailResponse("Alarm Found", 200, alarmList);
     }
 
     public AlarmListResponse findByTeamIdAndAlarmDay(Integer teamId, String day) {
