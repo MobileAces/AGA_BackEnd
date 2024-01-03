@@ -5,10 +5,7 @@ import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.user.request.UserLoginRequest;
 import com.project.awesomegroup.dto.user.request.UserPwRequest;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
-import com.project.awesomegroup.dto.user.response.UserLoginResponse;
-import com.project.awesomegroup.dto.user.response.UserPwResponse;
-import com.project.awesomegroup.dto.user.response.UserResponse;
-import com.project.awesomegroup.dto.user.response.UserResponseDTO;
+import com.project.awesomegroup.dto.user.response.*;
 import com.project.awesomegroup.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -144,19 +141,17 @@ public class UserController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
             @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")", content = @Content),
-            @ApiResponse(responseCode = "500", description = "삭제 실패 (string : \"Server Error\")", content = @Content)
+            @ApiResponse(responseCode = "400", description = "삭제 실패 (string : \"Fail\")", content = @Content)
     })
     @DeleteMapping("/{userId}")
-    public ResponseEntity<String> userDelete(@PathVariable String userId){
+    public ResponseEntity<UserCheckResponse> userDelete(@PathVariable String userId){
         UserResponse findUser = userService.select(userId);
         if(findUser.getCode() == 404){ //유저 ID가 없을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not Found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(UserCheckResponse.userCheckResponseCreate("User not Found", 404, UserBooleanDTO.userBooleanDTOCreate(false)));
         }
-        if(userService.delete(userId)){ //삭제를 정상적으로 실행 했을 때 (code = 200)
-            return ResponseEntity.ok("Success");
-        }
-        //service 단에서 에러가 발생한 경우 (code = 500)
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server Error");
+        //삭제를 정상적으로 실행 했을 때 (code = 200)
+        //삭제를 못하면 (code = 400)
+        return userService.delete(userId);
     }
 
     @Operation(summary = "유저 닉네임 중복 확인", description = "닉네임을 입력 받아 사용 여부를 반환합니다.")
@@ -164,8 +159,8 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
     })
     @GetMapping("/nickname-duplicate")
-    public ResponseEntity<Boolean> userNicknameDuplicate(@RequestParam String userNickname){
-        return ResponseEntity.ok(userService.NicknameDuplicate(userNickname));
+    public ResponseEntity<UserCheckResponse> userNicknameDuplicate(@RequestParam String userNickname){
+        return userService.NicknameDuplicate(userNickname);
     }
 
     @Operation(summary = "유저 핸드폰 번호 중복 확인", description = "핸드폰 번호를 입력 받아 존재 여부를 반환합니다.")
@@ -173,8 +168,8 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
     })
     @GetMapping("/phone-duplicate")
-    public ResponseEntity<Boolean> userPhoneDuplicate(@RequestParam String phoneNumber){
-        return ResponseEntity.ok(userService.PhoneDuplicate(phoneNumber));
+    public ResponseEntity<UserCheckResponse> userPhoneDuplicate(@RequestParam String phoneNumber){
+        return userService.PhoneDuplicate(phoneNumber);
     }
 
     @Operation(summary = "유저 아이디 중복 확인", description = "아이디를 입력 받아 사용 여부를 반환합니다.")
@@ -182,8 +177,8 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "사용 불가능 : true, 사용 가능 : false", content = @Content(schema = @Schema(implementation = Boolean.class))),
     })
     @GetMapping("/id-duplicate")
-    public ResponseEntity<Boolean> userIdDuplicate(@RequestParam String userId){
-        return ResponseEntity.ok(userService.IdDuplicate(userId));
+    public ResponseEntity<UserCheckResponse> userIdDuplicate(@RequestParam String userId){
+        return userService.IdDuplicate(userId);
     }
 
 }

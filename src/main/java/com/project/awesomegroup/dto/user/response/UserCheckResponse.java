@@ -3,11 +3,10 @@ package com.project.awesomegroup.dto.user.response;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.http.HttpStatus;
 
 @Data
 @Builder
-public class UserPwResponse {
+public class UserCheckResponse {
     @Schema(description = "상태 메세지", nullable = false, example = "Success")
     private String message;
     @Schema(description = "상태 코드", nullable = false, example = "200")
@@ -16,8 +15,8 @@ public class UserPwResponse {
     private UserBooleanDTO data;
 
     //생성 메소드
-    public static UserPwResponse userPwResponseCreate(String message, Integer code, UserBooleanDTO data){
-        return UserPwResponse.builder()
+    public static UserCheckResponse userCheckResponseCreate(String message, Integer code, UserBooleanDTO data){
+        return UserCheckResponse.builder()
                 .message(message)
                 .code(code)
                 .data(data)
