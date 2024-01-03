@@ -11,7 +11,7 @@ public class UserCheckResponse {
     private String message;
     @Schema(description = "상태 코드", nullable = false, example = "200")
     private Integer code;
-    @Schema(description = "데이터", nullable = false, example = "true")
+    @Schema(description = "데이터", nullable = false)
     private UserBooleanDTO data;
 
     //생성 메소드
