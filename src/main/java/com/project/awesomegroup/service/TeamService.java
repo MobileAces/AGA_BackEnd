@@ -3,9 +3,7 @@ package com.project.awesomegroup.service;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.team.request.TeamRegistRequest;
 import com.project.awesomegroup.dto.team.request.TeamUpdateRequest;
-import com.project.awesomegroup.dto.team.response.TeamResponse;
-import com.project.awesomegroup.dto.team.response.TeamUpdateResponse;
-import com.project.awesomegroup.dto.team.response.TeamUpdateResponseDTO;
+import com.project.awesomegroup.dto.team.response.*;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
@@ -15,6 +13,7 @@ import com.project.awesomegroup.repository.TeamRepository;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,30 +66,56 @@ public class TeamService {
     //Update
     @Transactional
     public TeamUpdateResponse update(TeamUpdateRequest request) {
-
-        Team findTeam = entityManager.find(Team.class, request.getTeamId());
-        if(findTeam != null){
-            try { //유저 정보 업데이트
-                if(request.getTeamName() != null){findTeam.setTeamName(request.getTeamName());}
-                if(request.getTeamInfo() != null){findTeam.setTeamInfo(request.getTeamInfo());}
-                if(request.getTeamMaster() != null){findTeam.setTeamMaster(request.getTeamMaster());}
-                return TeamUpdateResponse.createTeamUpdateResponse("Success", 200, new TeamUpdateResponseDTO(findTeam.getTeamId(), findTeam.getTeamName(), findTeam.getTeamInfo(), findTeam.getTeamMaster()));
+        Optional<Team> checkTeam = teamRepository.findById(request.getTeamId());
+        if(checkTeam.isPresent()){
+            String teamName = checkTeam.get().getTeamName();
+            String teamInfo = checkTeam.get().getTeamInfo();
+            String teamMaster = checkTeam.get().getTeamMaster();
+            try{
+                if(request.getTeamName() != null){
+                    teamName = request.getTeamName();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamName = :newName WHERE u.teamId = :teamId");
+                    query.setParameter("newName", request.getTeamName());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                if(request.getTeamInfo() != null){
+                    teamInfo = request.getTeamInfo();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamInfo = :newInfo WHERE u.teamId = :teamId");
+                    query.setParameter("newInfo", request.getTeamInfo());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                if(request.getTeamName() != null){
+                    teamMaster = request.getTeamMaster();
+                    Query query = entityManager.createQuery("UPDATE Team u SET u.teamMaster = :newMaster WHERE u.teamId = :teamId");
+                    query.setParameter("newMaster", request.getTeamMaster());
+                    query.setParameter("teamId", request.getTeamId());
+                    query.executeUpdate();
+                }
+                return TeamUpdateResponse.createTeamUpdateResponse("Success", 200, new TeamUpdateResponseDTO(checkTeam.get().getTeamId(), teamName, teamInfo, teamMaster));
             }catch (PersistenceException e){
                 return TeamUpdateResponse.createTeamUpdateResponse("Fail", 500, null);
             }
-        }else{return TeamUpdateResponse.createTeamUpdateResponse("Team not Found", 404, null);}
+        }
+        return TeamUpdateResponse.createTeamUpdateResponse("Team not Found", 404, null);
     }
-
-
 
     //Delete
     @Transactional
-    public boolean delete(Integer team_id) {
+    public TeamDeleteResponse delete(Integer teamId) {
+        Optional<Team> findTeam = teamRepository.findById(teamId);
+        if(findTeam.isEmpty()) {
+            //팀을 찾지 못했을 때 (code = 404)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Team not Found", 404, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(false));
+        }
         try{
-            teamRepository.deleteById(team_id);
-            return true;
+            teamRepository.deleteById(teamId);
+            //삭제를 정상적으로 실행 했을 때 (code = 200)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Success", 200, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(true));
         } catch (Exception e){
-            return false;
+            //service 단에서 에러가 발생한 경우 (code = 500)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Server Error", 500, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(false));
         }
     }
 }

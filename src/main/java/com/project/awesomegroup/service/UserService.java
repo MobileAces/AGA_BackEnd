@@ -2,20 +2,25 @@ package com.project.awesomegroup.service;
 
 import com.project.awesomegroup.controller.user.UserController;
 import com.project.awesomegroup.dto.user.User;
+import com.project.awesomegroup.dto.user.request.UserPwRequest;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
-import com.project.awesomegroup.dto.user.response.UserLoginResponse;
-import com.project.awesomegroup.dto.user.response.UserLoginResponseDTO;
-import com.project.awesomegroup.dto.user.response.UserResponse;
-import com.project.awesomegroup.dto.user.response.UserResponseDTO;
+import com.project.awesomegroup.dto.user.response.*;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceException;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -73,37 +78,73 @@ public class UserService {
         return UserLoginResponse.UserResponseCreate("Login Failed", 401, null);
     }
 
+    @Transactional
     public UserResponse update(UserUpdateRequest user){
-        User updateUser = entityManager.find(User.class, user.getUserId());
-        if(updateUser != null){
+        Optional<User> checkUser = userRepository.findById(user.getUserId());
+        if(checkUser.isPresent()) {
+            String Nickname = checkUser.get().getUserNickname();
+            String Phone = checkUser.get().getUserPhone();
             try { //유저 정보 업데이트
-                if(user.getUserNickname() != null){updateUser.setUserNickname(user.getUserNickname());}
-                if(user.getUserPhone() != null){updateUser.setUserPhone(user.getUserPhone());}
-                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(updateUser.getUserId(), updateUser.getUserNickname(), updateUser.getUserPhone()));
+                if (user.getUserNickname() != null) {
+                    Nickname = user.getUserNickname();
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userNickname = :newNickname WHERE u.userId = :userId");
+                    query.setParameter("newNickname", user.getUserNickname());
+                    query.setParameter("userId", user.getUserId());
+                    query.executeUpdate();
+                }
+                if (user.getUserPhone() != null) {
+                    Phone = user.getUserPhone();
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userPhone = :newPhone WHERE u.userId = :userId");
+                    query.setParameter("newPhone", user.getUserPhone());
+                    query.setParameter("userId", user.getUserId());
+                    query.executeUpdate();
+                }
+                return UserResponse.userResponseCreate("Success", 200, new UserResponseDTO(checkUser.get().getUserId(), Nickname, Phone));
+
             }catch (PersistenceException e){
                 return UserResponse.userResponseCreate("Fail", 500, null);
             }
-        }else{return UserResponse.userResponseCreate("User not Found", 404, null);}
-    }
-
-    public Boolean passwordUpdate(String userId, String userPw){
-        User userUpdate = entityManager.find(User.class, userId);
-        if(userUpdate != null){
-            try{
-                userUpdate.setUserPw(passwordEncoder.encode(userPw));
-                return true;
-            }catch (PersistenceException e){ return false; }
-        }else{
-            return false;
         }
+        return UserResponse.userResponseCreate("User not Found", 404, null);
     }
 
-    public Boolean delete(String id){
+    @Transactional
+    public ResponseEntity<UserPwResponse> passwordUpdate(UserPwRequest request){
+        // 사용자 ID 및 비밀번호 검증 (값이 비어있는지 확인)
+        if (StringUtils.isEmpty(request.getUserId()) || StringUtils.isEmpty(request.getPrePw()) || StringUtils.isEmpty(request.getNewPw())) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("User ID, previous password, and new password are required", 400, UserBooleanDTO.userBooleanDTOCreate(false)));
+        }
+        //사용자 조회
+        Optional<User> checkUser = userRepository.findById(request.getUserId());
+        if(checkUser.isPresent()){ //사용자 ID가 존재한다면
+            //prePW가 저장된 비밀번호와 일치할 때
+            if(passwordEncoder.matches(request.getPrePw(), checkUser.get().getUserPw())) {
+                if (request.getPrePw().equals(request.getNewPw())) { // 두 개 PW 같을 때 (code = 400)
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Passwords can not be same", 400, UserBooleanDTO.userBooleanDTOCreate(false)));
+                }
+                try {
+                    Query query = entityManager.createQuery("UPDATE User u SET u.userPw = :password WHERE u.userId = :userId");
+                    query.setParameter("password", passwordEncoder.encode(request.getNewPw()));
+                    query.setParameter("userId", request.getUserId());
+                    query.executeUpdate();
+                    return ResponseEntity.ok(UserPwResponse.userPwResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(true)));
+                } catch (PersistenceException e) {
+                    //service 단에서 에러가 발생한 경우 (code = 500)
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Server Error", 500, UserBooleanDTO.userBooleanDTOCreate(false)));
+                }
+            }
+            else{return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserPwResponse.userPwResponseCreate("Password No Match", 400, UserBooleanDTO.userBooleanDTOCreate(false)));}
+        }
+        //유저 ID가 없을 때 (code = 404)
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(UserPwResponse.userPwResponseCreate("User not Found", 404, UserBooleanDTO.userBooleanDTOCreate(false)));
+    }
+
+    public ResponseEntity<UserCheckResponse> delete(String id){
         try{ //유저 삭제
             userRepository.deleteById(id);
-            return true;
+            return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(true)));
         } catch (Exception e){
-            return false;
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(UserCheckResponse.userCheckResponseCreate("Fail", 400, UserBooleanDTO.userBooleanDTOCreate(false)));
         }
     }
 
@@ -118,15 +159,32 @@ public class UserService {
         }
     }
 
-    public Boolean NicknameDuplicate(String nickname){
-        return userRepository.findByUserNickname(nickname).isPresent();
+    public ResponseEntity<UserCheckResponse> NicknameDuplicate(String nickname){
+        if(userRepository.findByUserNickname(nickname).isPresent()){
+            //닉네임을 사용하고 있음
+            return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(true)));
+        }
+        //닉네임을 사용하고 있지 않음
+        return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(false)));
     }
 
-    public Boolean PhoneDuplicate(String phone){
-        return userRepository.findByUserPhone(phone).isPresent();
+    public ResponseEntity<UserCheckResponse> PhoneDuplicate(String phone){
+        if(userRepository.findByUserPhone(phone).isPresent()){
+            //중복된 폰 번호가 있음
+            return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(true)));
+        }
+        //중복된 폰 번호가 없음
+        return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(false)));
+
     }
 
-    public Boolean IdDuplicate(String id){
-        return userRepository.findById(id).isPresent();
+    public ResponseEntity<UserCheckResponse> IdDuplicate(String id){
+        if(userRepository.findById(id).isPresent()){
+            //중복된 ID 있음
+            return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(true)));
+        }
+        //중복된 ID 없음
+        return ResponseEntity.ok(UserCheckResponse.userCheckResponseCreate("Success", 200, UserBooleanDTO.userBooleanDTOCreate(false)));
+
     }
 }

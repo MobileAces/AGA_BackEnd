@@ -20,8 +20,8 @@ public class WakeupSaveRequest {
     @Schema(description = "미션 성공 여부", nullable = false, example = "true")
     private boolean success;
 
-    @Schema(description = "기상 설정 날짜", nullable = false, example = "2023-12-30T11:30", type = "string")
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    @Schema(description = "기상 설정 날짜", nullable = false, example = "2023-12-30", type = "string")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date datetime;
 
     @Schema(description = "기상 설정 시간", nullable = false, example = "06")

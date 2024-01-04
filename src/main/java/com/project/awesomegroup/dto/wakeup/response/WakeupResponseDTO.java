@@ -13,7 +13,7 @@ public class WakeupResponseDTO {
 
     private boolean success;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date datetime;
 
     private Integer wakeupHour;

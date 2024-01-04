@@ -1,14 +1,12 @@
 package com.project.awesomegroup.controller.alarm;
 
-import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.alarm.request.AlarmRequest;
 import com.project.awesomegroup.dto.alarm.request.AlarmUpdateRequest;
 import com.project.awesomegroup.dto.alarm.response.AlarmListResponse;
+import com.project.awesomegroup.dto.alarm.response.AlarmListWithDetailResponse;
 import com.project.awesomegroup.dto.alarm.response.AlarmResponse;
-import com.project.awesomegroup.dto.teammember.response.TeamMemberResponse;
 import com.project.awesomegroup.dto.user.response.UserResponse;
 import com.project.awesomegroup.service.AlarmService;
-import com.project.awesomegroup.service.TeamService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -33,12 +31,12 @@ public class AlarmController {
 
     @Operation(summary = "팀의 알람 조회", description = "teamId에 해당하는 알람들을 조회합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "조회 성공 (message : \"Alarm Found\", code : 200)", content = @Content(schema = @Schema(implementation = AlarmListResponse.class))),
+            @ApiResponse(responseCode = "200", description = "조회 성공 (message : \"Alarm Found\", code : 200)", content = @Content(schema = @Schema(implementation = AlarmListWithDetailResponse.class))),
             @ApiResponse(responseCode = "404", description = "조회 실패 (message : \"Alarm not Found\", code : 404, data : null)", content = @Content)
     })
     @GetMapping("/{teamId}")
-    public ResponseEntity<AlarmListResponse> alarmSelect(@PathVariable("teamId") Integer teamId) {
-        AlarmListResponse response = alarmService.findByTeamId(teamId);
+    public ResponseEntity<AlarmListWithDetailResponse> alarmSelect(@PathVariable("teamId") Integer teamId) {
+        AlarmListWithDetailResponse response = alarmService.findByTeamId(teamId);
         if(response.getCode() == 404) {
             //정보를 찾지 못했을 때 (code = 404)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
