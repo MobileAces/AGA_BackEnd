@@ -3,9 +3,7 @@ package com.project.awesomegroup.service;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.team.request.TeamRegistRequest;
 import com.project.awesomegroup.dto.team.request.TeamUpdateRequest;
-import com.project.awesomegroup.dto.team.response.TeamResponse;
-import com.project.awesomegroup.dto.team.response.TeamUpdateResponse;
-import com.project.awesomegroup.dto.team.response.TeamUpdateResponseDTO;
+import com.project.awesomegroup.dto.team.response.*;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
@@ -105,12 +103,19 @@ public class TeamService {
 
     //Delete
     @Transactional
-    public boolean delete(Integer team_id) {
+    public TeamDeleteResponse delete(Integer teamId) {
+        Optional<Team> findTeam = teamRepository.findById(teamId);
+        if(findTeam.isEmpty()) {
+            //팀을 찾지 못했을 때 (code = 404)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Team not Found", 404, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(false));
+        }
         try{
-            teamRepository.deleteById(team_id);
-            return true;
+            teamRepository.deleteById(teamId);
+            //삭제를 정상적으로 실행 했을 때 (code = 200)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Success", 200, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(true));
         } catch (Exception e){
-            return false;
+            //service 단에서 에러가 발생한 경우 (code = 500)
+            return TeamDeleteResponse.TeamDeleteResponseCreate("Server Error", 500, TeamDeleteResponseDTO.teamDeleteResponseDTOCreate(false));
         }
     }
 }

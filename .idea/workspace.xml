@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="user - DTO 형식 다 변경(중복확인, 패스워드)">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/awesomeGroup.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/user/UserController.java" afterDir="false" />
+    <list default="true" id="71c8ba8d-f065-4ee7-9cea-f3e18f0b45b3" name="Changes" comment="teamDelete - Response 형식 수정2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,32 +64,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build AGA_BackEnd.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.AwesomeGroupApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "android.gradle.sync.needed": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "7262cbbbf4daf98ddb8d6852ec185d9a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;7262cbbbf4daf98ddb8d6852ec185d9a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.awesomegroup.dto.teammember.response.team" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dhdud\OneDrive\바탕 화면\aga_project\AGA_BackEnd\image" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -212,8 +213,8 @@
         <item itemvalue="Gradle.AGA_BackEnd [clean]" />
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.awesomeGroup [build]" />
-        <item itemvalue="Gradle.awesomeGroup [bootJar]" />
+        <item itemvalue="Gradle.AGA_BackEnd [clean]" />
+        <item itemvalue="Docker.Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -241,6 +242,13 @@
       <workItem from="1703779069104" duration="726000" />
       <workItem from="1703816500790" duration="4524000" />
       <workItem from="1703933454523" duration="3369000" />
+      <workItem from="1704012511073" duration="1511000" />
+      <workItem from="1704015668267" duration="103000" />
+      <workItem from="1704015961918" duration="223000" />
+      <workItem from="1704096189182" duration="15000" />
+      <workItem from="1704096220028" duration="6126000" />
+      <workItem from="1704128230187" duration="2461000" />
+      <workItem from="1704130840844" duration="1900000" />
     </task>
     <task id="LOCAL-00001" summary="user Refactoring">
       <option name="closed" value="true" />
@@ -330,15 +338,183 @@
       <option name="project" value="LOCAL" />
       <updated>1703779194032</updated>
     </task>
-    <task id="LOCAL-00012" summary="user - DTO 형식 다 변경(중복확인, 패스워드)">
+    <task id="LOCAL-00012" summary="application.yml 파일 생성">
       <option name="closed" value="true" />
-      <created>1704268145618</created>
+      <created>1704005061818</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1704268145618</updated>
+      <updated>1704005061818</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="application.yml 파일 생성">
+      <option name="closed" value="true" />
+      <created>1704005211205</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704005211205</updated>
+    </task>
+    <task id="LOCAL-00014" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704005592987</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704005592987</updated>
+    </task>
+    <task id="LOCAL-00015" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704006257026</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704006257026</updated>
+    </task>
+    <task id="LOCAL-00016" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704006265912</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1704006265912</updated>
+    </task>
+    <task id="LOCAL-00017" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704011312846</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704011312846</updated>
+    </task>
+    <task id="LOCAL-00018" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704011862336</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1704011862337</updated>
+    </task>
+    <task id="LOCAL-00019" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704011978674</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704011978674</updated>
+    </task>
+    <task id="LOCAL-00020" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704012071201</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704012071201</updated>
+    </task>
+    <task id="LOCAL-00021" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704013410677</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704013410677</updated>
+    </task>
+    <task id="LOCAL-00022" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704015745145</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704015745145</updated>
+    </task>
+    <task id="LOCAL-00023" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704016044343</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704016044343</updated>
+    </task>
+    <task id="LOCAL-00024" summary="readme 수정">
+      <option name="closed" value="true" />
+      <created>1704016135249</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1704016135249</updated>
+    </task>
+    <task id="LOCAL-00025" summary="user, team - update 수정 (PUT)">
+      <option name="closed" value="true" />
+      <created>1704101693000</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1704101693000</updated>
+    </task>
+    <task id="LOCAL-00026" summary="user - password 변경 수정 (PUT-&gt;POST)">
+      <option name="closed" value="true" />
+      <created>1704130289893</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130289893</updated>
+    </task>
+    <task id="LOCAL-00027" summary="user - password 변경 수정 (PUT-&gt;POST)">
+      <option name="closed" value="true" />
+      <created>1704130428932</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130428932</updated>
+    </task>
+    <task id="LOCAL-00028" summary="readme수정">
+      <option name="closed" value="true" />
+      <created>1704130667011</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704130667011</updated>
+    </task>
+    <task id="LOCAL-00029" summary="user - password 변경 Response 형식으로 변경">
+      <option name="closed" value="true" />
+      <created>1704132241343</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704132241343</updated>
+    </task>
+    <task id="LOCAL-00030" summary="user - password 변경 Response 형식으로 변경">
+      <option name="closed" value="true" />
+      <created>1704132266046</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1704132266046</updated>
+    </task>
+    <task id="LOCAL-00031" summary="user - password 변경 Swagger (response 형식 결과 보여주기)">
+      <option name="closed" value="true" />
+      <created>1704132460852</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1704132460852</updated>
+    </task>
+    <task id="LOCAL-00032" summary="teamDelete - Response 형식 수정">
+      <option name="closed" value="true" />
+      <created>1704380044410</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1704380044410</updated>
+    </task>
+    <task id="LOCAL-00033" summary="teamDelete - Response 형식 수정2">
+      <option name="closed" value="true" />
+      <created>1704380693142</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1704380693142</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,8 +544,16 @@
     <MESSAGE value="TeamMember - members/users/ 팀에속한유저조회 (유저 닉네임 반환 추가)" />
     <MESSAGE value="ubuntu 접속 확인" />
     <MESSAGE value="ubuntu 서버 새로 만든거 CI/CD 테스트" />
-    <MESSAGE value="user - DTO 형식 다 변경(중복확인, 패스워드)" />
-    <option name="LAST_COMMIT_MESSAGE" value="user - DTO 형식 다 변경(중복확인, 패스워드)" />
+    <MESSAGE value="application.yml 파일 생성" />
+    <MESSAGE value="readme 수정" />
+    <MESSAGE value="user, team - update 수정 (PUT)" />
+    <MESSAGE value="user - password 변경 수정 (PUT-&gt;POST)" />
+    <MESSAGE value="readme수정" />
+    <MESSAGE value="user - password 변경 Response 형식으로 변경" />
+    <MESSAGE value="user - password 변경 Swagger (response 형식 결과 보여주기)" />
+    <MESSAGE value="teamDelete - Response 형식 수정" />
+    <MESSAGE value="teamDelete - Response 형식 수정2" />
+    <option name="LAST_COMMIT_MESSAGE" value="teamDelete - Response 형식 수정2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,6 +3,7 @@ package com.project.awesomegroup.controller.team;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.team.request.TeamRegistRequest;
 import com.project.awesomegroup.dto.team.request.TeamUpdateRequest;
+import com.project.awesomegroup.dto.team.response.TeamDeleteResponse;
 import com.project.awesomegroup.dto.team.response.TeamResponse;
 import com.project.awesomegroup.dto.team.response.TeamUpdateResponse;
 import com.project.awesomegroup.dto.user.response.UserResponse;
@@ -86,21 +87,12 @@ public class TeamController {
 
     @Operation(summary = "팀 삭제", description = "팀 ID를 입력 받아 팀 정보를 삭제합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"Team not Found\")", content = @Content),
-            @ApiResponse(responseCode = "500", description = "삭제 실패 (string : \"Server Error\")", content = @Content)
+            @ApiResponse(responseCode = "200", description = "삭제 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = TeamDeleteResponse.class))),
+            @ApiResponse(responseCode = "404", description = "삭제 실패 (message : \"Team not Found\", code : 404, data : false)", content = @Content),
+            @ApiResponse(responseCode = "500", description = "삭제 실패 (message : \"Server Error\", code : 500, data : true)", content = @Content)
     })
     @DeleteMapping("/{teamId}")
-    public ResponseEntity<String> teamDelete(@PathVariable Integer teamId){
-
-        TeamResponse findTeam = teamService.findByTeamId(teamId);
-        if(findTeam.getCode() == 404){ //팀 ID가 없을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team not Found");
-        }
-        if(teamService.delete(teamId)){ //삭제를 정상적으로 실행 했을 때 (code = 200)
-            return ResponseEntity.ok("Success");
-        }
-        //service 단에서 에러가 발생한 경우 (code = 500)
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server Error");
+    public TeamDeleteResponse teamDelete(@PathVariable Integer teamId){
+        return teamService.delete(teamId);
     }
 }
