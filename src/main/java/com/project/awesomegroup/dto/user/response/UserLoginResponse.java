@@ -15,7 +15,7 @@ public class UserLoginResponse {
     private UserLoginResponseDTO data;
 
     //생성 메소드//
-    public static UserLoginResponse UserResponseCreate(String message, Integer code, UserLoginResponseDTO data){
+    public static UserLoginResponse createUserResponse(String message, Integer code, UserLoginResponseDTO data){
         return UserLoginResponse.builder()
                 .message(message)
                 .code(code)

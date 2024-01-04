@@ -8,7 +8,9 @@ import lombok.Data;
 public class UserLoginResponseDTO {
     private String userId;
 
-    public UserLoginResponseDTO(String userId){
-        this.userId = userId;
+    public static UserLoginResponseDTO createUserLoginResponseDTO(String userId){
+        return UserLoginResponseDTO.builder()
+                .userId(userId)
+                .build();
     }
 }

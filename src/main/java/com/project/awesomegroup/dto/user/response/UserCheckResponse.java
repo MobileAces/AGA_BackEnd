@@ -15,7 +15,7 @@ public class UserCheckResponse {
     private UserBooleanDTO data;
 
     //생성 메소드
-    public static UserCheckResponse userCheckResponseCreate(String message, Integer code, UserBooleanDTO data){
+    public static UserCheckResponse createUserCheckResponse(String message, Integer code, UserBooleanDTO data){
         return UserCheckResponse.builder()
                 .message(message)
                 .code(code)

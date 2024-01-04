@@ -15,6 +15,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +29,10 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 @RequestMapping("/personalAlarms")
 @Tag(name = "AlarmDetail", description = "AlarmDetail API")
+@RequiredArgsConstructor
 public class AlarmDetailController {
 
-    @Autowired
-    private AlarmDetailService alarmDetailService;
-
+    private final AlarmDetailService alarmDetailService;
 
     @Operation(summary = "개인알람 전체 조회", description = "모든 개인알람의 정보를 반환합니다.")
     @GetMapping("/entirety")

@@ -1,4 +1,4 @@
-package com.project.awesomegroup.controller.wather;
+package com.project.awesomegroup.controller.weather;
 
 
 import com.project.awesomegroup.dto.weather.Region;

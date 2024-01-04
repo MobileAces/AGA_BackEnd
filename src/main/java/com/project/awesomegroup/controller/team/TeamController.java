@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,11 @@ import java.util.List;
 @CrossOrigin("*")
 @RequestMapping("/teams")
 @Tag(name = "Team", description = "Team API")
+@RequiredArgsConstructor
 public class TeamController {
     private static final Logger logger = LoggerFactory.getLogger(TeamController.class);
 
-    @Autowired
-    TeamService teamService;
-
+    private final TeamService teamService;
 
     @Operation(summary = "팀 전체 조회", description = "모든 팀의 정보를 반환합니다.")
     @GetMapping("/entirety")
@@ -89,7 +89,7 @@ public class TeamController {
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "삭제 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = TeamDeleteResponse.class))),
             @ApiResponse(responseCode = "404", description = "삭제 실패 (message : \"Team not Found\", code : 404, data : false)", content = @Content),
-            @ApiResponse(responseCode = "500", description = "삭제 실패 (message : \"Server Error\", code : 500, data : true)", content = @Content)
+            @ApiResponse(responseCode = "500", description = "삭제 실패 (message : \"Server Error\", code : 500, data : false)", content = @Content)
     })
     @DeleteMapping("/{teamId}")
     public TeamDeleteResponse teamDelete(@PathVariable Integer teamId){

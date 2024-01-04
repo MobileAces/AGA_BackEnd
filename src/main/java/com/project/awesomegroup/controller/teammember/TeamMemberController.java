@@ -15,6 +15,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,17 +30,11 @@ import java.util.Map;
 @CrossOrigin("*")
 @RequestMapping("/members")
 @Tag(name="TeamMember", description = "TeamMember API")
+@RequiredArgsConstructor
 public class TeamMemberController {
     private static final Logger logger = LoggerFactory.getLogger(TeamMemberController.class);
 
-    @Autowired
-    TeamMemberService teamMemberService;
-
-    @Autowired
-    TeamService teamService;
-
-    @Autowired
-    UserService userService;
+    private final TeamMemberService teamMemberService;
 
     @Operation(summary = "팀 멤버 등록", description = "유저 아이디, 팀 아이디를 기입해 팀멤버 정보를 저장합니다.(기본 권한으로 주어짐)")
     @ApiResponses({
@@ -102,20 +97,7 @@ public class TeamMemberController {
     })
     @PutMapping
     public ResponseEntity<TeamMemberResponse> update(@RequestBody TeamMemberRequest request){
-        if(teamService.findByTeamId(request.getTeamId()).getCode() == 404)
-            //팀이 존재하지 않을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(TeamMemberResponse.createTeamMemberResponseDTO("Team not Found", 404, null));
-        if(userService.select(request.getUserId()).getCode() == 404)
-            //유저가 존재하지 않을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(TeamMemberResponse.createTeamMemberResponseDTO("User not Found", 404, null));
-
-        TeamMemberResponse response = teamMemberService.update(request);
-        if (response.getCode() == 404) {
-            //유저가 팀에 속해 있지 않을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //성공적으로 수정이 되었을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return teamMemberService.update(request);
     }
 
     @Operation(summary = "팀 멤버 삭제", description = "팀 아이디와, 유저 아이디로 팀 멤버 정보를 삭제합니다.")

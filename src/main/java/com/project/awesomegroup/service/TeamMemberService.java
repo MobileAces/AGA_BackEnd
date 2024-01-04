@@ -85,15 +85,32 @@ public class TeamMemberService {
     }
 
     @Transactional
-    public TeamMemberResponse update(TeamMemberRequest request) {
-        Optional<TeamMember> teamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(request.getTeamId(), request.getUserId());
-        if(!teamMember.isPresent()) {
-            //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
-            return TeamMemberResponse.createTeamMemberResponseDTO("User does not exist in the team.", 404, null);
+    public ResponseEntity<TeamMemberResponse> update(TeamMemberRequest request) {
+
+        Optional<Team> findTeam = teamRepository.findById(request.getTeamId());
+        if(findTeam.isEmpty()) {
+            //팀이 존재하지 않을 때 (code = 404)
+            TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("Team not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-        //팀멤버로 등록되었을 때 (code = 200)
+
+        Optional<User> findUser = userRepository.findByUserId(request.getUserId());
+        if(findUser.isEmpty()) {
+            //유저가 존재하지 않을 때 (code = 404)
+            TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("User not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        Optional<TeamMember> teamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(request.getTeamId(), request.getUserId());
+        if(teamMember.isEmpty()) {
+            //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
+            TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("User does not exist in the team.", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+        //팀멤버로 수정되었을 때 (code = 200)
         teamMember.get().setAuthority(request.getAuthority());
-        return TeamMemberResponse.createTeamMemberResponseDTO("Success", 200, TeamMemberResponseDTO.createTeamMemberResponse(teamMember.get()));
+        TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("Success", 200, TeamMemberResponseDTO.createTeamMemberResponse(teamMember.get()));
+        return ResponseEntity.ok(response);
     }
 
     @Transactional

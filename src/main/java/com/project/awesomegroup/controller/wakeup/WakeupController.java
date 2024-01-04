@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,11 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/wakeup")
+@RequiredArgsConstructor
 public class WakeupController {
     private final Logger logger = LoggerFactory.getLogger(WakeupController.class);
 
-    @Autowired
-    WakeupService wakeupService;
-
+    private final WakeupService wakeupService;
 
     @Operation(summary = "알람기록 저장", description = "해당 날짜에 개인알람의 속성값을 알람기록(wakeup)으로 저장합니다.")
     @ApiResponses({

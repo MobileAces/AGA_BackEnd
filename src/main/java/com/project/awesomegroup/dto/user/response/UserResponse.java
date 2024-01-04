@@ -16,7 +16,7 @@ public class UserResponse {
     private UserResponseDTO data;
 
     //생성 메소드//
-    public static UserResponse userResponseCreate(String message, Integer code, UserResponseDTO data){
+    public static UserResponse createUserResponse(String message, Integer code, UserResponseDTO data){
         return UserResponse.builder()
                 .message(message)
                 .code(code)

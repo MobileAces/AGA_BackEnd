@@ -1,6 +1,7 @@
 package com.project.awesomegroup.dto.user.response;
 
 
+import com.project.awesomegroup.dto.user.User;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,9 +13,19 @@ public class UserResponseDTO {
     private String userPhone;
 
     //생성 메소드
-    public UserResponseDTO(String userId, String userNickname, String userPhone){
-        this.userId = userId;
-        this.userNickname = userNickname;
-        this.userPhone = userPhone;
+    public static UserResponseDTO createUserResponseDTO(User user){
+        return UserResponseDTO.builder()
+                .userId(user.getUserId())
+                .userNickname(user.getUserNickname())
+                .userPhone(user.getUserPhone())
+                .build();
+    }
+
+    public static UserResponseDTO createUserResponseDTO(User user, String userNickname, String userPhone){
+        return UserResponseDTO.builder()
+                .userId(user.getUserId())
+                .userNickname(user.getUserNickname())
+                .userPhone(user.getUserPhone())
+                .build();
     }
 }

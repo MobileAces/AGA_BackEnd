@@ -9,7 +9,7 @@ public class UserBooleanDTO {
     private Boolean result;
 
     //생성 메소드
-    public static UserBooleanDTO userBooleanDTOCreate(Boolean result){
+    public static UserBooleanDTO createUserBooleanDTO(Boolean result){
         return UserBooleanDTO.builder()
                 .result(result)
                 .build();
