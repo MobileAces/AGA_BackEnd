@@ -1,6 +1,7 @@
 package com.project.awesomegroup.controller.teammember;
 
 import com.project.awesomegroup.dto.teammember.request.TeamMemberRequest;
+import com.project.awesomegroup.dto.teammember.response.TeamMemberDeleteResponse;
 import com.project.awesomegroup.dto.teammember.response.TeamMemberResponse;
 import com.project.awesomegroup.dto.teammember.response.TeamMemberResponseDTO;
 import com.project.awesomegroup.dto.teammember.response.team.TeamMemberTeamListResponse;
@@ -119,30 +120,16 @@ public class TeamMemberController {
 
     @Operation(summary = "팀 멤버 삭제", description = "팀 아이디와, 유저 아이디로 팀 멤버 정보를 삭제합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")\n" +
+            @ApiResponse(responseCode = "200", description = "삭제 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = TeamMemberDeleteResponse.class))),
+            @ApiResponse(responseCode = "404", description = "삭제 실패 (message : \"User not Found\", code : 404, data : false)\n" +
                     "\n" +
-                    "삭제 실패 (string : \"Team not Found\")\n" +
+                    "삭제 실패 (message : \"Team not Found\", code : 404, data : false)\n" +
                     "\n" +
-                    "삭제 실패 (string : \"User does not exist in the team.\")", content = @Content),
+                    "삭제 실패 (message : \"User does not exist in the team.\", code : 404, data : false)", content = @Content),
     })
     @DeleteMapping("/{teamId}/{userId}")
-    public ResponseEntity<String> delete(@PathVariable Integer teamId, @PathVariable String userId){
-        if(teamService.findByTeamId(teamId).getCode() == 404)
-            //팀이 존재하지 않을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Team not Found");
-        if(userService.select(userId).getCode() == 404)
-            //유저가 존재하지 않을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not Found");
-
-        Map<String, String> map = teamMemberService.delete(teamId, userId);
-        String response = map.get("result");
-        if(response.equals("Success")) {
-            //성공적으로 삭제가 되었을 때 (code = 200)
-            return ResponseEntity.ok(response);
-        }
-        //팀에 속한 유저가 존재하지 않을 때 (code = 404)
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    public TeamMemberDeleteResponse delete(@PathVariable Integer teamId, @PathVariable String userId){
+        return teamMemberService.delete(teamId, userId);
     }
 
 }

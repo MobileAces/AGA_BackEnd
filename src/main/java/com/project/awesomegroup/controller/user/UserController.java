@@ -139,9 +139,9 @@ public class UserController {
 
     @Operation(summary = "유저 삭제", description = "유저 ID를 입력 받아 유저 정보를 삭제합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")", content = @Content),
-            @ApiResponse(responseCode = "400", description = "삭제 실패 (string : \"Fail\")", content = @Content)
+            @ApiResponse(responseCode = "200", description = "삭제 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = UserCheckResponse.class))),
+            @ApiResponse(responseCode = "404", description = "삭제 실패 (message : \"User not Found\", code : 404, data : false)", content = @Content),
+            @ApiResponse(responseCode = "400", description = "삭제 실패 (message : \"Fail\", code : 400, data : false)", content = @Content)
     })
     @DeleteMapping("/{userId}")
     public ResponseEntity<UserCheckResponse> userDelete(@PathVariable String userId){
