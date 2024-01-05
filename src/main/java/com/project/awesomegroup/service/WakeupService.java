@@ -39,74 +39,88 @@ public class WakeupService {
     private final AlarmDetailRepository alarmDetailRepository;
 
 
-    public WakeupResponse registerWakeup(WakeupSaveRequest request) {
+    public ResponseEntity<WakeupResponse> registerWakeup(WakeupSaveRequest request) {
+        WakeupResponse response;
         // 개인알람 조회
         Optional<AlarmDetail> alarmDetail = alarmDetailRepository.findById(request.getAlarmDetailId());
-        if(!alarmDetail.isPresent()) {
+        if(alarmDetail.isEmpty()) {
             //개인 알람을 찾지 못했을 때 (code = 404)
-            return WakeupResponse.createWakeupResponse("AlarmDetail not Found", 404, null);
+            response = WakeupResponse.createWakeupResponse("AlarmDetail not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //유저 조회
         Optional<User> user = userRepository.findById(request.getUserId());
-        if(!user.isPresent()) {
+        if(user.isEmpty()) {
             //유저를 찾지 못했을 때 (code = 404)
-            return WakeupResponse.createWakeupResponse("User not Found", 404, null);
+            response = WakeupResponse.createWakeupResponse("User not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-        if(user.get().getUserId() == alarmDetail.get().getUser().getUserId()) {
+        if(Objects.equals(user.get().getUserId(), alarmDetail.get().getUser().getUserId())) {
             //팀알람 조회
             Optional<Alarm> alarm = alarmRepository.findById(alarmDetail.get().getAlarm().getAlarmId());
-            if(!alarm.isPresent()) {
+            if(alarm.isEmpty()) {
                 //팀알람을 찾지 못했을 때 (code = 404)
-                return WakeupResponse.createWakeupResponse("Alarm not Found", 404, null);
+                response = WakeupResponse.createWakeupResponse("Alarm not Found", 404, null);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
-            if(alarm.get().getAlarmId() == request.getAlarmId()) {
+            if(Objects.equals(alarm.get().getAlarmId(), request.getAlarmId())) {
                 // 팀 조회
                 Optional<Team> team = teamRepository.findById(alarm.get().getTeam().getTeamId());
-                if(!team.isPresent()) {
+                if(team.isEmpty()) {
                     //팀을 찾지 못했을 때 (code = 404)
-                    return WakeupResponse.createWakeupResponse("Team not Found", 404, null);
+                    response = WakeupResponse.createWakeupResponse("Team not Found", 404, null);
+                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
                 }
-                if(team.get().getTeamId() == request.getTeamId()) {
+                if(Objects.equals(team.get().getTeamId(), request.getTeamId())) {
                     //팀멤버 조회
                     Optional<TeamMember> teamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(alarm.get().getTeam().getTeamId(), user.get().getUserId());
-                    if(!teamMember.isPresent()) {
+                    if(teamMember.isEmpty()) {
                         //팀에 속한 유저를 찾지 못했을 때 (code = 404)
-                        return WakeupResponse.createWakeupResponse("User does not exist in the Team", 404, null);
+                        response = WakeupResponse.createWakeupResponse("User does not exist in the Team", 404, null);
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
                     }
                     //wakeup 생성
                     Wakeup wakeup = Wakeup.createWakeup(request, user.get(), team.get(), alarm.get(), alarmDetail.get());
                     //wakeup 저장
                     Wakeup savedWakeup = wakeupRepository.save(wakeup);
 
-                    return WakeupResponse.createWakeupResponse("Save Success", 201, WakeupResponseDTO.createWakeupResponseDTO(savedWakeup));
+                    response = WakeupResponse.createWakeupResponse("Save Success", 201, WakeupResponseDTO.createWakeupResponseDTO(savedWakeup));
+                    return ResponseEntity.status(HttpStatus.CREATED).body(response);
                 } else {
-                    return WakeupResponse.createWakeupResponse("No match teamId", 409, null);
+                    response = WakeupResponse.createWakeupResponse("No match teamId", 409, null);
+                    return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
                 }
             } else {
-                return WakeupResponse.createWakeupResponse("No match alamId", 409, null);
+                response = WakeupResponse.createWakeupResponse("No match alamId", 409, null);
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
             }
         } else {
-            return WakeupResponse.createWakeupResponse("No match userId", 409, null);
+            response = WakeupResponse.createWakeupResponse("No match userId", 409, null);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         }
     }
 
-    public WakeupStatusResponse getWakeupStatusByTeamAndDate(Integer teamId, Date date) {
+    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(Integer teamId, Date date) {
+        WakeupStatusResponse response;
+
         // 날짜를 기준으로 (하루) 조회
         Date startDate = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
         Date endDate = DateUtils.addDays(startDate, 1);
 
         // 팀 조회
         Optional<Team> team = teamRepository.findById(teamId);
-        if(!team.isPresent()) {
+        if(team.isEmpty()) {
             //팀을 찾지 못했을 때 (code = 404)
-            return WakeupStatusResponse.createWakeupStatusResponse("Team not Found", 404, null);
+            response = WakeupStatusResponse.createWakeupStatusResponse("Team not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         // 팀알람 조회
         List<Alarm> alarmList = alarmRepository.findByTeamTeamId(teamId);
         if(alarmList.isEmpty()) {
             //팀알람을 찾지 못했을 때 (code = 404)
-            return WakeupStatusResponse.createWakeupStatusResponse("Alarm not Found", 404, null);
+            response = WakeupStatusResponse.createWakeupStatusResponse("Alarm not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         // 팀알람 등록
         Map<Integer, ArrayList<WakeupStatusResponseDTO>> resultMap = new HashMap<>();
@@ -118,7 +132,8 @@ public class WakeupService {
         List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
         if(wakeupList.isEmpty()) {
             //상태가 존재하지 않을 때 (code = 404)
-            return WakeupStatusResponse.createWakeupStatusResponse("Wakeup not Found", 404, null);
+            response = WakeupStatusResponse.createWakeupStatusResponse("Wakeup not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
         //WakeupStatusResponseDTO 리스트 생성
@@ -137,7 +152,8 @@ public class WakeupService {
         }
 
         //response 생성
-        return WakeupStatusResponse.createWakeupStatusResponse("Success", 200, alrmInfoList);
+        response = WakeupStatusResponse.createWakeupStatusResponse("Success", 200, alrmInfoList);
+        return ResponseEntity.ok(response);
     }
 
 
@@ -146,7 +162,7 @@ public class WakeupService {
 
         // 팀 조회
         Optional<Team> team = teamRepository.findById(teamId);
-        if(!team.isPresent()) {
+        if(team.isEmpty()) {
             //팀을 찾지 못했을 때 (code = 404)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(WakeupStatisticsResponse.createWakeupResponse("Team not Found", 404, null));
         }
@@ -154,7 +170,7 @@ public class WakeupService {
         List<User> userList = new ArrayList<>();
         for(String nickname : nicknames){
             Optional<User> user = userRepository.findByUserNickname(nickname);
-            if(!user.isPresent()) {
+            if(user.isEmpty()) {
                 //유저를 찾지 못했을 때 (code = 404)
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(WakeupStatisticsResponse.createWakeupResponse("User not Found", 404, null));
             }
@@ -178,7 +194,7 @@ public class WakeupService {
             }
             //명단에 존재하지 않는 유저 삭제
             for(String nickname : nicknames) {
-                if(!result.keySet().contains(nickname)){
+                if(!result.containsKey(nickname)){
                     result.remove(nickname);
                     result.remove(nickname + "Success");
                 }

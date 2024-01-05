@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bab2f10-473e-46f7-9552-4d9728c54ccc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/alarm/request/AlarmRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/dto/alarm/request/AlarmRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/repository/AlarmRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/repository/AlarmRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/AlarmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/AlarmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/controller/wakeup/WakeupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/WakeupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/awesomegroup/service/WakeupService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feat/wakeup__convention",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -98,6 +95,15 @@
       <updated>1704384117996</updated>
       <workItem from="1704384120385" duration="4040000" />
     </task>
+    <task id="LOCAL-00001" summary="teammember - convention">
+      <option name="closed" value="true" />
+      <created>1704424479364</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704424479364</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
