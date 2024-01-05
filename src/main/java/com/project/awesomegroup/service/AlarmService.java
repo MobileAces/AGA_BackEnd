@@ -46,7 +46,7 @@ public class AlarmService {
     public AlarmListResponse findByTeamIdAndAlarmDay(Integer teamId, String day) {
 
         List<AlarmResponseDTO> alarmList = new ArrayList<>();
-        alarmRepository.findByTeamTeamIdAndAlarmDay(teamId, day).forEach(e ->
+        alarmRepository.findByTeamTeamIdAndAlarmDayContaining(teamId, day).forEach(e ->
                 alarmList.add(AlarmResponseDTO.builder()
                         .alarmId(e.getAlarmId())
                         .alarmName(e.getAlarmName())
