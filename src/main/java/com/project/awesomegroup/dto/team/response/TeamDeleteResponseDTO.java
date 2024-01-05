@@ -8,7 +8,7 @@ import lombok.Data;
 public class TeamDeleteResponseDTO {
     private boolean result;
 
-    public static TeamDeleteResponseDTO teamDeleteResponseDTOCreate(boolean result){
+    public static TeamDeleteResponseDTO createTeamDeleteResponseDTO(boolean result){
         return TeamDeleteResponseDTO.builder()
                 .result(result)
                 .build();
