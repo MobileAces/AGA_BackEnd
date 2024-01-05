@@ -47,16 +47,8 @@ public class TeamController {
     })
     @GetMapping("/{teamId}")
     public ResponseEntity<TeamResponse> teamSelect(@PathVariable Integer teamId){
-        TeamResponse checkTeam = teamService.findByTeamId(teamId);
-        if(checkTeam.getCode() == 200){
-            //해당하는 ID 정보를 찾았을 때 (code = 200)
-            return ResponseEntity.ok(checkTeam);
-        }else{
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(checkTeam);
-        }
+        return teamService.findByTeamId(teamId);
     }
-
 
     @Operation(summary = "팀 등록", description = "팀 정보를 기입해 팀 정보를 저장합니다.")
     @ApiResponses({
@@ -65,13 +57,7 @@ public class TeamController {
     })
     @PostMapping
     public ResponseEntity<TeamResponse> teamInsert(@RequestBody TeamRegistRequest request){
-        TeamResponse checkTeam = teamService.insert(request);
-        if(checkTeam.getCode() == 404){
-            //팀 등록 실패 시 (유저 조회 불가) (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(checkTeam);
-        }
-        //팀 등록 성공 시 (code = 201)
-        return ResponseEntity.status(HttpStatus.CREATED).body(checkTeam);
+        return teamService.insert(request);
     }
 
     @Operation(summary = "팀 수정", description = "팀 Name, Info, Master 입력된 것만 수정합니다.")
@@ -81,7 +67,7 @@ public class TeamController {
             @ApiResponse(responseCode = "500", description = "수정 실패 (message : \"Fail\", code : 500, data : null)", content = @Content)
     })
     @PutMapping
-    public TeamUpdateResponse teamUpdate(@RequestBody TeamUpdateRequest request){
+    public ResponseEntity<TeamUpdateResponse> teamUpdate(@RequestBody TeamUpdateRequest request){
         return teamService.update(request);
     }
 
@@ -92,7 +78,7 @@ public class TeamController {
             @ApiResponse(responseCode = "500", description = "삭제 실패 (message : \"Server Error\", code : 500, data : false)", content = @Content)
     })
     @DeleteMapping("/{teamId}")
-    public TeamDeleteResponse teamDelete(@PathVariable Integer teamId){
+    public ResponseEntity<TeamDeleteResponse> teamDelete(@PathVariable Integer teamId){
         return teamService.delete(teamId);
     }
 }
