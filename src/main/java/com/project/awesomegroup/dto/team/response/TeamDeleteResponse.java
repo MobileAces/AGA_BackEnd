@@ -15,7 +15,7 @@ public class TeamDeleteResponse {
     private TeamDeleteResponseDTO data;
 
     //생성 메소드//
-    public static TeamDeleteResponse TeamDeleteResponseCreate(String message, Integer code, TeamDeleteResponseDTO data){
+    public static TeamDeleteResponse createTeamDeleteResponse(String message, Integer code, TeamDeleteResponseDTO data){
         return TeamDeleteResponse.builder()
                 .message(message)
                 .code(code)
