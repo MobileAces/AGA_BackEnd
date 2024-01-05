@@ -1,14 +1,17 @@
 package com.project.awesomegroup.service;
 
+import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponse;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.team.request.TeamRegistRequest;
 import com.project.awesomegroup.dto.team.request.TeamUpdateRequest;
 import com.project.awesomegroup.dto.team.response.*;
 import com.project.awesomegroup.dto.teammember.TeamMember;
+import com.project.awesomegroup.dto.teammember.response.TeamMemberResponse;
 import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.user.request.UserUpdateRequest;
 import com.project.awesomegroup.dto.user.response.UserResponse;
 import com.project.awesomegroup.dto.user.response.UserResponseDTO;
+import com.project.awesomegroup.repository.TeamMemberRepository;
 import com.project.awesomegroup.repository.TeamRepository;
 import com.project.awesomegroup.repository.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -33,6 +36,7 @@ public class TeamService {
 
     private final TeamRepository teamRepository;
     private final UserRepository userRepository;
+    private final TeamMemberRepository teamMemberRepository;
     private final EntityManager entityManager;
 
     //Create
@@ -95,7 +99,33 @@ public class TeamService {
                     query.executeUpdate();
                 }
                 if(request.getTeamName() != null){
-                    teamMaster = request.getTeamMaster();
+                    //유저 조회
+                    String preTeamMaster = checkTeam.get().getTeamMaster();
+                    String newTeamMaster = request.getTeamMaster();
+                    Optional<User> user = userRepository.findById(newTeamMaster);
+                    if(!user.isPresent()) {
+                        //유저를 찾지 못했을 때 (code = 404)
+                        TeamUpdateResponse response = TeamUpdateResponse.createTeamUpdateResponse("User not Found", 404, null);
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+                    }
+                    //기존 팀마스터 권한 수정
+                    Optional<TeamMember> preMaster = teamMemberRepository.findByTeamTeamIdAndUserUserId(request.getTeamId(), preTeamMaster);
+                    if(preMaster.isEmpty()) {
+                        //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
+                        TeamUpdateResponse response = TeamUpdateResponse.createTeamUpdateResponse("User does not exist in the team.", 404, null);
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+                    }
+                    preMaster.get().setAuthority(0);
+
+                    //새로운 팀마스터 권한 수정
+                    Optional<TeamMember> newMaster = teamMemberRepository.findByTeamTeamIdAndUserUserId(request.getTeamId(), newTeamMaster);
+                    if(newMaster.isEmpty()) {
+                        //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
+                        TeamUpdateResponse response = TeamUpdateResponse.createTeamUpdateResponse("User does not exist in the team.", 404, null);
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+                    }
+                    newMaster.get().setAuthority(2);
+
                     Query query = entityManager.createQuery("UPDATE Team u SET u.teamMaster = :newMaster WHERE u.teamId = :teamId");
                     query.setParameter("newMaster", request.getTeamMaster());
                     query.setParameter("teamId", request.getTeamId());
