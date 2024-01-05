@@ -2,9 +2,11 @@ package com.project.awesomegroup.controller.alarm;
 
 import com.project.awesomegroup.dto.alarm.request.AlarmRequest;
 import com.project.awesomegroup.dto.alarm.request.AlarmUpdateRequest;
+import com.project.awesomegroup.dto.alarm.response.AlarmDeleteResponse;
 import com.project.awesomegroup.dto.alarm.response.AlarmListResponse;
 import com.project.awesomegroup.dto.alarm.response.AlarmListWithDetailResponse;
 import com.project.awesomegroup.dto.alarm.response.AlarmResponse;
+import com.project.awesomegroup.dto.user.response.UserCheckResponse;
 import com.project.awesomegroup.dto.user.response.UserResponse;
 import com.project.awesomegroup.service.AlarmService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,13 +39,7 @@ public class AlarmController {
     })
     @GetMapping("/{teamId}")
     public ResponseEntity<AlarmListWithDetailResponse> alarmSelect(@PathVariable("teamId") Integer teamId) {
-        AlarmListWithDetailResponse response = alarmService.findByTeamId(teamId);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return alarmService.findByTeamId(teamId);
     }
 
     @Operation(summary = "팀의 요일 알람 조회", description = "teamId와 요일에 해당하는 알람들을 조회합니다.")
@@ -53,13 +49,7 @@ public class AlarmController {
     })
     @GetMapping("/{teamId}/{alarmDay}")
     public ResponseEntity<AlarmListResponse> alarmSelect(@PathVariable("teamId") Integer teamId, @PathVariable("alarmDay") String alarmDay) {
-        AlarmListResponse response = alarmService.findByTeamIdAndAlarmDay(teamId, alarmDay);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return alarmService.findByTeamIdAndAlarmDay(teamId, alarmDay);
     }
 
     @Operation(summary = "알람 생성", description = "알람 정보를 기입해 알람을 생성합니다.")
@@ -70,17 +60,7 @@ public class AlarmController {
     })
     @PostMapping
     public ResponseEntity<AlarmResponse> alarmCreate(@RequestBody AlarmRequest request){
-        AlarmResponse checkAlarm = alarmService.insert(request);
-        if(checkAlarm.getCode() == 404){
-            //회원 가입 실패 시 (팀이 존재하지 않음) (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(checkAlarm);
-        }
-        if(checkAlarm.getCode() == 500){
-            //알람 생성 실패 시 (서버 에러) (code = 500)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(checkAlarm);
-        }
-        //알람 생성 성공 시 (code = 201)
-        return ResponseEntity.status(HttpStatus.CREATED).body(checkAlarm);
+        return alarmService.insert(request);
     }
 
     @Operation(summary = "알람 수정", description = "알람 alarmName, alarmDay 에 대해서만 수정합니다.")
@@ -93,31 +73,19 @@ public class AlarmController {
     })
     @PutMapping
     public  ResponseEntity<AlarmResponse> alarmUpdate(@RequestBody AlarmUpdateRequest request){
-        AlarmResponse response = alarmService.update(request);
-        if (response.getCode() == 404) {
-            //알람 생성 실패 시 (알람 또는 팀이 조회되지 않음) (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //성공적으로 수정이 되었을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return alarmService.update(request);
     }
 
     @Operation(summary = "알람 삭제", description = "알람 아이디로 알람을 삭제합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "삭제 성공 (string : \"Success\")", content = @Content(schema = @Schema(implementation = String.class))),
-            @ApiResponse(responseCode = "404", description = "삭제 실패 (string : \"User not Found\")\n" +
+            @ApiResponse(responseCode = "200", description = "삭제 성공 (message : \"Success\", code : 200, data : true)", content = @Content(schema = @Schema(implementation = AlarmDeleteResponse.class))),
+            @ApiResponse(responseCode = "404", description = "삭제 실패 (message : \"User not Found\", code : 404, data : false)\n" +
                     "\n" +
-                    "삭제 실패 (string : \"Team not Found\")", content = @Content),
+                    "삭제 실패 (string : \"Team not Found\"), code : 404, data : false)", content = @Content),
+            @ApiResponse(responseCode = "400", description = "삭제 실패 (message : \"Fail\", code : 400, data : false)", content = @Content)
     })
     @DeleteMapping("/{alarmId}")
-    public ResponseEntity<String> alarmDelete(@PathVariable Integer alarmId){
-        Map<String, String> map = alarmService.delete(alarmId);
-        String response = map.get("result");
-        if(response.equals("Success")) {
-            //성공적으로 삭제가 되었을 때 (code = 200)
-            return ResponseEntity.ok(response);
-        }
-        //삭제 실패 시 (code = 404)
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    public ResponseEntity<AlarmDeleteResponse> alarmDelete(@PathVariable Integer alarmId){
+        return alarmService.delete(alarmId);
     }
 }
