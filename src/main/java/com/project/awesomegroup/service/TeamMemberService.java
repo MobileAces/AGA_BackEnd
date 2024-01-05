@@ -35,19 +35,21 @@ public class TeamMemberService {
     private final UserRepository userRepository;
 
     @Transactional
-    public TeamMemberResponse regist(Integer teamId, String userId) {
+    public ResponseEntity<TeamMemberResponse> regist(Integer teamId, String userId) {
         //유저가 팀에 등록되어있는지 확인
         Optional<TeamMember> findTeamMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
         if(findTeamMember.isPresent()) {
             //유저가 팀에 등록되어 있다면 Failed 반환 (code = 400)
-            return TeamMemberResponse.createTeamMemberResponseDTO("Failed", 400, null);
+            TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("Failed", 400, null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
         //팀 등록 진행 (code = 200)
         TeamMember newTeamMember = TeamMember.createTeamMember(teamId, userId, 0);
         teamMemberRepository.save(newTeamMember);
-        return TeamMemberResponse.createTeamMemberResponseDTO("Success", 200, TeamMemberResponseDTO.createTeamMemberResponse(newTeamMember));
+        TeamMemberResponse response = TeamMemberResponse.createTeamMemberResponseDTO("Success", 200, TeamMemberResponseDTO.createTeamMemberResponse(newTeamMember));
+        return ResponseEntity.ok(response);
     }
-    public TeamMemberTeamListResponse getTeamMembersByUserId(String id) {
+    public ResponseEntity<TeamMemberTeamListResponse> getTeamMembersByUserId(String id) {
         //유저가 속한 팀 조회 (복수)
         List<TeamMember> list = teamMemberRepository.findByUser_UserId(id);
         List<TeamMemberInfo> teamMemberInfos = new ArrayList<>();
@@ -63,13 +65,14 @@ public class TeamMemberService {
                 )
                 );
         if(teamMemberInfos.isEmpty()) {
-            return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Not Found", 404, null);
+            TeamMemberTeamListResponse response = TeamMemberTeamListResponse.createTeamMemberUserListResponse("Not Found", 404, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-        return TeamMemberTeamListResponse.createTeamMemberUserListResponse("Success", 200, teamMemberInfos);
-
+        TeamMemberTeamListResponse response = TeamMemberTeamListResponse.createTeamMemberUserListResponse("Success", 200, teamMemberInfos);
+        return ResponseEntity.ok(response);
     }
 
-    public TeamMemberUserListResponse getTeamMembersByTeamId(Integer id) {
+    public ResponseEntity<TeamMemberUserListResponse> getTeamMembersByTeamId(Integer id) {
         List<TeamMemberUserResponseDTO> findList = new ArrayList<>();
         teamMemberRepository.findByTeam_TeamId(id).forEach(e -> {
             findList.add(TeamMemberUserResponseDTO.builder()
@@ -79,9 +82,11 @@ public class TeamMemberService {
                             .build());
         });
         if(findList.isEmpty()) {
-            return TeamMemberUserListResponse.createTeamMemberUserListResponse("Not Found", 404, id, null);
+            TeamMemberUserListResponse response = TeamMemberUserListResponse.createTeamMemberUserListResponse("Not Found", 404, id, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-        return TeamMemberUserListResponse.createTeamMemberUserListResponse("Success", 200, id, findList);
+        TeamMemberUserListResponse response = TeamMemberUserListResponse.createTeamMemberUserListResponse("Success", 200, id, findList);
+        return ResponseEntity.ok(response);
     }
 
     @Transactional
@@ -114,26 +119,30 @@ public class TeamMemberService {
     }
 
     @Transactional
-    public TeamMemberDeleteResponse delete(Integer teamId, String userId) {
+    public ResponseEntity<TeamMemberDeleteResponse> delete(Integer teamId, String userId) {
+        TeamMemberDeleteResponse response;
         //팀 조회
         Optional<Team> findTeam = teamRepository.findById(teamId);
         if(findTeam.isEmpty()){
-            return TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("Team not Found", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            response = TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("Team not Found", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //유저 조회
         Optional<User> findUser = userRepository.findByUserId(userId);
         if(findUser.isEmpty()){
-            return TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("User not Found", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            response = TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("User not Found", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //팀 멤버 조회
         Optional<TeamMember> findMember = teamMemberRepository.findByTeamTeamIdAndUserUserId(teamId, userId);
         if (findMember.isEmpty()) {
             //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
-            return TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("User does not exist in the team", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            response = TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("User does not exist in the team", 404, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(false));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //팀 멤버 삭제 완료(code = 200)
         teamMemberRepository.delete(findMember.get());
-        return TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("Success", 200, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(true));
+        response = TeamMemberDeleteResponse.teamMemberDeleteResponseCreate("Success", 200, TeamMemberDeleteResponseDTO.teamMemberDeleteResponseDTOCreate(true));
+        return ResponseEntity.ok(response);
     }
-
 }
