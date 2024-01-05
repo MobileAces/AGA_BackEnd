@@ -25,6 +25,8 @@ public class AlarmDetailResponseDTO {
 
     private String userId;
 
+    private String userNickname;
+
     //==생성 메서드==//
     public static AlarmDetailResponseDTO createAlarmDetailResponseDTO(AlarmDetail alarmDetail) {
         AlarmDetailResponseDTO alarmDetailResponseDTO = AlarmDetailResponseDTO.builder()
@@ -37,6 +39,7 @@ public class AlarmDetailResponseDTO {
                 .alarmDetailMemoVoice(alarmDetail.isAlarmDetailMemoVoice())
                 .alarmId(alarmDetail.getAlarm().getAlarmId())
                 .userId(alarmDetail.getUser().getUserId())
+                .userNickname(alarmDetail.getUser().getUserNickname())
                 .build();
         return alarmDetailResponseDTO;
     }
