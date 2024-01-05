@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class AlarmDetailRequest {
-    private Integer alarmDetailId;
-
     private int alarmDetailHour;
 
     private int alarmDetailMinute;

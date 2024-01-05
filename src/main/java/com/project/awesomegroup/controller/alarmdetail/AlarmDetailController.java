@@ -4,6 +4,7 @@ import com.project.awesomegroup.dto.alarm.response.AlarmListResponse;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.alarmdetail.request.AlarmDetailRequest;
 import com.project.awesomegroup.dto.alarmdetail.request.AlarmDetailUpdateRequest;
+import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailDeleteResponse;
 import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailListResponse;
 import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponse;
 import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponseDTO;
@@ -50,13 +51,7 @@ public class AlarmDetailController {
     })
     @GetMapping("/team/{alarmId}")
     public ResponseEntity<AlarmDetailListResponse> selectTeamAlarmList(@PathVariable Integer alarmId) {
-        AlarmDetailListResponse response = alarmDetailService.selectByAlarmId(alarmId);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return alarmDetailService.selectByAlarmId(alarmId);
     }
 
     @Operation(summary = "개인알람 조회", description = "개인 알람 아이디에 해당하는 알람을 조회합니다.")
@@ -66,13 +61,7 @@ public class AlarmDetailController {
     })
     @GetMapping("/{alarmDetailId}")
     public ResponseEntity<AlarmDetailResponse> select(@PathVariable Integer alarmDetailId) {
-        AlarmDetailResponse response = alarmDetailService.selectByAlarmDetailId(alarmDetailId);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return alarmDetailService.selectByAlarmDetailId(alarmDetailId);
     }
 
 
@@ -87,13 +76,7 @@ public class AlarmDetailController {
     })
     @PostMapping
     public ResponseEntity<AlarmDetailResponse> insert(@RequestBody AlarmDetailRequest request) {
-        AlarmDetailResponse alarmDetail = alarmDetailService.insert(request);
-        if(alarmDetail.getCode() == 404){
-            //개인알람 등록 실패 시 (code = 404)
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(alarmDetail);
-        }
-        //개인알람 등록 성공 시 (code = 201)
-        return ResponseEntity.ok(alarmDetail);
+        return alarmDetailService.insert(request);
     }
 
     @Operation(summary = "개인알람 수정", description = "alarmDetailId 기준으로 개인알람 정보를 수정합니다.")
@@ -108,16 +91,7 @@ public class AlarmDetailController {
     })
     @PutMapping
     public ResponseEntity<AlarmDetailResponse> update(@RequestBody AlarmDetailUpdateRequest request) {
-        AlarmDetailResponse alarmDetail = alarmDetailService.update(request);
-        if(alarmDetail.getCode() == 404){
-            //개인알람 등록 실패 시 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(alarmDetail);
-        } else if (alarmDetail.getCode() == 500) {
-            //개인알람 등록 실패 시 (code = 500)
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(alarmDetail);
-        }
-        //개인알람 등록 성공 시 (code = 200)
-        return ResponseEntity.ok(alarmDetail);
+        return alarmDetailService.update(request);
     }
 
     @Operation(summary = "개인알람 삭제", description = "alarmDetailId 기준으로 개인알람을 삭제합니다.")
@@ -128,15 +102,7 @@ public class AlarmDetailController {
                     "삭제 실패 (string : \"Team not Found\")", content = @Content),
     })
     @DeleteMapping("/{alarmDetailId}")
-    public ResponseEntity<String> delete(@PathVariable Integer alarmDetailId) {
-
-        Map<String, String> map = alarmDetailService.delete(alarmDetailId);
-        String response = map.get("result");
-        if(response.equals("Success")) {
-            //성공적으로 삭제가 되었을 때 (code = 200)
-            return ResponseEntity.ok(response);
-        }
-        //삭제 실패 시 (code = 404)
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    public ResponseEntity<AlarmDetailDeleteResponse> delete(@PathVariable Integer alarmDetailId) {
+        return alarmDetailService.delete(alarmDetailId);
     }
 }
