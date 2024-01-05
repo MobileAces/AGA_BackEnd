@@ -55,13 +55,7 @@ public class WakeupController {
     })
     @PostMapping("/register")
     public ResponseEntity<WakeupResponse> registerWakeup(@RequestBody WakeupSaveRequest request) {
-        WakeupResponse response = wakeupService.registerWakeup(request);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return wakeupService.registerWakeup(request);
     }
 
     @Operation(summary = "하루 알람기록 조회", description = "팀 아이디와 해당하는 날짜에 따른 알람 기록을 조회합니다.")
@@ -77,13 +71,7 @@ public class WakeupController {
 
     @GetMapping("/status")
     public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(@RequestParam Integer teamId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
-        WakeupStatusResponse response = wakeupService.getWakeupStatusByTeamAndDate(teamId, date);
-        if(response.getCode() == 404) {
-            //정보를 찾지 못했을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //해당하는 ID 정보를 찾았을 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return wakeupService.getWakeupStatusByTeamAndDate(teamId, date);
     }
 
     @Operation(summary = "기간 알람기록 조회", description = "팀 아이디와 해당하는 기간, 유저 명단에 따른 알람 기록을 조회합니다.")
