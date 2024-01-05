@@ -12,6 +12,7 @@ public class UserResponseDTO {
     private String userNickname;
     private String userPhone;
 
+
     //생성 메소드
     public static UserResponseDTO createUserResponseDTO(User user){
         return UserResponseDTO.builder()

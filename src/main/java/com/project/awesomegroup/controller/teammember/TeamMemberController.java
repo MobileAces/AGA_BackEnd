@@ -43,14 +43,7 @@ public class TeamMemberController {
     })
     @PostMapping
     public ResponseEntity<TeamMemberResponse> regist(@RequestParam Integer teamId, @RequestParam String userId){
-
-        TeamMemberResponse checkTeamMember = teamMemberService.regist(teamId, userId);
-        if(checkTeamMember.getCode() == 400){
-            //팀 멤버 등록 실패 시 (사용자 이미 존재함) (code = 400)
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(checkTeamMember);
-        }
-        //팀 멤버 등록 성공 시 (code = 200)
-        return ResponseEntity.ok(checkTeamMember);
+        return teamMemberService.regist(teamId, userId);
     }
 
     @Operation(summary = "유저가 속한 팀 조회", description = "userId에 맞는 팀들을 조회합니다.")
@@ -60,13 +53,7 @@ public class TeamMemberController {
     })
     @GetMapping("/teams")
     public ResponseEntity<TeamMemberTeamListResponse> selectByUserId(@RequestParam String id) {
-        TeamMemberTeamListResponse response = teamMemberService.getTeamMembersByUserId(id);
-        if(response.getCode() == 404) {
-            //userId 에 해당하는 팀이 없을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //userId 에 해당하는 팀이 존재할 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return teamMemberService.getTeamMembersByUserId(id);
     }
 
     @Operation(summary = "팀에 속한 유저 조회", description = "teamId에 맞는 유저들을 조회합니다.")
@@ -76,14 +63,7 @@ public class TeamMemberController {
     })
     @GetMapping("/users")
     public ResponseEntity<TeamMemberUserListResponse> selectByTeamId(@RequestParam Integer id) {
-
-        TeamMemberUserListResponse response = teamMemberService.getTeamMembersByTeamId(id);
-        if(response.getCode() == 404) {
-            //teamId 에 해당하는 유저가 없을 때 (code = 404)
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
-        //teamId 에 해당하는 유저가 존재할 때 (code = 200)
-        return ResponseEntity.ok(response);
+        return teamMemberService.getTeamMembersByTeamId(id);
     }
 
     @Operation(summary = "팀멤버 수정", description = "특정 팀에 대한 해당 유저의 권한을 수정합니다.")
@@ -110,7 +90,7 @@ public class TeamMemberController {
                     "삭제 실패 (message : \"User does not exist in the team.\", code : 404, data : false)", content = @Content),
     })
     @DeleteMapping("/{teamId}/{userId}")
-    public TeamMemberDeleteResponse delete(@PathVariable Integer teamId, @PathVariable String userId){
+    public ResponseEntity<TeamMemberDeleteResponse> delete(@PathVariable Integer teamId, @PathVariable String userId){
         return teamMemberService.delete(teamId, userId);
     }
 
