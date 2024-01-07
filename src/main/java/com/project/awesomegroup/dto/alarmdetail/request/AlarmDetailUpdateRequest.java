@@ -20,4 +20,6 @@ public class AlarmDetailUpdateRequest {
 
     private boolean alarmDetailMemoVoice;
 
+    private boolean alarmDetailIsOn;
+
 }

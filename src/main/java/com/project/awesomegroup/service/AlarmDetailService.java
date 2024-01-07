@@ -1,12 +1,10 @@
 package com.project.awesomegroup.service;
 
+import com.project.awesomegroup.dto.alarm.response.AlarmBooleanDTO;
 import com.project.awesomegroup.dto.alarm.response.AlarmListResponse;
 import com.project.awesomegroup.dto.alarm.response.AlarmResponseDTO;
 import com.project.awesomegroup.dto.alarmdetail.request.AlarmDetailUpdateRequest;
-import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailDeleteResponse;
-import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailListResponse;
-import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponse;
-import com.project.awesomegroup.dto.alarmdetail.response.AlarmDetailResponseDTO;
+import com.project.awesomegroup.dto.alarmdetail.response.*;
 import com.project.awesomegroup.dto.team.Team;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.dto.user.User;
@@ -144,6 +142,7 @@ public class AlarmDetailService {
                 findAlarmDetail.setAlarmDetailMemo(request.getAlarmDetailMemo());
             findAlarmDetail.setAlarmDetailForecast(request.isAlarmDetailForecast());
             findAlarmDetail.setAlarmDetailMemoVoice(request.isAlarmDetailMemoVoice());
+            findAlarmDetail.setAlarmDetailIsOn(request.isAlarmDetailIsOn());
 
             //개인알람 수정 성공 시 (code = 200)
             AlarmDetailResponse response = AlarmDetailResponse.createAlarmResponse("Success", 200, AlarmDetailResponseDTO.createAlarmDetailResponseDTO(findAlarmDetail));
@@ -161,26 +160,26 @@ public class AlarmDetailService {
         Optional<AlarmDetail> findAlarmDetail = alarmDetailRepository.findById(alarmDetail_id);
         if (!findAlarmDetail.isPresent()) {
             //개인알람이 존재하지 않을 때 (code = 404)
-            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("AlarmDetail not Found", 404, null);
+            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("AlarmDetail not Found", 404, AlarmDetailBooleanDTO.createAlarmDetailBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //팀알람 조회
         Optional<Alarm> alarm = alarmRepository.findById(findAlarmDetail.get().getAlarm().getAlarmId());
         if(!alarm.isPresent()) {
             //개인알람 삭제 실패 시 (팀알람이 존재하지 않음) (code = 404)
-            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("Alarm not Found", 404, null);
+            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("Alarm not Found", 404, AlarmDetailBooleanDTO.createAlarmDetailBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //유저 조회
         Optional<User> user = userRepository.findById(findAlarmDetail.get().getUser().getUserId());
         if(!user.isPresent()) {
             //개인알람 삭제 실패 시 (유저가 존재하지 않음) (code = 404)
-            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("User not Found", 404, null);
+            AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("User not Found", 404, AlarmDetailBooleanDTO.createAlarmDetailBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //개인알람이 삭제되었을 때 (code = 200)
         alarmDetailRepository.delete(findAlarmDetail.get());
-        AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("Success", 404, null);
+        AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("Success", 200, AlarmDetailBooleanDTO.createAlarmDetailBooleanDTO(true));
         return ResponseEntity.ok(response);
     }
 }

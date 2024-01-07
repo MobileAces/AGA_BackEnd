@@ -18,6 +18,8 @@ public class AlarmDetailRequest {
 
     private boolean alarmDetailMemoVoice;
 
+    private boolean alarmDetailIsOn;
+
     private Integer alarmId;
 
     private String userId;

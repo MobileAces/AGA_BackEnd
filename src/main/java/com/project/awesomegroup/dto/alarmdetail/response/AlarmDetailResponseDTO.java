@@ -21,6 +21,8 @@ public class AlarmDetailResponseDTO {
 
     private boolean alarmDetailMemoVoice;
 
+    private boolean alarmDetailIsOn;
+
     private Integer alarmId;
 
     private String userId;
@@ -37,6 +39,7 @@ public class AlarmDetailResponseDTO {
                 .alarmDetailMemo(alarmDetail.getAlarmDetailMemo())
                 .alarmDetailForecast(alarmDetail.isAlarmDetailForecast())
                 .alarmDetailMemoVoice(alarmDetail.isAlarmDetailMemoVoice())
+                .alarmDetailIsOn(alarmDetail.isAlarmDetailIsOn())
                 .alarmId(alarmDetail.getAlarm().getAlarmId())
                 .userId(alarmDetail.getUser().getUserId())
                 .userNickname(alarmDetail.getUser().getUserNickname())
