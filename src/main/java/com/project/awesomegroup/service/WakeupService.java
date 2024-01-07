@@ -180,41 +180,28 @@ public class WakeupService {
         // 해당 팀에 속한 멤버들의 wakeup 상태를 조회
         List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
 
-        //모든 유저의 데이터가 없을 때 data null 반환
-        if(wakeupList.isEmpty()){
-            WakeupStatisticsResponse response = WakeupStatisticsResponse.createWakeupResponse("No data", 404, null);
-            return ResponseEntity.ok(response);
-        }
-        // 맵 선언
+        // 맵 선언 및 키 등록
         Map<String, Integer> result = new HashMap<>();
+        result.put("total", 0);
+        result.put("totalSuccess", 0);
+        for(String nickname: nicknames) {
+            result.put(nickname, 0);
+            result.put(nickname + "Success", 0);
+        }
+
+        //개인 및 전체 횟수 세기
         for (Wakeup wakeup : wakeupList) {
             //개인 통계
-            String currentUserNickname = wakeup.getUser().getUserNickname();
-            //각자의 총 횟수
-            result.put(currentUserNickname, result.getOrDefault(currentUserNickname, 0) + 1) ;
-
-            //각자의 성공 횟수
-            if(wakeup.isSuccess()) {
-                result.put(currentUserNickname +"Success", result.getOrDefault(currentUserNickname +"Success", 0) + 1) ;
-            }
-            //명단에 존재하지 않는 유저 삭제
-            for(String nickname : nicknames) {
-                if(!result.containsKey(nickname)){
-                    result.remove(nickname);
-                    result.remove(nickname + "Success");
+            String currentNickname = wakeup.getUser().getUserNickname();
+            if(result.containsKey(currentNickname)) {
+                result.put(currentNickname, result.get(currentNickname) + 1) ;  //각자의 총 횟수
+                result.put("total", result.get("total") + 1); //전체 총 횟수
+                if(wakeup.isSuccess()) {
+                    result.put(currentNickname +"Success", result.get(currentNickname +"Success") + 1) ; //각자의 성공 횟수
+                    result.put("totalSuccess", result.get("totalSuccess") + 1); //전체 성공 횟수
                 }
             }
         }
-        //총합 계산
-        int userAlarmDetailTotal = 0;
-        int userAlarmDetailSuccess = 0;
-        for(String nickname : result.keySet()) {
-            userAlarmDetailTotal += result.getOrDefault(nickname, 0);
-            userAlarmDetailSuccess += result.getOrDefault(nickname + "Success", 0);
-        }
-        result.put("userAlarmDetailTotal", userAlarmDetailTotal - userAlarmDetailSuccess);
-        result.put("userAlarmDetailSuccess", userAlarmDetailSuccess);
-
         //response 생성
         List<UserStatistics> userStatisticsList = new ArrayList<>();
         for (String nickname: nicknames) {
@@ -224,10 +211,9 @@ public class WakeupService {
                     .totalSuccessSum(result.get(nickname + "Success"))
                     .build());
         }
-
-        WakeupStatisticsResponse wakeupResponse = WakeupStatisticsResponse.createWakeupResponse("Success", 200, WakeupStatisticsResponseDTO.createWakeupResponseDTO(
-                userStatisticsList, result.get("userAlarmDetailTotal"), result.get("userAlarmDetailSuccess")
-        ));
+        WakeupStatisticsResponse wakeupResponse = WakeupStatisticsResponse.createWakeupResponse("Success", 200,
+                WakeupStatisticsResponseDTO.createWakeupResponseDTO(userStatisticsList, result.get("total"), result.get("totalSuccess")));
         return ResponseEntity.ok(wakeupResponse);
     }
+
 }
