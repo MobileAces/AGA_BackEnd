@@ -2,6 +2,7 @@ package com.project.awesomegroup.dto.team;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.awesomegroup.dto.alarm.Alarm;
+import com.project.awesomegroup.dto.invate.Invitation;
 import com.project.awesomegroup.dto.teammember.TeamMember;
 import com.project.awesomegroup.dto.wakeup.Wakeup;
 import jakarta.persistence.*;
@@ -51,10 +52,19 @@ public class Team {
     @JsonIgnore
     private List<Wakeup> wakeupList = new ArrayList<>();
 
+    @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Invitation invitation;
+
     //==연관관계 편의 메서드==//
     public void addTeamMember(TeamMember teamMember) {
         teamMemberList.add(teamMember);
         teamMember.setTeam(this);
+    }
+
+    public void addInvitation(Invitation invitation){
+        this.invitation = invitation;
+        invitation.setTeam(this);
     }
 
     //==생성 메서드==//
