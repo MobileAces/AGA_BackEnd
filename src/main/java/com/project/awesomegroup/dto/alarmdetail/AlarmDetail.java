@@ -51,7 +51,7 @@ public class AlarmDetail {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "alarmDetail", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "alarmDetail")
     @JsonIgnore
     private List<Wakeup> wakeupList = new ArrayList<>();
 

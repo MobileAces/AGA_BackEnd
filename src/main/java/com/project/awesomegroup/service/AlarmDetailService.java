@@ -11,6 +11,7 @@ import com.project.awesomegroup.dto.user.User;
 import com.project.awesomegroup.dto.alarm.Alarm;
 import com.project.awesomegroup.dto.alarmdetail.AlarmDetail;
 import com.project.awesomegroup.dto.alarmdetail.request.AlarmDetailRequest;
+import com.project.awesomegroup.dto.wakeup.Wakeup;
 import com.project.awesomegroup.repository.AlarmDetailRepository;
 import com.project.awesomegroup.repository.AlarmRepository;
 import com.project.awesomegroup.repository.TeamMemberRepository;
@@ -60,7 +61,7 @@ public class AlarmDetailService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         //해당하는 alarmId 의 개인알람을 찾았을 때 (code = 200)
-        AlarmDetailListResponse response = AlarmDetailListResponse.createAlarmResponse("AlarmDetail not Found", 200, alarmDetailList);
+        AlarmDetailListResponse response = AlarmDetailListResponse.createAlarmResponse("AlarmDetail Found", 200, alarmDetailList);
         return ResponseEntity.ok(response);
     }
 
@@ -176,6 +177,13 @@ public class AlarmDetailService {
             //개인알람 삭제 실패 시 (유저가 존재하지 않음) (code = 404)
             AlarmDetailDeleteResponse response = AlarmDetailDeleteResponse.createAlarmDetailDeleteResponse("User not Found", 404, AlarmDetailBooleanDTO.createAlarmDetailBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        // AlarmDetail이 연관된 Wakeup 리스트 가져오기
+        List<Wakeup> wakeupList = findAlarmDetail.get().getWakeupList();
+        // 연관된 Wakeup 리스트 분리
+        for (Wakeup wakeup : wakeupList) {
+            wakeup.setAlarmDetail(null); // 연관 삭제
         }
         //개인알람이 삭제되었을 때 (code = 200)
         alarmDetailRepository.delete(findAlarmDetail.get());
