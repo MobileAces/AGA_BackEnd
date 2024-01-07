@@ -8,7 +8,7 @@
 |------------------------------------------------------|------------------------------------------------|
 | <img src="image/img_2.png" width="450" height="300"> | <img src="image/img_1.png" width="450" height="300"> |
 | 담당 기능                                                | 담당 기능                                               |
-| User, Weather, CI/CD                                 | Team, Alarm, Alarm Detail                      |
+| User, Weather, Invite, CI/CD                         | Team, Alarm, Alarm Detail                      |
 
 | 공통 개발                                       |
 |------------------------------------------------|
@@ -105,6 +105,9 @@
 
 ### 8. Weather
 ![img_26.png](image/img_26.png)
+
+### 9. Invite
+![img.png](image/img.png)
 
 ---
 
