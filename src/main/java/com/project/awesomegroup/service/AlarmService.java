@@ -103,14 +103,14 @@ public class AlarmService {
         try {
             //팀 조회
             Optional<Team> team = teamRepository.findById(request.getTeamId());
-            if(!team.isPresent()) {
+            if(team.isEmpty()) {
                 //알람 수정 실패 시 (팀이 존재하지 않음) (code = 404)
                 AlarmResponse response = AlarmResponse.createAlarmResponse("Team not Found", 404, null);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
             }
             //알람 조회
             Optional<Alarm> alarm = alarmRepository.findById(request.getAlarmId());
-            if(!alarm.isPresent()) {
+            if(alarm.isEmpty()) {
                 //알람 수정 실패 시 (알람이 존재하지 않음) (code = 404)
                 AlarmResponse response = AlarmResponse.createAlarmResponse("Alarm not Found", 404, null);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
@@ -136,7 +136,7 @@ public class AlarmService {
     public ResponseEntity<AlarmDeleteResponse> delete(Integer alarmId) {
         //알람 조회
         Optional<Alarm> findAlarm = alarmRepository.findById(alarmId);
-        if (!findAlarm.isPresent()) {
+        if (findAlarm.isEmpty()) {
             //팀멤버로 등록된 정보가 존재하지 않을 때 (code = 404)
             AlarmDeleteResponse response = AlarmDeleteResponse.createAlarmDeleteResponse("Alarm not Found", 404, AlarmBooleanDTO.createAlarmBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
@@ -144,7 +144,7 @@ public class AlarmService {
 
         //팀 조회
         Optional<Team> team = teamRepository.findById(findAlarm.get().getTeam().getTeamId());
-        if(!team.isPresent()) {
+        if(team.isEmpty()) {
             //알람 삭제 실패 시 (팀이 존재하지 않음) (code = 404)
             AlarmDeleteResponse response = AlarmDeleteResponse.createAlarmDeleteResponse("Team not Found", 404, AlarmBooleanDTO.createAlarmBooleanDTO(false));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
