@@ -179,9 +179,14 @@ public class WakeupService {
 
         // 해당 팀에 속한 멤버들의 wakeup 상태를 조회
         List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
+
+        //모든 유저의 데이터가 없을 때 data null 반환
+        if(wakeupList.isEmpty()){
+            WakeupStatisticsResponse response = WakeupStatisticsResponse.createWakeupResponse("No data", 404, null);
+            return ResponseEntity.ok(response);
+        }
         // 맵 선언
         Map<String, Integer> result = new HashMap<>();
-
         for (Wakeup wakeup : wakeupList) {
             //개인 통계
             String currentUserNickname = wakeup.getUser().getUserNickname();

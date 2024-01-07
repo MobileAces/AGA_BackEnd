@@ -76,10 +76,12 @@ public class WakeupController {
 
     @Operation(summary = "기간 알람기록 조회", description = "팀 아이디와 해당하는 기간, 유저 명단에 따른 알람 기록을 조회합니다.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "조회 성공 (message : \"Success\", code : 200)", content = @Content(schema = @Schema(implementation = WakeupStatusResponse.class))),
+            @ApiResponse(responseCode = "200", description = "조회 성공 (message : \"Success\", code : 200)", content = @Content(schema = @Schema(implementation = WakeupStatisticsResponse.class))),
             @ApiResponse(responseCode = "404", description = "조회 실패 (message : \"User not Found\", code : 404, data : null)\n" +
                     "\n" +
-                    "조회 실패 (message : \"Team not Found\", code : 404, data : null)", content = @Content)
+                    "조회 실패 (message : \"Team not Found\", code : 404, data : null)" +
+                    "\n" +
+                    "조회 실패 (message : \"No data\", code : 404, data : null)", content = @Content)
     })
     @PostMapping("/statistics")
     public ResponseEntity<WakeupStatisticsResponse> getWakeupStatisticsByTeamAndDateRange(@RequestBody WakeupStatisticsRequest request) {
