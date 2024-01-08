@@ -20,6 +20,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -105,7 +107,7 @@ public class WakeupService {
 
         // 날짜를 기준으로 (하루) 조회
         Date startDate = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
-        Date endDate = DateUtils.addDays(startDate, 1);
+        Date endDate = DateUtils.addSeconds(DateUtils.addDays(startDate, 1), -1);
 
         // 팀 조회
         Optional<Team> team = teamRepository.findById(teamId);
@@ -130,6 +132,7 @@ public class WakeupService {
 
         // 해당 팀에 속한 멤버들의 wakeup 상태를 반환
         List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
+
         if(wakeupList.isEmpty()) {
             //상태가 존재하지 않을 때 (code = 404)
             response = WakeupStatusResponse.createWakeupStatusResponse("Wakeup not Found", 404, null);
