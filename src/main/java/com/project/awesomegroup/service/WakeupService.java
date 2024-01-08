@@ -107,7 +107,10 @@ public class WakeupService {
 
         // 날짜를 기준으로 (하루) 조회
         Date startDate = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
-        Date endDate = DateUtils.addSeconds(DateUtils.addDays(startDate, 1), -1);
+        Date endDate = DateUtils.addDays(startDate, 1);
+
+        startDate = DateUtils.addSeconds(DateUtils.truncate(date, Calendar.DAY_OF_MONTH), 0);
+        logger.info("startDate: " + startDate + ", endDate: " + endDate);
 
         // 팀 조회
         Optional<Team> team = teamRepository.findById(teamId);
@@ -139,19 +142,25 @@ public class WakeupService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
-        //WakeupStatusResponseDTO 리스트 생성
-        List<WakeupStatusAlarmInfo> statusList = new ArrayList<>();
         //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
         for(Wakeup wakeup : wakeupList) {
             resultMap.get(wakeup.getAlarm().getAlarmId())
                     .add(WakeupStatusResponseDTO.createWakeupStatusResponseDTO(wakeup));
         }
 
+        //팀알람에 해당하는 wakeup 데이터가 없는 경우 key 값 삭제
+        for(Integer alarmId : resultMap.keySet()) {
+            if(resultMap.get(alarmId).isEmpty()) {
+                resultMap.remove(alarmId);
+            }
+        }
+
         //WakeupStatusAlarmInfo 리스트 생성
         List<WakeupStatusAlarmInfo> alrmInfoList = new ArrayList<>();
         //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
         for(Alarm alarm : alarmList) {
-            alrmInfoList.add(WakeupStatusAlarmInfo.createWakeupStatusResponseDTO(alarm.getAlarmId(), alarm.getAlarmName(), resultMap.get(alarm.getAlarmId())));
+            if(resultMap.keySet().contains(alarm.getAlarmId()))
+                alrmInfoList.add(WakeupStatusAlarmInfo.createWakeupStatusResponseDTO(alarm.getAlarmId(), alarm.getAlarmName(), resultMap.get(alarm.getAlarmId())));
         }
 
         //response 생성
