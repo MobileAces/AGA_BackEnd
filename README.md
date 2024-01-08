@@ -70,7 +70,7 @@
 
 ## 🚗 Back-End 내부 동작 흐름 🚗
 
-![img_17.png](image/img_17.png)
+![img_16.png](image/img_16.png)
 
 ---
 
@@ -92,7 +92,7 @@
 ![img_22.png](image/img_22.png)
 
 ### 4. Invite
-![img_27.png](image/img_27.png)
+![img.png](image/img.png)
 
 ### 5. Alarm
 ![img_23.png](image/img_23.png)
@@ -106,8 +106,6 @@
 ### 8. Weather
 ![img_26.png](image/img_26.png)
 
-### 9. Invite
-![img.png](image/img.png)
 
 ---
 
