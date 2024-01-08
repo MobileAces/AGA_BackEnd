@@ -11,6 +11,8 @@ import com.project.awesomegroup.dto.wakeup.WakeupDTO;
 import com.project.awesomegroup.dto.wakeup.request.WakeupSaveRequest;
 import com.project.awesomegroup.dto.wakeup.response.*;
 import com.project.awesomegroup.repository.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
@@ -20,6 +22,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -34,6 +39,7 @@ public class WakeupService {
     @Autowired
     WakeupRepository wakeupRepository;
 
+    private final EntityManager entityManager;
     private final UserRepository userRepository;
     private final TeamRepository teamRepository;
     private final TeamMemberRepository teamMemberRepository;
@@ -102,15 +108,8 @@ public class WakeupService {
         }
     }
 
-    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(Integer teamId, Date date) {
+    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(Integer teamId, LocalDate date) {
         WakeupStatusResponse response;
-
-        // 날짜를 기준으로 (하루) 조회
-        Date startDate = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
-        Date endDate = DateUtils.addDays(startDate, 1);
-
-        startDate = DateUtils.addSeconds(DateUtils.truncate(date, Calendar.DAY_OF_MONTH), 0);
-        logger.info("startDate: " + startDate + ", endDate: " + endDate);
 
         // 팀 조회
         Optional<Team> team = teamRepository.findById(teamId);
@@ -119,7 +118,6 @@ public class WakeupService {
             response = WakeupStatusResponse.createWakeupStatusResponse("Team not Found", 404, null);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
-
         // 팀알람 조회
         List<Alarm> alarmList = alarmRepository.findByTeamTeamId(teamId);
         if(alarmList.isEmpty()) {
@@ -134,13 +132,27 @@ public class WakeupService {
         }
 
         // 해당 팀에 속한 멤버들의 wakeup 상태를 반환
-        List<Wakeup> wakeupList = wakeupRepository.findByDatetimeAfterAndDatetimeBeforeAndTeam_TeamId(startDate, endDate, teamId);
+        List<Wakeup> wakeupList = new ArrayList<>();
+        try {
+            wakeupList = entityManager.createQuery(
+                            "SELECT e FROM Wakeup e WHERE FUNCTION('DATE_FORMAT', e.datetime, '%Y-%m-%d') LIKE :dateString AND e.team.teamId = :teamId", Wakeup.class)
+                        .setParameter("dateString", date)
+                        .setParameter("teamId", teamId)
+                        .getResultList();
+        } catch (Exception e) {
+            response = WakeupStatusResponse.createWakeupStatusResponse("Server error", 500, null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
 
         if(wakeupList.isEmpty()) {
             //상태가 존재하지 않을 때 (code = 404)
             response = WakeupStatusResponse.createWakeupStatusResponse("Wakeup not Found", 404, null);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
+
+        //시스템 오류로 12시간을 더해서 날짜를 맞춰줌
+        for(Wakeup wakeup : wakeupList)
+            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), 12));
 
         //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
         for(Wakeup wakeup : wakeupList) {

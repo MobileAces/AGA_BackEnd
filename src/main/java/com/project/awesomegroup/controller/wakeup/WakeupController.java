@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @RestController
@@ -69,8 +72,15 @@ public class WakeupController {
     })
 
 
+//    @GetMapping("/status")
+//    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(@RequestParam Integer teamId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDateTime date) {
+//        return wakeupService.getWakeupStatusByTeamAndDate(teamId, date);
+//    }
     @GetMapping("/status")
-    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(@RequestParam Integer teamId, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+    public ResponseEntity<WakeupStatusResponse> getWakeupStatusByTeamAndDate(
+            @RequestParam Integer teamId,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+
         return wakeupService.getWakeupStatusByTeamAndDate(teamId, date);
     }
 
