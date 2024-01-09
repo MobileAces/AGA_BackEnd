@@ -150,9 +150,9 @@ public class WakeupService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
-        //시스템 오류로 12시간을 더해서 날짜를 맞춰줌
-        for(Wakeup wakeup : wakeupList)
-            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), 1));
+//        //시스템 오류로 12시간을 더해서 날짜를 맞춰줌
+//        for(Wakeup wakeup : wakeupList)
+//            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), 1));
 
         //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
         for(Wakeup wakeup : wakeupList) {

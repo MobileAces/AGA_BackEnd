@@ -2,16 +2,18 @@ package com.project.awesomegroup.dto.wakeup.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.project.awesomegroup.dto.wakeup.Wakeup;
+import com.project.awesomegroup.service.WakeupService;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 
 @Data
 @Builder
 public class WakeupStatusResponseDTO {
-
     private String userNickname;
 
     private boolean success;
