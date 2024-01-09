@@ -87,8 +87,11 @@ public class WakeupService {
                         response = WakeupResponse.createWakeupResponse("User does not exist in the Team", 404, null);
                         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
                     }
-//                    //DB, Ubuntu 시스템 타임존 오류로 시간을 UTC기준으로 -9시간 해서 날짜를 맞춰줌
-//                    request.setDatetime(DateUtils.addHours(DateUtils.truncate(request.getDatetime(), Calendar.DAY_OF_MONTH), -9));
+                    //DB, Ubuntu 시스템 타임존 오류로 시간을 UTC기준으로 -9시간 해서 날짜를 맞춰줌
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(request.getDatetime());
+                    cal.add(Calendar.HOUR_OF_DAY, -9);
+                    request.setDatetime(cal.getTime());
 
                     //wakeup 생성
                     Wakeup wakeup = Wakeup.createWakeup(request, user.get(), team.get(), alarm.get(), alarmDetail.get());
@@ -153,9 +156,9 @@ public class WakeupService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
 
-//        //DB, Ubuntu 시스템 타임존 오류로 시간을 UTC기준으로 -9시간 해서 날짜를 맞춰줌
-//        for(Wakeup wakeup : wakeupList)
-//            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), -9));
+//        //DB, Ubuntu 시스템 타임존 오류로 시간을 UTC기준으로 +9시간 해서 날짜를 맞춰줌
+        for(Wakeup wakeup : wakeupList)
+            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), +9));
 
         //Map 안에서 각 wakeup에 해당하는 팀알람을 키로 리스트를 불러와서, wakeup을 WakeupStatusResponseDTO으로 변형하여 저장
         for(Wakeup wakeup : wakeupList) {
