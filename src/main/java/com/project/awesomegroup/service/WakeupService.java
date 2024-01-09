@@ -159,7 +159,10 @@ public class WakeupService {
 
 //        //DB, Ubuntu 시스템 타임존 오류로 시간을 UTC기준으로 +9시간 해서 날짜를 맞춰줌
         for(Wakeup wakeup : wakeupList) {
-            wakeup.setDatetime(DateUtils.addHours(DateUtils.truncate(wakeup.getDatetime(), Calendar.DAY_OF_MONTH), +9));
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(wakeup.getDatetime());
+            cal.add(Calendar.HOUR_OF_DAY, +9);
+            wakeup.setDatetime(cal.getTime());
             logger.info("wakeup.getDatetime(): " + wakeup.getDatetime());
         }
 
