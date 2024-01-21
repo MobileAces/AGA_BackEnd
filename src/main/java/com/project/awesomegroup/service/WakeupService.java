@@ -173,10 +173,19 @@ public class WakeupService {
         }
 
         //팀알람에 해당하는 wakeup 데이터가 없는 경우 key 값 삭제
-        for(Integer alarmId : resultMap.keySet()) {
-            if(resultMap.get(alarmId).isEmpty()) {
-                resultMap.remove(alarmId);
+//        for(Integer alarmId : resultMap.keySet()) {
+//            if(resultMap.get(alarmId).isEmpty()) {
+//                resultMap.remove(alarmId);
+//            }
+//        }
+        List<Integer> keysToRemove = new ArrayList<>();
+        for (Integer alarmId : resultMap.keySet()) {
+            if (resultMap.get(alarmId).isEmpty()) {
+                keysToRemove.add(alarmId);
             }
+        }
+        for (Integer key : keysToRemove) {
+            resultMap.remove(key);
         }
 
         //WakeupStatusAlarmInfo 리스트 생성
